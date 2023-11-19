@@ -26,12 +26,6 @@ public class GravityController : MonoBehaviour
         //     testNum+=1;
         // }
        // Debug.Log(testNum);
-        
-        
-    }
-
-    void FixedUpdate()
-    {
         //Debug.Log(testNum);
         if(Input.GetKeyDown(KeyCode.Q)){
             
@@ -41,7 +35,15 @@ public class GravityController : MonoBehaviour
             Debug.Log("Gravity toggle executed");
             Debug.Log("cur grav dir"+ curGravityFactor+ "; Grvity:" + Physics2D.gravity);
         }
-    
+        
+    }
+
+    public void ResetGravity()
+    {
+        if (Physics2D.gravity.y >= 0)
+        {
+            Physics2D.gravity *= -1.0f;
+        }
     }
 
     public float GetCurGrav(){

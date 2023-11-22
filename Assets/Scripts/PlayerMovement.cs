@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
 
-        DontDestroyOnLoad(gameObject);
 
 
     }

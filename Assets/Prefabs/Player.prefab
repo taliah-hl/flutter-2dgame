@@ -83,7 +83,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 466426849461199637}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!1 &466426850017699299
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +97,9 @@ GameObject:
   - component: {fileID: 466426850017699301}
   - component: {fileID: 466426850017699298}
   - component: {fileID: 466426850017699321}
+  - component: {fileID: 6275721425520996547}
+  - component: {fileID: 7061620941006098429}
+  - component: {fileID: 7140696001911204449}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -239,3 +242,46 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6275721425520996547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466426850017699299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72389420b138114786b683656e29939, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7061620941006098429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466426850017699299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e83ee621ff26f4f961521dfd3de279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayersMovementSPeed: 10
+  PlayerJumpingForce: 16
+  BoxCast_y_offset: 0.5
+  JumpableGround:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &7140696001911204449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466426850017699299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9618a7d799e99444e95ec77f881db46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObj: {fileID: 466426850017699299}

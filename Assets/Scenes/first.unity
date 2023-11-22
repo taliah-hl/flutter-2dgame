@@ -2037,18 +2037,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 466426850017699299, guid: b0f192dc3441c20459d65c7a0681a5c9, type: 3}
   m_PrefabInstance: {fileID: 2031667814}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1235242013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235242007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72389420b138114786b683656e29939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1235242014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2067,19 +2055,6 @@ MonoBehaviour:
   JumpableGround:
     serializedVersion: 2
     m_Bits: 8
---- !u!114 &1235242015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1235242007}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9618a7d799e99444e95ec77f881db46d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameObj: {fileID: 1235242007}
 --- !u!1 &1257549831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2697,6 +2672,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 466426849461199637, guid: b0f192dc3441c20459d65c7a0681a5c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 466426850017699298, guid: b0f192dc3441c20459d65c7a0681a5c9, type: 3}
       propertyPath: m_Size.x
       value: 0.97
@@ -2769,5 +2748,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7061620941006098429, guid: b0f192dc3441c20459d65c7a0681a5c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b0f192dc3441c20459d65c7a0681a5c9, type: 3}

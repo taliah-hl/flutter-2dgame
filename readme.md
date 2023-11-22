@@ -8,6 +8,8 @@
 - player size: TBC
 - player jump force: TBC
 - player velocity: TBC
+- player die if position out of range: TBC
+- 場景直向有20格
 
 ## 參考資料
 

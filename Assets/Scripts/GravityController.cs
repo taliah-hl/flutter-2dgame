@@ -22,16 +22,12 @@ public class GravityController : MonoBehaviour
     void Update()
     {
         
-        // if(Input.GetKeyDown(KeyCode.Z)){
-        //     testNum+=1;
-        // }
-       // Debug.Log(testNum);
-        //Debug.Log(testNum);
+
         if(Input.GetKeyDown(KeyCode.Q)){
             
             curGravityFactor *= -1.0f;
             //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
-            Physics2D.gravity = Physics2D.gravity * -1.0f;
+            Physics2D.gravity = Physics2D.gravity  *curGravityFactor;
             Debug.Log("Gravity toggle executed");
             Debug.Log("cur grav dir"+ curGravityFactor+ "; Grvity:" + Physics2D.gravity);
         }

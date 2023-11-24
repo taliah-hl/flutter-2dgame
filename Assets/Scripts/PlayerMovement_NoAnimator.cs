@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement_NoAnimator : MonoBehaviour
 {
-    // Start is called before the first frame update
+   // Start is called before the first frame update
     [SerializeField] private float PlayersMovementSpeed = 10.0f;
     [SerializeField] private float PlayerJumpingForce = 16.0f;
     [SerializeField] private float BoxCast_y_offset = .5f;
@@ -16,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     //private float _playersMovementDirection = 0.0f; //this will give the direction of the players movement.   
 
     private Rigidbody2D _playersRigidBody; //reference of the players rigid body.
-    private Animator animator;
+    //private Animator animator;
 
     private Vector2 _moveInput;
     private float dir_x = 0f;
@@ -41,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         _playersRigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        //animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
 
+        //DontDestroyOnLoad(gameObject);
 
 
     }
@@ -78,27 +78,27 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-        AnimationUpdate();
+        //AnimationUpdate();
 
     }
 
-    void AnimationUpdate()
-    {
-        if (dir_x > 0)
-        {
-            animator.SetBool("isRunning", true);
-            sprite.flipX = false;
-        }
-        else if (dir_x < 0)
-        {
-            animator.SetBool("isRunning", true);
-            sprite.flipX = true;
-        }
-        else
-        {
-            animator.SetBool("isRunning", false);
-        }
-    }
+    // void AnimationUpdate()
+    // {
+    //     if (dir_x > 0)
+    //     {
+    //         animator.SetBool("isRunning", true);
+    //         sprite.flipX = false;
+    //     }
+    //     else if (dir_x < 0)
+    //     {
+    //         animator.SetBool("isRunning", true);
+    //         sprite.flipX = true;
+    //     }
+    //     else
+    //     {
+    //         animator.SetBool("isRunning", false);
+    //     }
+    // }
 
     private bool IsGrounded()
     {

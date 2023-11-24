@@ -9,8 +9,9 @@ public class GravityController : MonoBehaviour
     private bool gravityToggled = false;
     private Vector2 newGravity;
 
-    public static float curGravityFactor = 1.0f; // 1.0 or -1.0;
-    private int testNum = 0;
+    public static float curGravityDir = 1.0f; // 1.0 or -1.0;
+    public static float gravityStrength = 1.0f;   //to control strgnth of gravity
+
     
     // Start is called before the first frame update
     void Start()
@@ -25,11 +26,12 @@ public class GravityController : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q)){
             
-            curGravityFactor *= -1.0f;
+            
             //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
-            Physics2D.gravity = Physics2D.gravity  *curGravityFactor;
+            Physics2D.gravity = Physics2D.gravity  *-1.0f *gravityStrength;
+            curGravityDir *= -1.0f;
             Debug.Log("Gravity toggle executed");
-            Debug.Log("cur grav dir"+ curGravityFactor+ "; Grvity:" + Physics2D.gravity);
+            Debug.Log("cur grav dir: "+ curGravityDir+ "; Grvity:" + Physics2D.gravity);
         }
         
     }
@@ -43,6 +45,6 @@ public class GravityController : MonoBehaviour
     }
 
     public float GetCurGrav(){
-        return curGravityFactor;
+        return curGravityDir;
     }
 }

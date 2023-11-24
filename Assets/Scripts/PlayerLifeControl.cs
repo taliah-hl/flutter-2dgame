@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeControl : MonoBehaviour
 {
     public GameObject gameObj;
-    public float player_pos_upBound = 14;
-    public float player_pos_lowBound = -12;
+    private Rigidbody2D _playersRigidBody;
+    [SerializeField] private  float player_pos_upBound = 14;
+    [SerializeField] private  float player_pos_lowBound = -12;
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
 
@@ -16,6 +17,7 @@ public class PlayerLifeControl : MonoBehaviour
     {
         if(gameObj==null)
             gameObj =  GameObject.FindWithTag("Player");
+        _playersRigidBody = GetComponent<Rigidbody2D>();
 
     }
 
@@ -29,7 +31,9 @@ public class PlayerLifeControl : MonoBehaviour
         Debug.Log(other);
         if (other.tag == "end")
         {
-            PlayerGoNextLv();
+
+            Debug.Log("go to next level");
+            //PlayerGoNextLv();
 
         }
         if (other.tag == "trap")

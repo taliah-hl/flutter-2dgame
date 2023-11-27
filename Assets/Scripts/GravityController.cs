@@ -14,6 +14,9 @@ public class GravityController : MonoBehaviour
 
     
     // Start is called before the first frame update
+    void Awake(){
+        ResetGravity();
+    }
     void Start()
     {
         
@@ -42,6 +45,7 @@ public class GravityController : MonoBehaviour
         {
             Physics2D.gravity *= -1.0f;
         }
+        curGravityDir = 1.0f;
     }
 
     public float GetCurGrav(){

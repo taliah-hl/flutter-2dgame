@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
 
-            Debug.Log("Jump pressed");
+            //Debug.Log("Jump pressed");
             if (IsGrounded())
             {
                 _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();

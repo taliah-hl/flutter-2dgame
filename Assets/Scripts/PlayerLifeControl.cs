@@ -7,10 +7,14 @@ public class PlayerLifeControl : MonoBehaviour
 {
     public GameObject gameObj;
     private Rigidbody2D _playersRigidBody;
-    [SerializeField] private  float player_pos_upBound = 14;
-    [SerializeField] private  float player_pos_lowBound = -12;
+    [SerializeField] private float player_pos_upBound = 14;
+    [SerializeField] private float player_pos_lowBound = -12;
+    [SerializeField] private float changeScenePause = 1.5f;        // pause time before change scene
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
+    private GameManager gm;
+    private const int PlayerDieFunc = 1;
+    private const int PlayerGoNextLvFunc = 2;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,11 @@ public class PlayerLifeControl : MonoBehaviour
         if(gameObj==null)
             gameObj =  GameObject.FindWithTag("Player");
         _playersRigidBody = GetComponent<Rigidbody2D>();
+        gm = FindObjectOfType<GameManager>();
+        if (gm == null) {
+            Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
+        }
+             
 
     }
 
@@ -33,20 +42,26 @@ public class PlayerLifeControl : MonoBehaviour
         {
 
             Debug.Log("go to next level");
-            //PlayerGoNextLv();
+            gm.pauseGame(changeScenePause); // call pauseGame in GameManager
+            StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
 
         }
         if (other.tag == "trap")
         {
-            PlayerDie();
+            gm.pauseGame(changeScenePause);
+            StartCoroutine(waitForGmPause(PlayerDieFunc));
+            //PlayerDie();
         }
+ 
     }
 
     void CheckFallOutside()
     {
         if (gameObj.transform.position.y <= player_pos_lowBound || gameObj.transform.position.y >=player_pos_upBound )
         {
-            PlayerDie();
+            gm.pauseGame(changeScenePause);
+            StartCoroutine(waitForGmPause(PlayerDieFunc));
+            //PlayerDie();
         }
     }
 
@@ -57,7 +72,25 @@ public class PlayerLifeControl : MonoBehaviour
     }
 
     private void PlayerGoNextLv(){
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        gameObj.GetComponent<GravityController>().ResetGravity();
+        //gameObj.GetComponent<GravityController>().ResetGravity();
     }
+
+    private void testDetect(){
+        gm.pauseGame(5.0f);
+    }
+
+    IEnumerator waitForGmPause(int funcToCall){     //delay function when timeScale==0
+        while(Time.timeScale !=1.0f)
+            yield return null;
+        if (funcToCall == PlayerGoNextLvFunc)
+            PlayerGoNextLv();
+        else if(funcToCall == PlayerDieFunc)
+            PlayerDie();
+        yield break;
+        
+    }
+
+
 }

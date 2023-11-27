@@ -33,3 +33,11 @@ https://www.youtube.com/watch?v=KV8wNSo91bM
 - 用以快速生成擁有相同param 的物件
 
 https://www.youtube.com/watch?v=aPXvoWVabPY&ab_channel=Brackeys
+
+### Pausing game in Unity
+https://gamedevbeginner.com/the-right-way-to-pause-the-game-in-unity/
+Time.timeScale = 0;
+
+Time.deltaTime 會停止
+update -> 會繼續被call
+FixedUpdate -> 不會call

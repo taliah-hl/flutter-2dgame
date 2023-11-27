@@ -207,13 +207,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1257336624}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1257336625}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: LoadFirstLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -487,17 +487,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
+      propertyPath: firstLvSceneName
+      value: Lv2Scene
+      objectReference: {fileID: 0}
     - target: {fileID: 5864231091467069721, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
---- !u!1 &1257336624 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5864231091467069721, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
+--- !u!114 &1257336625 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
   m_PrefabInstance: {fileID: 1257336623}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1e776faa68b98044b503cc83be20deb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1302611722
 GameObject:
   m_ObjectHideFlags: 0

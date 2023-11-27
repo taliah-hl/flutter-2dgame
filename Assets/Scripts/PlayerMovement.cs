@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private BoxCollider2D player_collider;
     private GravityController gravityController;
+    private GameManager gm;
 
 
 
@@ -45,8 +46,10 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
-
-
+        gm = FindObjectOfType<GameManager>();
+        if (gm == null) 
+            Debug.Log("GM not found.");
+        else Debug.Log("GM is found.");
 
     }
 
@@ -79,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
         }
         AnimationUpdate();
-
+        
     }
 
     void AnimationUpdate()
@@ -107,5 +110,11 @@ public class PlayerMovement : MonoBehaviour
         //create a box (center, size, rotation)
         Debug.Log("is ground is:" + isgounrd);
         return isgounrd;
+    }
+
+    void testingfn(){
+        if(Input.GetKeyDown(KeyCode.U)){
+            gm.testfunc();
+        }
     }
 }

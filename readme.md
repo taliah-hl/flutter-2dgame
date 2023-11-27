@@ -20,6 +20,30 @@
 - grid size: :(x,y)=(1,1)
 - 場景直向有20格
 
+### Function 架構
+
+每個scene都需要:
+- GameManager (Prefab)
+
+每個關卡都需要:
+- GameManager (Prefab)
+- Player  (Prefab)
+- 關卡內的UI
+
+```
+├─Player
+   ├─GravityController
+   ├─PlayerMovement_NoAnimator
+   └─PlayerLifeControl
+```
+PlayerLifeControl
+- 檢查player飛出界外,檢查player接觸trap / 關卡完成點
+
+GameManager
+- 裡面有跳至gameover / victory / main menu等function
+- 裡面有遊戲暫停function (GameManager.pauseGame)
+
+
 ### Game Flow Control
 - player object 每關重新create, 只有必要參數用DontDestroyOnLoad 傳
 
@@ -41,3 +65,7 @@ Time.timeScale = 0;
 Time.deltaTime 會停止
 update -> 會繼續被call
 FixedUpdate -> 不會call
+需在pause時播放的animation -> timescale set to unscaled time
+
+hit pause
+https://www.youtube.com/watch?v=C949ILsyywg

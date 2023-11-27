@@ -71,18 +71,20 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dir_x = Input.GetAxisRaw("Horizontal");
-        _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
-        if (Input.GetButtonDown("Jump"))
-        {
+        bool gamePaused = GameManager.IsGamePaused;
+        if( !gamePaused){
+            dir_x = Input.GetAxisRaw("Horizontal");
+            _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
 
-            Debug.Log("Jump pressed");
-            if (IsGrounded())
-            {
-                _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+            if (Input.GetButtonDown("Jump")){
+                Debug.Log("Jump pressed");
+                if (IsGrounded()){
+                    _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+                }
             }
-
         }
+        
+        
         //AnimationUpdate();
         
 

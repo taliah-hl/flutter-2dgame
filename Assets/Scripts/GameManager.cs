@@ -13,9 +13,17 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string gameOverSceneName = "died";
     [SerializeField] private string firstLvSceneName = "Lv2Scene";
     public string victorySceneName = "";
-    private bool isGamePaused;
+    private static bool gamePaused = false;
+    public static bool IsGamePaused
+    {
+        get { return gamePaused; }
+    }
     
 
+    
+    void Awake(){
+        gamePaused = false;
+    }
     void Start()
     {
         
@@ -32,18 +40,18 @@ public class GameManager : MonoBehaviour
         }
     }
     public void pauseGame(float duration){
-        if(isGamePaused) return;
+        if(gamePaused) return;
         Time.timeScale = 0.0f; // stop Time.deltaTime from updating
         StartCoroutine(waitForGamePause(duration));
 
     }
 
     IEnumerator waitForGamePause(float duration){
-        isGamePaused = true;
+        gamePaused = true;
         yield return new WaitForSecondsRealtime(duration); // since timeScale set to 0, waitForSeconds will not count
         //but waitForSecondsRealtime is still counting
         Time.timeScale = 1.0f;  //set timeScale back to normal after waited
-        isGamePaused = false;
+        gamePaused = false;
     }
 
     public void ReloadCurScene(){
@@ -77,5 +85,9 @@ public class GameManager : MonoBehaviour
 
     public void testfunc(){
         Debug.Log("hi i am gm");
+    }
+
+    public bool getIsGamePause(){
+        return gamePaused;
     }
 }

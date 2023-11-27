@@ -11,6 +11,7 @@
 	- control at: player -> player movement script -> movement speed
 - player ->rigidbody ->gravity scale-> 5
 - 大概可跳起2.2 個grid
+- 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
 - player die if position out of range: y<=-12 or y>=14
 
 ### Scene

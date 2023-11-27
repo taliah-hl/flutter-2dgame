@@ -82,28 +82,24 @@ GameManager.cs
 - 裡面有跳至gameover / victory / main menu等function
 - 裡面有遊戲暫停function (GameManager.pauseGame)
 
-SceneSpec
-- load 該關卡的spec (目前只有max gracity toggle count)
+SceneSpec.cs
+- load 該關卡的spec (目前只有max gravity toggle count)
 - 提供 SceneSpec.MaxGravToggle (public)
 
 ### 變數在哪裡
 
-gravity toggle 剩餘次數
+gravity toggle 剩餘次數 //public static, 即所有script 都可access
 ```
 GravityController.GravToggleLeft  
-//public static, 即所有script 都可access
-
 ```
-gravity toggle max次數
+gravity toggle max次數//public static
 ```
 SceneSpec.MaxGravToggle
-//public static
 ```
 
-遊戲是否於暫定狀態
+遊戲是否於暫定狀態 //public static
 ```
 GameManager.IsGamePaused
-//public static
 ```
 
 

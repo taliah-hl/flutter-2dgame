@@ -2,15 +2,26 @@
 
 ## 共用Spec
 
-- player object 每關重新create, 只有必要參數用DontDestroyOnLoad 傳
+### Player
+
+- player size: TBC
+- player jump force: 16
+	- control at: player -> player movement script -> jumping force
+- player velocity: 10
+	- control at: player -> player movement script -> movement speed
+- player ->rigidbody ->gravity scale-> 5
+- 大概可跳起2.2 個grid
+- 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
+- player die if position out of range: y<=-12 or y>=14
+
+### Scene
+
 - main camera -> Size: 10
 - grid size: :(x,y)=(1,1)
 - 場景直向有20格
-- player size: TBC
-- player jump force: TBC
-- player velocity: TBC
-- player die if position out of range: TBC
 
+### Game Flow Control
+- player object 每關重新create, 只有必要參數用DontDestroyOnLoad 傳
 
 ## 參考資料
 

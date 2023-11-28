@@ -24,7 +24,7 @@ public class TransformDoor2 : MonoBehaviour
         if(TransformDoor_Controller.doorTrigger(2)>2.0f) {
             other.gameObject.transform.position = aimdoor.transform.position;
             // timer = 0;
-            Debug.Log("Transform");
+            Debug.Log("Transform2");
         }
     }
 }

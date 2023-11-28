@@ -40,10 +40,18 @@ public class ch3_game_manager : MonoBehaviour
     private Tiles blueTiles;
     [SerializeField]
     // private ImageFade imageFade;
+    private static float timer;
+    private static bool the_first_transform = true;
     private static ch3_game_manager instance = null;
     private void Awake() {
         instance = this;
+        timer = 0;
         blueTiles.Disable();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+
     }
     private void Start() {
         // imageFade.SetColor(Color.black);
@@ -54,7 +62,24 @@ public class ch3_game_manager : MonoBehaviour
         instance.blueTiles.Toggle();
         // blueTiles.Toggle();
     }
+
+    // public static float doorTrigger() {
+    //     float return_time;
+    //     if(the_first_transform) {
+    //         return_time = 5.0f;
+    //         timer = 0;
+    //         the_first_transform = false;
+    //     }
+    //     else {
+    //         return_time = timer;
+    //         if(timer > 3.0) timer = 0;
+    //     }
+        
+    //     return return_time ;
+    // }
     public static void Restart(){
+        // timer = 0;
+        // the_first_transform = true;
         var task = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
         task.allowSceneActivation = false;
         // instance.imageFade.StartFade(Color.black, 1.0f, () => {

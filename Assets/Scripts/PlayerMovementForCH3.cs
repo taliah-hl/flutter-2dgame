@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementForCH3 : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private float PlayersMovementSpeed = 10.0f;
@@ -77,8 +76,8 @@ public class PlayerMovement : MonoBehaviour
             if (IsGrounded())
             {
                 // ch3_game_manager.ToggleTiles();
-                 _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
-                // Jump();
+                // _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+                Jump();
             }
 
         }
@@ -118,3 +117,4 @@ public class PlayerMovement : MonoBehaviour
         return isgounrd;
     }
 }
+

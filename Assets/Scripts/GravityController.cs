@@ -30,6 +30,7 @@ public class GravityController : MonoBehaviour
             //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
             Physics2D.gravity = Physics2D.gravity  *-1.0f *gravityStrength;
             curGravityDir *= -1.0f;
+            Gravity_Change.ToggleBG();
             Debug.Log("Gravity toggle executed");
             Debug.Log("cur grav dir: "+ curGravityDir+ "; Grvity:" + Physics2D.gravity);
         }
@@ -41,6 +42,7 @@ public class GravityController : MonoBehaviour
         if (Physics2D.gravity.y >= 0)
         {
             Physics2D.gravity *= -1.0f;
+            
         }
     }
 

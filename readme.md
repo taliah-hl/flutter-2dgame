@@ -18,7 +18,7 @@
 
 ### Player
 
-- player size: TBC
+- player size: x: ~0.8-0.9, y: ~1-1.5
 - player jump force: 16
 	- control at: player -> player movement script -> jumping force
 - player velocity: 10

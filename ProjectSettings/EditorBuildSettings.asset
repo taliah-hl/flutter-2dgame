@@ -12,14 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu-for-test.unity
     guid: 83e05c417c6a6a542bf41a0e11904307
   - enabled: 1
+    path: Assets/Scenes/CH3-2.unity
+    guid: d6f358494d6e32c41a29e810dfd17a62
+  - enabled: 1
     path: Assets/Scenes/Lv2Scene.unity
     guid: 096dcba65b63ba847a42e2cb7f0031cb
-  - enabled: 1
-    path: Assets/Scenes/first.unity
-    guid: d1953073cff915e409d299e8a166bd6a
-  - enabled: 1
-    path: Assets/Scenes/second.unity
-    guid: 38d0023dc17c80940a41ae6c0c4bac3b
   - enabled: 1
     path: Assets/Scenes/died.unity
     guid: 3ec1cf8f292f9104797d0385bbca8b09

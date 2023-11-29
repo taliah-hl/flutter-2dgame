@@ -63,11 +63,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager::BackToMainMenu is called");
         SceneManager.LoadScene(menuSceneName);
     }
-    private void GameOver(){
+    public void GameOver(){
         Debug.Log("GameManager::GameOver is called");
         SceneManager.LoadScene(gameOverSceneName);
     }
-    private void JumpToVictory(){
+    public void JumpToVictory(){
         Debug.Log("GameManager::JumpToVictory is called");
         SceneManager.LoadScene(victorySceneName);
     }

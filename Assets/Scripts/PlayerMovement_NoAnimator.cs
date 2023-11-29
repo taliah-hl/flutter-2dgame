@@ -61,12 +61,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     {
     }
 
-    private void PlayerJump()
-    {
-        // float dir_x = Input.GetAxis("Horizontal");
-        // _playersRigidBody.velocity = new Vector2(dir_x)
-        // Debug.Log("Jump push!");
-    }
+
 
     // Update is called once per frame
     void Update()

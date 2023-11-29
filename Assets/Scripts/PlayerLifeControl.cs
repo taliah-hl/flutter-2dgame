@@ -76,7 +76,7 @@ public class PlayerLifeControl : MonoBehaviour
     private void PlayerDie()
     {
         Destroy(gameObj);
-        SceneManager.LoadScene("died");
+        gm.GameOver();
     }
 
     private void PlayerGoNextLv(){

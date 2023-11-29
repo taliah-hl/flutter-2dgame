@@ -73,16 +73,25 @@ public class PlayerMovement : MonoBehaviour
         _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
         if (Input.GetButtonDown("Jump"))
         {
+            // GameObject.FindGameObjectWithTag("gameManager").GetComponent<ch3_game_manager>().ToggleTiles();
+            // ch3_game_manager.ToggleTiles();
 
             //Debug.Log("Jump pressed");
             if (IsGrounded())
             {
-                _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+                // ch3_game_manager.ToggleTiles();
+                 _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+                // Jump();
             }
 
         }
         AnimationUpdate();
         
+    }
+
+    void Jump() {
+        ch3_game_manager.ToggleTiles();
+        _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
     }
 
     void AnimationUpdate()

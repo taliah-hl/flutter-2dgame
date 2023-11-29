@@ -55,6 +55,14 @@ public class PlayerLifeControl : MonoBehaviour
  
     }
 
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag=="lava") {
+            PlayerDie();
+        }
+        
+    }
+
     void CheckFallOutside()
     {
         if (gameObj.transform.position.y <= player_pos_lowBound || gameObj.transform.position.y >=player_pos_upBound )

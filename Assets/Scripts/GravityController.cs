@@ -46,6 +46,7 @@ public class GravityController : MonoBehaviour
             if((curToggleCnt < maxGravToggle)){
                 Debug.Log("max toggle cnt: " + maxGravToggle+ "cur toggle cnt: " + curToggleCnt);
             
+<<<<<<< HEAD
                 
                 
                 //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
@@ -61,6 +62,15 @@ public class GravityController : MonoBehaviour
                 Debug.Log("max tog: " + maxGravToggle+ "cur tog: " + curToggleCnt);
             }
             gravToggleLeft = maxGravToggle - curToggleCnt;
+=======
+            
+            //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
+            Physics2D.gravity = Physics2D.gravity  *-1.0f *gravityStrength;
+            curGravityDir *= -1.0f;
+            Gravity_Change.ToggleBG();
+            Debug.Log("Gravity toggle executed");
+            Debug.Log("cur grav dir: "+ curGravityDir+ "; Grvity:" + Physics2D.gravity);
+>>>>>>> 5f62702746382edbfbd0fda26cad87b8f17249f0
         }
         
         
@@ -71,6 +81,7 @@ public class GravityController : MonoBehaviour
         if (Physics2D.gravity.y >= 0)
         {
             Physics2D.gravity *= -1.0f;
+            
         }
         curGravityDir = 1.0f;
     }

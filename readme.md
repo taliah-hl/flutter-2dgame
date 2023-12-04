@@ -15,6 +15,25 @@
     - [Unity Scriptable Object](#unity-scriptable-object)
     - [Pausing game in Unity](#pausing-game-in-unity)
 
+### GUI we need
+1. main scene
+   - 有play, 說明, menu
+2. menu scene (有各個level 的按鍵)
+   - 12 個按鍵 (4章->每要3關)
+3. 大說明scene
+   - 基本操作,如何切重力
+4. 小故事scene (目前先忽略)
+5. 章節說明*4
+   - 有這章的機制
+   - 有「開始遊戲」鍵
+6. in-level GUI
+   - static:
+      - current level
+      - 開說明的按鍵
+   - 點說明是開的overlay GUI
+7. 轉場動畫(算時間淡入淡出)
+8. 死亡動畫-> 自動reload 該關
+9. 闖完整章的scene
 
 ### Player
 

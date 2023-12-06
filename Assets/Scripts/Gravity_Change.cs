@@ -11,6 +11,7 @@ public class Gravity_Change : MonoBehaviour
     private struct BackGround{
         [SerializeField]
         private Image bg;
+        //private Image bg2, bg3, bg4;
         [SerializeField]
         public bool gravitydown;
         // private Color cup = new Color32( 173, 173, 173, 200 );

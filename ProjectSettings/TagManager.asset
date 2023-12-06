@@ -9,6 +9,8 @@ TagManager:
   - ground
   - tester
   - lava
+  - cover_point
+  - poison
   layers:
   - Default
   - TransparentFX

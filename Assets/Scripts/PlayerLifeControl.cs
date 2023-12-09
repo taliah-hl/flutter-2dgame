@@ -48,6 +48,7 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.tag == "trap")
         {
+            Debug.Log("player triggerEnter with trap");
             gm.pauseGame(changeScenePause);
             StartCoroutine(waitForGmPause(PlayerDieFunc));
             //PlayerDie();
@@ -62,6 +63,7 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.gameObject.tag == "trap")
         {
+            Debug.Log("player collide with trap");
             gm.pauseGame(changeScenePause);
             StartCoroutine(waitForGmPause(PlayerDieFunc)); //call PlayerDie() after some time
             

@@ -9,7 +9,7 @@ public class PlayerLifeControl : MonoBehaviour
     private Rigidbody2D _playersRigidBody;
     [SerializeField] private float player_pos_upBound = 14;
     [SerializeField] private float player_pos_lowBound = -12;
-    [SerializeField] private float changeScenePause = 1.5f;        // pause time before change scene
+    [SerializeField] private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
     private GameManager gm;
@@ -58,7 +58,13 @@ public class PlayerLifeControl : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag=="lava") {
-            PlayerDie();
+            StartCoroutine(waitForGmPause(PlayerDieFunc));  //call PlayerDie() after some time
+        }
+        if (other.gameObject.tag == "trap")
+        {
+            gm.pauseGame(changeScenePause);
+            StartCoroutine(waitForGmPause(PlayerDieFunc)); //call PlayerDie() after some time
+            
         }
         
     }

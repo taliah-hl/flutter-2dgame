@@ -13,7 +13,7 @@ public class GravityController : MonoBehaviour
     public static float curGravityDir = 1.0f; // 1.0 or -1.0;
     public static float gravityStrength = 1.0f;   //to control strgnth of gravity
     private int curToggleCnt = 0;
-    public int maxGravToggle;
+    private int maxGravToggle;
 
     private static int gravToggleLeft;
     public static int GravToggleLeft{

@@ -11,6 +11,7 @@ TagManager:
   - lava
   - cupRotateTrigger
   - cloud
+  - cloud05
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - block
   - bottomForCup
   - Player
-  - 
+  - movePlatform
   - 
   - 
   - 

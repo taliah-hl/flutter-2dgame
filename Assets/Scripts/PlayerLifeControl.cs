@@ -76,12 +76,18 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.gameObject.tag == "cloud"){
             Debug.Log("player collide with cloud, gravity scale changed to 1");
+           
             _playersRigidBody.gravityScale = 1;
+        }
+        if (other.gameObject.tag == "cloud05"){
+            Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
+       
+            _playersRigidBody.gravityScale = 0.5f;
         }
         
     }
     void OnCollisionExit2D(Collision2D other){
-        if (other.gameObject.tag == "cloud"){
+        if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05"){
             Debug.Log("player exit cloud, gravity scale back to normal");
             _playersRigidBody.gravityScale = playerNormalGravScale;
         }

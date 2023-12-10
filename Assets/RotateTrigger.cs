@@ -22,7 +22,7 @@ public class RotateTrigger : MonoBehaviour
             Debug.Log("cup rotatet triggrt collide with player");
             
             //rotate transform by 90 degree clockwise
-            transform.Rotate(0, 0, -90);
+            transform.Rotate(0, 0, -90 * rotateSpeed * Time.deltaTime);
 
         }
 

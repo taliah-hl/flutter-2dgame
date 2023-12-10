@@ -41,7 +41,7 @@
 - player size: ~0.8-0.9, y: ~1-1.5
 - player jump force: 16 -> (考慮改為12???)
 	- control at: player -> player movement script -> jumping force
-- player velocity: 10
+- player velocity: 10 -> (考慮改為6???)
 	- control at: player -> player movement script -> movement speed
 - player ->rigidbody ->gravity scale-> 5 -> (考慮改為3????)
 - 大概可跳起2.2 個grid

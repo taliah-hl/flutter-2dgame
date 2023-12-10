@@ -2569,6 +2569,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1327950860}
+  - component: {fileID: 1327950861}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2591,6 +2592,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327950861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327950859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250d1548919348440803fea0a8472f76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lvSpec: {fileID: 11400000, guid: 372c8d28e5b763a49a2d7f57ab3a00f0, type: 2}
 --- !u!1001 &1484715448
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3009,9 +3023,21 @@ PrefabInstance:
       propertyPath: maxGravToggle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 8337465732579703049, guid: 99904d10829e26b4280a017f545cb924, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703050, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337465732579703050, guid: 99904d10829e26b4280a017f545cb924, type: 3}
+      propertyPath: PlayerJumpingForce
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8337465732579703050, guid: 99904d10829e26b4280a017f545cb924, type: 3}
+      propertyPath: PlayersMovementSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703055, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_RootOrder
@@ -3019,7 +3045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703055, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.05
+      value: -15.89
       objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703055, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3057,7 +3083,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4631576246774539727, guid: 99904d10829e26b4280a017f545cb924, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 99904d10829e26b4280a017f545cb924, type: 3}
 --- !u!1 &1970064260
 GameObject:

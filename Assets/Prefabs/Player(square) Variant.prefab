@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4101374887103004085, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4101374887103004086, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -94,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb73e7456526ccf42bccb2864efd9b4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayersMovementSpeed: 10
-  PlayerJumpingForce: 16
+  PlayersMovementSpeed: 6
+  PlayerJumpingForce: 12
   BoxCast_y_offset: 0.5
   JumpableGround:
     serializedVersion: 2

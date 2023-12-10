@@ -16,6 +16,7 @@ public class PlayerLifeControl : MonoBehaviour
     private const int PlayerDieFunc = 1;
     private const int PlayerGoNextLvFunc = 2;
     private static PlayerLifeControl instance = null;
+    private float playerNormalGravScale;
 
     void Awake() {
         instance = this;
@@ -31,6 +32,7 @@ public class PlayerLifeControl : MonoBehaviour
         if (gm == null) {
             Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
         }
+        playerNormalGravScale = _playersRigidBody.gravityScale;
              
 
     }
@@ -71,9 +73,18 @@ public class PlayerLifeControl : MonoBehaviour
             Debug.Log("player collide with trap");
             gm.pauseGame(changeScenePause);
             StartCoroutine(waitForGmPause(PlayerDieFunc)); //call PlayerDie() after some time
-            
+        }
+        if (other.gameObject.tag == "cloud"){
+            Debug.Log("player collide with cloud, gravity scale changed to 1");
+            _playersRigidBody.gravityScale = 1;
         }
         
+    }
+    void OnCollisionExit2D(Collision2D other){
+        if (other.gameObject.tag == "cloud"){
+            Debug.Log("player exit cloud, gravity scale back to normal");
+            _playersRigidBody.gravityScale = playerNormalGravScale;
+        }
     }
 
     void CheckFallOutside()

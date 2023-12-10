@@ -15,6 +15,11 @@ public class PlayerLifeControl : MonoBehaviour
     private GameManager gm;
     private const int PlayerDieFunc = 1;
     private const int PlayerGoNextLvFunc = 2;
+    private static PlayerLifeControl instance = null;
+
+    void Awake() {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +86,10 @@ public class PlayerLifeControl : MonoBehaviour
         }
     }
 
-    private void PlayerDie()
+    public static void PlayerDie()
     {
-        Destroy(gameObj);
-        gm.GameOver();
+        Destroy(instance.gameObj);
+        instance.gm.GameOver();
     }
 
     private void PlayerGoNextLv(){

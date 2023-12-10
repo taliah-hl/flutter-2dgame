@@ -9,7 +9,12 @@ TagManager:
   - ground
   - tester
   - lava
+<<<<<<< HEAD
   - cupRotateTrigger
+=======
+  - cover_point
+  - poison
+>>>>>>> 29310ddc2a9c2238324c51a19afbd15f5ef36b8d
   layers:
   - Default
   - TransparentFX

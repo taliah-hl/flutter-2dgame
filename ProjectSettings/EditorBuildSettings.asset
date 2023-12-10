@@ -12,9 +12,36 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu-for-test.unity
     guid: 83e05c417c6a6a542bf41a0e11904307
   - enabled: 1
+    path: Assets/Scenes/CH1-1_new.unity
+    guid: e6cf84938fcf60649813c516710887ea
+  - enabled: 1
+    path: Assets/Scenes/CH1-2.unity
+    guid: ab4b5150205bb1f499819ecedc3bed03
+  - enabled: 1
+    path: Assets/Scenes/CH1-3.unity
+    guid: 16a94f01b22d4714188fdc5c8e4d4f71
+  - enabled: 1
+    path: Assets/Scenes/ch2-1.unity
+    guid: dc9791ffdd8646a4ebd9b507e3b678f1
+  - enabled: 1
+    path: Assets/Scenes/ch2-2.unity
+    guid: bdec5d2235bf27849a4b59dc4261b32f
+  - enabled: 1
+    path: Assets/Scenes/ch2-3.unity
+    guid: 33552b7a3c1564d4391bf923e19342bd
+  - enabled: 1
+    path: Assets/Scenes/CH3-1.unity
+    guid: 4c23a2e5cd9bcc245954dda705b0009b
+  - enabled: 1
     path: Assets/Scenes/CH3-2.unity
     guid: d6f358494d6e32c41a29e810dfd17a62
   - enabled: 1
+    path: Assets/Scenes/CH3-3.unity
+    guid: 574dd52b4f3cceb4fb928620d8efb54b
+  - enabled: 1
+    path: Assets/Scenes/ch4-1.unity
+    guid: 11ae2ca08aa595d4b998fa274451134d
+  - enabled: 0
     path: Assets/Scenes/Lv2Scene.unity
     guid: 096dcba65b63ba847a42e2cb7f0031cb
   - enabled: 1

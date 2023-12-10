@@ -9,6 +9,7 @@ TagManager:
   - ground
   - tester
   - lava
+  - cupRotateTrigger
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Water
   - UI
   - block
-  - 
-  - 
+  - bottomForCup
+  - Player
   - 
   - 
   - 

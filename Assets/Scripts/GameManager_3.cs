@@ -28,8 +28,8 @@ public class GameManager_3 : MonoBehaviour
             tilemap.color = c;
             rigidbody.simulated = false;
 
-            Debug.Log(c.a);
-            Debug.Log(rigidbody.simulated);
+            Debug.Log(c.a);          
+            Debug.Log("GameManager_3: Disable is called, " + rigidbody.simulated);
         }
         public void Toggle(){
             if(isEnabled) Disable();

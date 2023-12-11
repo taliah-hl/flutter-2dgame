@@ -32,6 +32,9 @@ public class PlayerLifeControl : MonoBehaviour
         if (gm == null) {
             Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
         }
+        else{
+            Debug.Log("GameManager is found by playerLifeControl");
+        }
         playerNormalGravScale = _playersRigidBody.gravityScale;
              
 
@@ -51,11 +54,17 @@ public class PlayerLifeControl : MonoBehaviour
             Debug.Log("go to next level");
             gm.pauseGame(changeScenePause); // call pauseGame in GameManager
             StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
-
         }
         if (other.tag == "trap")
         {
             Debug.Log("player triggerEnter with trap");
+            gm.pauseGame(changeScenePause);
+            StartCoroutine(waitForGmPause(PlayerDieFunc));
+            //PlayerDie();
+        }
+        if (other.tag == "switchBlockInternal")
+        {
+            Debug.Log("player triggerEnter with switchBlockInternal");
             gm.pauseGame(changeScenePause);
             StartCoroutine(waitForGmPause(PlayerDieFunc));
             //PlayerDie();

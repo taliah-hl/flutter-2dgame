@@ -50,7 +50,7 @@ public class playerMovementFor3  : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         if (gm == null) 
             Debug.Log("GM not found.");
-        else Debug.Log("GM is found.");
+        else Debug.Log("GM is found by playerMovementFor3.");
 
 
     }

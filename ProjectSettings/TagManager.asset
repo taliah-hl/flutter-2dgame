@@ -12,6 +12,7 @@ TagManager:
   - cupRotateTrigger
   - cloud
   - cloud05
+  - switchBlockInternal
   layers:
   - Default
   - TransparentFX

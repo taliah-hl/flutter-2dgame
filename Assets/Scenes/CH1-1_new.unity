@@ -4167,7 +4167,7 @@ PrefabInstance:
     - target: {fileID: 3479101200231355653, guid: 3aefa3f03b0aeaa41bb246023946a7bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
     - target: {fileID: 3479101200231355653, guid: 3aefa3f03b0aeaa41bb246023946a7bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: BackToMainMenu
@@ -4175,7 +4175,7 @@ PrefabInstance:
     - target: {fileID: 3479101200500496731, guid: 3aefa3f03b0aeaa41bb246023946a7bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
     - target: {fileID: 3479101200500496731, guid: 3aefa3f03b0aeaa41bb246023946a7bc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReloadCurScene

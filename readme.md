@@ -23,8 +23,7 @@
 - ch3.3 GUI retry及quit鍵沒有反應
 
 ### 欠!!!
-- 欠人跟著移動平台的function ->done
-- ch2.1, 2.3 待完善
+- ch2.1, 2.3 可更豐富
 - 死亡動畫,換場等
 
 ### GUI we need
@@ -49,14 +48,15 @@
 
 ### Player
 
-- player size: ~0.8-0.9, y: ~1-1.5
-- player jump force: 16
+- player size: x:0.89, y: 1.15
+- player jump force: 12 
 	- control at: player -> player movement script -> jumping force
-- player velocity: 10
+- player velocity: 6 
 	- control at: player -> player movement script -> movement speed
-- player ->rigidbody ->gravity scale-> 5
+- player ->rigidbody ->gravity scale-> 3 
 - 大概可跳起2.2 個grid
-- 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
+- 因player 本身有大小,這配搭剛好能跳上高度2個grid的東西
+- 橫向大概可跳6格
 - player die if position out of range: y<=-12 or y>=14
 
 ### Scene
@@ -76,6 +76,22 @@
 
 - SceneManager
 - LevelSpec
+
+## Toggle count
+- control in Scripts->LevelSpec->LevelXX_Spec
+- e.g. Level11_Spec->即ch1-1的spec, Level32_Spec->即ch3-2的spec
+
+```
+1-1: 3
+1-2: 3
+1-3: 3
+2-1: 5
+2-2: 3
+2-3: 4
+3-1: 1
+3-2: 3(1)
+3-3: 2
+```
 
 ## Function 架構
 

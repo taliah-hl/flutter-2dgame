@@ -2514,6 +2514,7 @@ GameObject:
   - component: {fileID: 624136954}
   - component: {fileID: 624136953}
   - component: {fileID: 624136955}
+  - component: {fileID: 624136956}
   m_Layer: 3
   m_Name: runPlat
   m_TagString: Untagged
@@ -2632,6 +2633,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84615386, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &624136956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624136951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34779a1ef51ed6d43b6b6d63cecc0cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &751739072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2644,6 +2657,7 @@ GameObject:
   - component: {fileID: 751739075}
   - component: {fileID: 751739074}
   - component: {fileID: 751739076}
+  - component: {fileID: 751739077}
   m_Layer: 3
   m_Name: runPlat
   m_TagString: Untagged
@@ -2762,6 +2776,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84615386, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &751739077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751739072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34779a1ef51ed6d43b6b6d63cecc0cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &830596830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3403,6 +3429,7 @@ GameObject:
   - component: {fileID: 1506932269}
   - component: {fileID: 1506932271}
   - component: {fileID: 1506932270}
+  - component: {fileID: 1506932272}
   m_Layer: 3
   m_Name: cloud
   m_TagString: cloud
@@ -3418,8 +3445,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506932266}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.99, y: -7.01, z: -0.07654846}
-  m_LocalScale: {x: 0.5995417, y: 0.7935, z: 1}
+  m_LocalPosition: {x: -15.14, y: -7, z: -0.07654846}
+  m_LocalScale: {x: 0.82705426, y: 0.5462454, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2126134101}
@@ -3466,7 +3493,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ec5439ca8849520478bb807d70cffcfd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49d4a21db3b4847a98735cef6424776c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3511,19 +3538,31 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.06}
+  m_Offset: {x: -0.0139507055, y: -0.060000002}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.4, y: 1.43}
+    oldSize: {x: 5.12, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.38, y: 1.14}
+  m_Size: {x: 4.733692, y: 1.14}
   m_EdgeRadius: 0
+--- !u!114 &1506932272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506932266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34779a1ef51ed6d43b6b6d63cecc0cde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1534285010
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,7 +3678,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555136223}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.096985, y: 9.71, z: -0.07654846}
+  m_LocalPosition: {x: -15.096985, y: 14.46, z: -0.07654846}
   m_LocalScale: {x: 2.8875, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3987,7 +4026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970064261}
   m_Layer: 0
-  m_Name: runpair1
+  m_Name: MovingPlatformpair1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4021,7 +4060,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1993720044}
   m_Layer: 0
-  m_Name: runpair2
+  m_Name: MovingPlatform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

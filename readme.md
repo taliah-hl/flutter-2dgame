@@ -5,6 +5,8 @@
 - [Project](#project)
   - [共用Spec](#共用spec)
     - [本次改動](#本次改動)
+    - [Bug fix required!!](#bug-fix-required)
+    - [欠!!!](#欠)
     - [GUI we need](#gui-we-need)
     - [Player](#player)
     - [Scene](#scene)
@@ -30,8 +32,10 @@
 - ch3.3 GUI retry及quit鍵沒有反應
 
 ### 欠!!!
-- 欠人跟著移動平台的function
+- 欠人跟著移動平台的function ->done
 - ch2.3 待完善
+
+- 掉下來: 2秒
 ### GUI we need
 1. main scene
    - 有play, 說明, menu

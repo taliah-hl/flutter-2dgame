@@ -4,8 +4,11 @@
 
 - [Project](#project)
   - [共用Spec](#共用spec)
+    - [本次改動](#本次改動)
+    - [GUI we need](#gui-we-need)
     - [Player](#player)
     - [Scene](#scene)
+  - [Toggle count](#toggle-count)
   - [Function 架構](#function-架構)
     - [每個Script做什麼](#每個script做什麼)
     - [變數在哪裡](#變數在哪裡)
@@ -15,17 +18,51 @@
     - [Unity Scriptable Object](#unity-scriptable-object)
     - [Pausing game in Unity](#pausing-game-in-unity)
 
+### 本次改動
+1. 遊戲兩邊加入隱形的collider讓player不會從兩邊飛出去,因為從兩邊飛出去感覺像bug多於故意設計
+2. ground grid 加上composite collider, 因原本的tilemap map collider player 走路有時會卡
+3. 加了一些與正確路線無關的block讓畫面豐富點(?)
+4. ch 3 各關微調
+	- 調整內容: 
+		- 消除太容易的解,使所有可能的解難度差不多
+		- 加長玩家可做反應的時間
+### Bug fix required!!
+- ch3.3 GUI retry及quit鍵沒有反應
+
+### 欠!!!
+- 欠人跟著移動平台的function
+- ch2.3 待完善
+### GUI we need
+1. main scene
+   - 有play, 說明, menu
+2. menu scene (有各個level 的按鍵)
+   - 12 個按鍵 (4章->每要3關)
+3. 大說明scene
+   - 基本操作,如何切重力
+4. 小故事scene (目前先忽略)
+5. 章節說明*4
+   - 有這章的機制
+   - 有「開始遊戲」鍵
+6. in-level GUI
+   - static:
+      - current level
+      - 開說明的按鍵
+   - 點說明是開的overlay GUI
+7. 轉場動畫(算時間淡入淡出)
+8. 死亡動畫-> 自動reload 該關
+9. 闖完整章的scene
 
 ### Player
 
-- player size: TBC
-- player jump force: 16
+- player size: ~0.8-0.9, y: ~1-1.5
+- player jump force: 16 -> (考慮改為12???)
 	- control at: player -> player movement script -> jumping force
-- player velocity: 10
+- player velocity: 10 -> (考慮改為6???)
 	- control at: player -> player movement script -> movement speed
-- player ->rigidbody ->gravity scale-> 5
+- player ->rigidbody ->gravity scale-> 5 -> (考慮改為3????)
 - 大概可跳起2.2 個grid
 - 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
+- 橫向大概可跳6格
 - player die if position out of range: y<=-12 or y>=14
 
 ### Scene
@@ -33,17 +70,34 @@
 - main camera -> Size: 10
 - grid size: :(x,y)=(1,1)
 - 場景直向有20格
+- game view ->aspect: 1440*512 fixed resolution
 
 
 以下為每個scene都需要相同的:
 - GameManager
 - Player 
-- 關卡內的UI (形式待定???)
+- in-level UI
 
 每個關卡都需要不同的(每個scene 獨立):
 
 - SceneManager
 - LevelSpec
+
+## Toggle count
+- control in Scripts->LevelSpec->LevelXX_Spec
+- e.g. Level11_Spec->即ch1-1的spec, Level32_Spec->即ch3-2的spec
+
+```
+1-1: 3
+1-2: 3
+1-3: 3
+2-1: 5
+2-2: 3
+2-3: 4
+3-1: 1
+3-2: 3(1)
+3-3: 2
+```
 
 ## Function 架構
 
@@ -81,6 +135,7 @@ PlayerLifeControl.cs
 GameManager.cs
 - 裡面有跳至gameover / victory / main menu等function
 - 裡面有遊戲暫停function (GameManager.pauseGame)
+- `GameOver()` in `GameManager.cs` -> 控制player死亡會的處理
 
 SceneSpec.cs
 - load 該關卡的spec (目前只有max gravity toggle count)
@@ -125,6 +180,7 @@ Time.timeScale = 0;
 Time.deltaTime 會停止
 update -> 會繼續被call
 FixedUpdate -> 不會call
+
 需在pause時播放的animation -> timescale set to unscaled time
 
 hit pause

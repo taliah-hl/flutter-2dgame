@@ -9,8 +9,10 @@ TagManager:
   - ground
   - tester
   - lava
-  - cover_point
-  - poison
+  - cupRotateTrigger
+  - cloud
+  - cloud05
+  - switchBlockInternal
   layers:
   - Default
   - TransparentFX
@@ -19,9 +21,9 @@ TagManager:
   - Water
   - UI
   - block
-  - 
-  - 
-  - 
+  - bottomForCup
+  - Player
+  - movePlatform
   - 
   - 
   - 

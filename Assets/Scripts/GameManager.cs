@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour    // htis is GM for all levels!!
 {
     
     [SerializeField] private string menuSceneName = "Menu-for-test";
@@ -63,7 +63,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager::BackToMainMenu is called");
         SceneManager.LoadScene(menuSceneName);
     }
-    public void GameOver(){
+    public void GameOver(){     //control what happen when player die
+        Debug.Log("GameManager::GameOver is called");
+        Scene curScene = SceneManager.GetActiveScene(); 
+        SceneManager.LoadScene(curScene.name);
+    }
+    public void LoadGameOverScene(){     // not in use for now
         Debug.Log("GameManager::GameOver is called");
         SceneManager.LoadScene(gameOverSceneName);
     }

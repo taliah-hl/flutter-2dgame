@@ -77,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 215846174571373192, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
       propertyPath: m_Name
-      value: in-level UI
+      value: New_In_level_UI
       objectReference: {fileID: 0}
     - target: {fileID: 215846174571373193, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
       propertyPath: m_RootOrder
@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -175
       objectReference: {fileID: 0}
+    - target: {fileID: 215846175306387801, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
+    - target: {fileID: 215846175306387801, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BackToMainMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 215846175568172345, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
       propertyPath: m_Camera
       value: 
@@ -186,6 +194,14 @@ PrefabInstance:
     - target: {fileID: 215846175576218886, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 215846175576218887, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
+    - target: {fileID: 215846175576218887, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadCurScene
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc7ad796c3f49684f9e6a5bb95482d9c, type: 3}

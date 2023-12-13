@@ -13,6 +13,8 @@ TagManager:
   - cloud
   - cloud05
   - switchBlockInternal
+  - poison
+  - cover_point
   layers:
   - Default
   - TransparentFX

@@ -20,7 +20,7 @@ public class FallRigidControll : MonoBehaviour
     {
         if(other.gameObject.tag=="Player" && !rigidon) {
             // UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(gameObject, "Assets/Scripts/FallRigidControll.cs (22,13)", "RigidBody2D");
-            Invoke("AddRigid", 5);
+            Invoke("AddRigid", 2);
         }
         
     }

@@ -4,7 +4,7 @@
 
 - [Project](#project)
   - [共用Spec](#共用spec)
-    - [本次改動](#本次改動)
+  - [Branch](#branch)
     - [Bug fix required!!](#bug-fix-required)
     - [欠!!!](#欠)
     - [GUI we need](#gui-we-need)
@@ -20,20 +20,17 @@
     - [Unity Scriptable Object](#unity-scriptable-object)
     - [Pausing game in Unity](#pausing-game-in-unity)
 
-### 本次改動
-1. 遊戲兩邊加入隱形的collider讓player不會從兩邊飛出去,因為從兩邊飛出去感覺像bug多於故意設計
-2. ground grid 加上composite collider, 因原本的tilemap map collider player 走路有時會卡
-3. 加了一些與正確路線無關的block讓畫面豐富點(?)
-4. ch 3 各關微調
-	- 調整內容: 
-		- 消除太容易的解,使所有可能的解難度差不多
-		- 加長玩家可做反應的時間
+## Branch
+
+all-lv-playable -> 各關已完整可玩,,美術不在這關改動
+
 ### Bug fix required!!
 - ch3.3 GUI retry及quit鍵沒有反應
 
 ### 欠!!!
 - 欠人跟著移動平台的function ->done
-- ch2.3 待完善
+- ch2.1, 2.3 待完善
+- 死亡動畫,換場等
 
 - 掉下來: 2秒
 ### GUI we need

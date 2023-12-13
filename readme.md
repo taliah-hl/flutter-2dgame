@@ -15,6 +15,18 @@
     - [Unity Scriptable Object](#unity-scriptable-object)
     - [Pausing game in Unity](#pausing-game-in-unity)
 
+## Branch
+
+- all-lv-playable -> 各關已完整可玩,不再加大改動,美術不在這關改動
+
+### Bug fix required!!
+- ch3.3 GUI retry及quit鍵沒有反應
+
+### 欠!!!
+- 欠人跟著移動平台的function ->done
+- ch2.1, 2.3 待完善
+- 死亡動畫,換場等
+
 ### GUI we need
 1. main scene
    - 有play, 說明, menu

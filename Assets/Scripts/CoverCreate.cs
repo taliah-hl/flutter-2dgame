@@ -30,7 +30,7 @@ public class CoverCreate : MonoBehaviour
         if(other.tag=="cover_point") {
             protect = true;
             timer = 0.0f;
-            PoisonDisable.PTrigger();
+            // PoisonDisable.PTrigger();
             Destroy(other.gameObject);
             GameObject c = GameObject.Instantiate(Cover, transform.position, Quaternion.identity);
                     //设置父子关系
@@ -39,7 +39,7 @@ public class CoverCreate : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag=="poison" && !protect) {
             PlayerLifeControl.PlayerDie();

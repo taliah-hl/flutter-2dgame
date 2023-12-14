@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e776faa68b98044b503cc83be20deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuSceneName: Menu-for-test
+  menuSceneName: Menu
   gameOverSceneName: died
+  firstLvSceneName: CH1-1_new
   victorySceneName: 

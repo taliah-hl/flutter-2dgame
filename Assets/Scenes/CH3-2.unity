@@ -3626,7 +3626,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1051649026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7907,7 +7907,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703055, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.38
+      value: 9.59
       objectReference: {fileID: 0}
     - target: {fileID: 8337465732579703055, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_LocalPosition.z

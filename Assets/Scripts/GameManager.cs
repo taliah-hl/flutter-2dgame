@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour    // htis is GM for all levels!!
 {
     
-    [SerializeField] private string menuSceneName = "Menu-for-test";
+    [SerializeField] private string menuSceneName = "Menu";
     [SerializeField] private string gameOverSceneName = "died";
     [SerializeField] private string firstLvSceneName = "Lv2Scene";
     public string victorySceneName = "";

@@ -38,11 +38,30 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 2. menu scene (有各個level 的按鍵)
    - 12 個按鍵 (4章->每要3關)
 3. 大說明scene
-   - 基本操作,如何切重力
-4. 小故事scene (目前先忽略)
+   - 基本操作, 如何切重力, player踩到尖刺會死亡(因為每個章節都有因此擺在大說明，尖刺請放圖片)
+4. 小故事scene (目前先把已經有的圖對應關卡放上去，先不管文本)
 5. 章節說明*4
    - 有這章的機制
    - 有「開始遊戲」鍵
+   - **章節說明的部分請截遊戲內場景object圖做說明**
+   - chap1說明:
+   - 	gravity object:關卡內存在受gravity所影響的物體，會隨gravity方向往上掉或往下掉
+   - 	尖刺:碰觸會導致player死亡
+     
+   - chap2說明:
+   - 	cloud:受到gravity影響的物體
+   - 	platform1:會沿固定路線移動，只有上方可以踩
+   - 	platform2:會沿固定路線移動，兩面皆可以踩
+   - 	lava:由畫面上方流下，受gravity影響，player碰觸會死亡
+     
+   - chap3說明:
+   - 	傳送門:player碰觸後會傳送到門的另一端，在經過使用後會進入2秒冷卻期，冷卻結束才能再次傳送
+   - 	會虛實切換的東東:每次player跳躍會使其狀態虛實切換
+     
+   - chap4說明:
+   - 	紅色地板:player踩中會導致中毒死亡
+   - 	藍色小球:player碰觸到後可得一個持續10秒的保護罩，期間可以中毒的傷害
+   - 	空中平台:player碰觸後經過2秒會變成gravity object受重力影響，紅色平台同樣會導致player中毒死亡
 6. in-level GUI
    - static:
       - current level

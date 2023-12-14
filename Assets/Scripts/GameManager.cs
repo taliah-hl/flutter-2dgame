@@ -13,13 +13,11 @@ public class GameManager : MonoBehaviour    // htis is GM for all levels!!
     [SerializeField] private string gameOverSceneName = "died";
     [SerializeField] private string firstLvSceneName = "Lv2Scene";
     public string victorySceneName = "";
-    private static bool gamePaused = false;
+    public static bool gamePaused = false;
     public static bool IsGamePaused
     {
         get { return gamePaused; }
     }
-    
-
     
     void Awake(){
         gamePaused = false;
@@ -94,5 +92,15 @@ public class GameManager : MonoBehaviour    // htis is GM for all levels!!
 
     public bool getIsGamePause(){
         return gamePaused;
+    }
+
+    public void SetGamePaused()
+    {
+        gamePaused = true;
+    }
+
+    public void ResetGamePaused()
+    {
+        gamePaused = false;
     }
 }

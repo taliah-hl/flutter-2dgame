@@ -26,16 +26,16 @@ public class MainMenu : MonoBehaviour
 
     public void LoadChapter1_1()
     {
-        SceneManager.LoadScene("CH1-1_new");
+        SceneManager.LoadScene("ch1-1");
     }
 
     public void LoadChapter1_2()
     {
-        SceneManager.LoadScene("CH1-2");
+        SceneManager.LoadScene("ch1-2");
     }
     public void LoadChapter1_3()
     {
-        SceneManager.LoadScene("CH1-3");
+        SceneManager.LoadScene("ch1-3");
     }
     public void LoadChapter2_1()
     {
@@ -51,15 +51,15 @@ public class MainMenu : MonoBehaviour
     }
     public void LoadChapter3_1()
     {
-        SceneManager.LoadScene("CH3-1");
+        SceneManager.LoadScene("ch3-1");
     }
     public void LoadChapter3_2()
     {
-        SceneManager.LoadScene("CH3-2");
+        SceneManager.LoadScene("ch3-2");
     }
     public void LoadChapter3_3()
     {
-        SceneManager.LoadScene("cCH3-3");
+        SceneManager.LoadScene("ch3-3");
     }
     public void LoadChapter4_1()
     {

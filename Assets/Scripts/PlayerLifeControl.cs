@@ -58,15 +58,13 @@ public class PlayerLifeControl : MonoBehaviour
         if (other.tag == "trap")
         {
             Debug.Log("player triggerEnter with trap");
-            gm.pauseGame(changeScenePause);
-            StartCoroutine(waitForGmPause(PlayerDieFunc));
+            PauseAndDie();
             //PlayerDie();
         }
         if (other.tag == "switchBlockInternal")
         {
             Debug.Log("player triggerEnter with switchBlockInternal");
-            gm.pauseGame(changeScenePause);
-            StartCoroutine(waitForGmPause(PlayerDieFunc));
+            PauseAndDie();
             //PlayerDie();
         }
  
@@ -75,13 +73,12 @@ public class PlayerLifeControl : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag=="lava") {
-            StartCoroutine(waitForGmPause(PlayerDieFunc));  //call PlayerDie() after some time
+            PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "trap")
         {
             Debug.Log("player collide with trap");
-            gm.pauseGame(changeScenePause);
-            StartCoroutine(waitForGmPause(PlayerDieFunc)); //call PlayerDie() after some time
+            PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "cloud"){
             Debug.Log("player collide with cloud, gravity scale changed to 1");
@@ -101,14 +98,20 @@ public class PlayerLifeControl : MonoBehaviour
             _playersRigidBody.gravityScale = playerNormalGravScale;
         }
     }
+    public static void PauseAndDie(){
+        Debug.Log("PlayerLifeControl: PauseAndDie() is called");
+        instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
+        instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
+        //fix error: Assets\Scripts\PlayerLifeControl.cs(103,9): error CS0120: An object reference is required for the non-static field, method, or property 'MonoBehaviour.StartCoroutine(IEnumerator)'
+        
+    }
 
     void CheckFallOutside()
     {
         if (gameObj.transform.position.y <= player_pos_lowBound || gameObj.transform.position.y >=player_pos_upBound )
         {
-            gm.pauseGame(changeScenePause);
-            StartCoroutine(waitForGmPause(PlayerDieFunc));
-            //PlayerDie();
+            
+            PauseAndDie();
         }
     }
 

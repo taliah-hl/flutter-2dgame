@@ -28,8 +28,7 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 - ch3.3 GUI retry及quit鍵沒有反應
 
 ### 欠!!!
-- 欠人跟著移動平台的function ->done
-- ch2.1, 2.3 待完善
+- ch2.1, 2.3 可更豐富
 - 死亡動畫,換場等
 
 - 掉下來: 2秒
@@ -55,14 +54,14 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 
 ### Player
 
-- player size: ~0.8-0.9, y: ~1-1.5
-- player jump force: 16 -> (考慮改為12???)
+- player size: x:0.89, y: 1.15
+- player jump force: 12 
 	- control at: player -> player movement script -> jumping force
-- player velocity: 10 -> (考慮改為6???)
+- player velocity: 6 
 	- control at: player -> player movement script -> movement speed
-- player ->rigidbody ->gravity scale-> 5 -> (考慮改為3????)
+- player ->rigidbody ->gravity scale-> 3 
 - 大概可跳起2.2 個grid
-- 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
+- 因player 本身有大小,這配搭剛好能跳上高度2個grid的東西
 - 橫向大概可跳6格
 - player die if position out of range: y<=-12 or y>=14
 

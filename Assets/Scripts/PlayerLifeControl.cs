@@ -108,7 +108,7 @@ public class PlayerLifeControl : MonoBehaviour
 
     void CheckFallOutside()
     {
-        if (gameObj.transform.position.y <= player_pos_lowBound || gameObj.transform.position.y >=player_pos_upBound )
+        if (gameObj.transform.position.y <= player_pos_lowBound-2 || gameObj.transform.position.y >=player_pos_upBound+2 )
         {
             
             PauseAndDie();

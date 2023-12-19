@@ -13,7 +13,6 @@ public class LoadChapterImage : MonoBehaviour
     }
     IEnumerator LoadImage()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
         ChptImg.SetActive(true);
         yield return new WaitForSecondsRealtime(5);
         ChptImg.SetActive(false);

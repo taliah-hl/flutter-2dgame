@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 
 
-public class GameManager : MonoBehaviour    // htis is GM for all levels!!
+public class GameManager : MonoBehaviour    // this is GM for all levels!!
 {
     
     [SerializeField] private string menuSceneName = "Menu";
@@ -102,5 +102,14 @@ public class GameManager : MonoBehaviour    // htis is GM for all levels!!
     public void ResetGamePaused()
     {
         gamePaused = false;
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
     }
 }

@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeControl : MonoBehaviour
 {
     public GameObject gameObj;
-    public GameObject ChptFinishedImg;
     private Rigidbody2D _playersRigidBody;
     [SerializeField] private float player_pos_upBound = 14;
     [SerializeField] private float player_pos_lowBound = -12;
@@ -19,28 +18,25 @@ public class PlayerLifeControl : MonoBehaviour
     private static PlayerLifeControl instance = null;
     private float playerNormalGravScale;
 
-    void Awake()
-    {
+    void Awake() {
         instance = this;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (gameObj == null)
-            gameObj = GameObject.FindWithTag("Player");
+        if(gameObj==null)
+            gameObj =  GameObject.FindWithTag("Player");
         _playersRigidBody = GetComponent<Rigidbody2D>();
         gm = FindObjectOfType<GameManager>();
-        if (gm == null)
-        {
+        if (gm == null) {
             Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
         }
-        else
-        {
+        else{
             Debug.Log("GameManager is found by playerLifeControl");
         }
         playerNormalGravScale = _playersRigidBody.gravityScale;
-
+             
 
     }
 
@@ -54,16 +50,10 @@ public class PlayerLifeControl : MonoBehaviour
         Debug.Log(other);
         if (other.tag == "end")
         {
-            if (SceneManager.GetActiveScene().name == "ch4-3")
-            {
-                StartCoroutine(LoadImage());
-            }
-            else
-            {
-                Debug.Log("go to next level");
-                gm.pauseGame(changeScenePause); // call pauseGame in GameManager
-                StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
-            }
+
+            Debug.Log("go to next level");
+            gm.pauseGame(changeScenePause); // call pauseGame in GameManager
+            StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
         }
         if (other.tag == "trap")
         {
@@ -77,20 +67,12 @@ public class PlayerLifeControl : MonoBehaviour
             PauseAndDie();
             //PlayerDie();
         }
-
-    }
-    IEnumerator LoadImage()
-    {
-        ChptFinishedImg.SetActive(true);
-        yield return new WaitForSecondsRealtime(5);
-        ChptFinishedImg.SetActive(false);
-        SceneManager.LoadScene("Menu");
+ 
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "lava")
-        {
+        if(other.gameObject.tag=="lava") {
             PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "trap")
@@ -98,42 +80,37 @@ public class PlayerLifeControl : MonoBehaviour
             Debug.Log("player collide with trap");
             PauseAndDie(); //call PlayerDie() after some time
         }
-        if (other.gameObject.tag == "cloud")
-        {
+        if (other.gameObject.tag == "cloud"){
             Debug.Log("player collide with cloud, gravity scale changed to 1");
-
+           
             _playersRigidBody.gravityScale = 1;
         }
-        if (other.gameObject.tag == "cloud05")
-        {
+        if (other.gameObject.tag == "cloud05"){
             Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
-
+       
             _playersRigidBody.gravityScale = 0.5f;
         }
-
+        
     }
-    void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05")
-        {
+    void OnCollisionExit2D(Collision2D other){
+        if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05"){
             Debug.Log("player exit cloud, gravity scale back to normal");
             _playersRigidBody.gravityScale = playerNormalGravScale;
         }
     }
-    public static void PauseAndDie()
-    {
+    public static void PauseAndDie(){
         Debug.Log("PlayerLifeControl: PauseAndDie() is called");
         instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
         //fix error: Assets\Scripts\PlayerLifeControl.cs(103,9): error CS0120: An object reference is required for the non-static field, method, or property 'MonoBehaviour.StartCoroutine(IEnumerator)'
-
+        
     }
 
     void CheckFallOutside()
     {
-        if (gameObj.transform.position.y <= player_pos_lowBound || gameObj.transform.position.y >= player_pos_upBound)
+        if (gameObj.transform.position.y <= player_pos_lowBound-2 || gameObj.transform.position.y >=player_pos_upBound+2 )
         {
-
+            
             PauseAndDie();
         }
     }
@@ -144,28 +121,25 @@ public class PlayerLifeControl : MonoBehaviour
         instance.gm.GameOver();
     }
 
-    private void PlayerGoNextLv()
-    {
+    private void PlayerGoNextLv(){
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //gameObj.GetComponent<GravityController>().ResetGravity();
     }
 
-    private void testDetect()
-    {
+    private void testDetect(){
         gm.pauseGame(5.0f);
     }
 
-    IEnumerator waitForGmPause(int funcToCall)
-    {     //delay function when timeScale==0
-        while (Time.timeScale != 1.0f)
+    IEnumerator waitForGmPause(int funcToCall){     //delay function when timeScale==0
+        while(Time.timeScale !=1.0f)
             yield return null;
         if (funcToCall == PlayerGoNextLvFunc)
             PlayerGoNextLv();
-        else if (funcToCall == PlayerDieFunc)
+        else if(funcToCall == PlayerDieFunc)
             PlayerDie();
         yield break;
-
+        
     }
 
 

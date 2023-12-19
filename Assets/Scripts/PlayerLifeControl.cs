@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeControl : MonoBehaviour
 {
     public GameObject gameObj;
+    public GameObject ChptFinishedImg;
     private Rigidbody2D _playersRigidBody;
     [SerializeField] private float player_pos_upBound = 14;
     [SerializeField] private float player_pos_lowBound = -12;
@@ -50,10 +51,16 @@ public class PlayerLifeControl : MonoBehaviour
         Debug.Log(other);
         if (other.tag == "end")
         {
-
-            Debug.Log("go to next level");
-            gm.pauseGame(changeScenePause); // call pauseGame in GameManager
-            StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
+           if (SceneManager.GetActiveScene().name == "ch4-3")
+            {
+                StartCoroutine(LoadImage());
+            }
+            else
+            {
+                Debug.Log("go to next level");
+                gm.pauseGame(changeScenePause); // call pauseGame in GameManager
+                StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
+            }
         }
         if (other.tag == "trap")
         {
@@ -68,6 +75,13 @@ public class PlayerLifeControl : MonoBehaviour
             //PlayerDie();
         }
  
+    }
+    IEnumerator LoadImage()
+    {
+        ChptFinishedImg.SetActive(true);
+        yield return new WaitForSecondsRealtime(5);
+        ChptFinishedImg.SetActive(false);
+        SceneManager.LoadScene("Menu");
     }
 
     void OnCollisionEnter2D(Collision2D other)

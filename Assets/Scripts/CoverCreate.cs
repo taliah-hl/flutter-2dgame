@@ -42,7 +42,7 @@ public class CoverCreate : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag=="poison" && !protect) {
-            PlayerLifeControl.PlayerDie();
+            PlayerLifeControl.PauseAndDie();
         }
         
     }

@@ -15,6 +15,6 @@ public class GravityDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GravityCntText.text = "toggle left: "+ GravityController.GravToggleLeft;
+        GravityCntText.text = "Toggle left: "+ GravityController.GravToggleLeft;
     }
 }

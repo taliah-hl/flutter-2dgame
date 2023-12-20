@@ -6,20 +6,18 @@ using UnityEngine.SceneManagement;
 
 
 
-public class GameManager : MonoBehaviour    // htis is GM for all levels!!
+public class GameManager : MonoBehaviour    // this is GM for all levels!!
 {
     
-    [SerializeField] private string menuSceneName = "Menu-for-test";
+    [SerializeField] private string menuSceneName = "Menu";
     [SerializeField] private string gameOverSceneName = "died";
     [SerializeField] private string firstLvSceneName = "Lv2Scene";
     public string victorySceneName = "";
-    private static bool gamePaused = false;
+    public static bool gamePaused = false;
     public static bool IsGamePaused
     {
         get { return gamePaused; }
     }
-    
-
     
     void Awake(){
         gamePaused = false;
@@ -94,5 +92,24 @@ public class GameManager : MonoBehaviour    // htis is GM for all levels!!
 
     public bool getIsGamePause(){
         return gamePaused;
+    }
+
+    public void SetGamePaused()
+    {
+        gamePaused = true;
+    }
+
+    public void ResetGamePaused()
+    {
+        gamePaused = false;
+    }
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
     }
 }

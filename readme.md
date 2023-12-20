@@ -28,8 +28,7 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 - ch3.3 GUI retry及quit鍵沒有反應
 
 ### 欠!!!
-- 欠人跟著移動平台的function ->done
-- ch2.1, 2.3 待完善
+- ch2.1, 2.3 可更豐富
 - 死亡動畫,換場等
 
 - 掉下來: 2秒
@@ -39,11 +38,30 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 2. menu scene (有各個level 的按鍵)
    - 12 個按鍵 (4章->每要3關)
 3. 大說明scene
-   - 基本操作,如何切重力
-4. 小故事scene (目前先忽略)
+   - 基本操作, 如何切重力, player踩到尖刺會死亡(因為每個章節都有因此擺在大說明，尖刺請放圖片)
+4. 小故事scene (目前先把已經有的圖對應關卡放上去，先不管文本)
 5. 章節說明*4
    - 有這章的機制
    - 有「開始遊戲」鍵
+   - **章節說明的部分請截遊戲內場景object圖做說明**
+   - chap1說明:
+   - 	gravity object:關卡內存在受gravity所影響的物體，會隨gravity方向往上掉或往下掉
+   - 	尖刺:碰觸會導致player死亡
+     
+   - chap2說明:
+   - 	cloud:受到gravity影響的物體
+   - 	platform1:會沿固定路線移動，只有上方可以踩
+   - 	platform2:會沿固定路線移動，兩面皆可以踩
+   - 	lava:由畫面上方流下，受gravity影響，player碰觸會死亡
+     
+   - chap3說明:
+   - 	傳送門:player碰觸後會傳送到門的另一端，在經過使用後會進入2秒冷卻期，冷卻結束才能再次傳送
+   - 	會虛實切換的東東:每次player跳躍會使其狀態虛實切換
+     
+   - chap4說明:
+   - 	紅色地板:player踩中會導致中毒死亡
+   - 	藍色小球:player碰觸到後可得一個持續10秒的保護罩，期間可以中毒的傷害
+   - 	空中平台:player碰觸後經過2秒會變成gravity object受重力影響，紅色平台同樣會導致player中毒死亡
 6. in-level GUI
    - static:
       - current level
@@ -55,14 +73,14 @@ all-lv-playable -> 各關已完整可玩,,美術不在這關改動
 
 ### Player
 
-- player size: ~0.8-0.9, y: ~1-1.5
-- player jump force: 16 -> (考慮改為12???)
+- player size: x:0.89, y: 1.15
+- player jump force: 12 
 	- control at: player -> player movement script -> jumping force
-- player velocity: 10 -> (考慮改為6???)
+- player velocity: 6 
 	- control at: player -> player movement script -> movement speed
-- player ->rigidbody ->gravity scale-> 5 -> (考慮改為3????)
+- player ->rigidbody ->gravity scale-> 3 
 - 大概可跳起2.2 個grid
-- 因player 本身有大小,這配搭剛好跳不過高度2 grid 的trap
+- 因player 本身有大小,這配搭剛好能跳上高度2個grid的東西
 - 橫向大概可跳6格
 - player die if position out of range: y<=-12 or y>=14
 

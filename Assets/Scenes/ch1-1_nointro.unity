@@ -2315,9 +2315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curScene:
     m_Handle: 0
-  Help: {fileID: 1544762722}
-  Retry: {fileID: 3479101199247256528}
-  Quit: {fileID: 3479101199517476750}
   gm: {fileID: 1449849435}
 --- !u!1 &1225525772
 GameObject:

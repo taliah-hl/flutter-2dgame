@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101374887103004083, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.876875
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4101374887103004083, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -96,24 +96,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4101374887103004092, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
   m_PrefabInstance: {fileID: 5431238149258659004}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4631576246774539727
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8337465732579703040}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb73e7456526ccf42bccb2864efd9b4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayersMovementSpeed: 6
-  PlayerJumpingForce: 12
-  BoxCast_y_offset: 0.5
-  JumpableGround:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!58 &974411721
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +158,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4631576246774539727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8337465732579703040}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb73e7456526ccf42bccb2864efd9b4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayersMovementSpeed: 6
+  PlayerJumpingForce: 12
+  BoxCast_y_offset: 0.5
+  JumpableGround:
+    serializedVersion: 2
+    m_Bits: 8

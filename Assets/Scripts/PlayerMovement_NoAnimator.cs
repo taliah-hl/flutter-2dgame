@@ -42,7 +42,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     private void Start()
     {
         _playersRigidBody = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
@@ -74,41 +74,67 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
             if (Input.GetButtonDown("Jump")){
                 Debug.Log("Jump pressed");
                 if (IsGrounded()){
+                    Debug.Log("is grounded is True");
+                    // animator.SetBool("idle", false);
+                    animator.SetBool("jump", true);
+                    Debug.Log("jumping");
                     _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
                 }
             }
         }
         
-        
-        //AnimationUpdate();
+        AnimationUpdate();
         
 
     }
 
     void AnimationUpdate()
     {
-        if (dir_x > 0)
-        {
-            animator.SetBool("running", true);
-            sprite.flipX = false;
+        if(IsGrounded()==false) {
+            animator.SetBool("jump", true);
+            animator.SetBool("idle", true);
+            // animator.SetBool("running", false);
         }
-        else if (dir_x < 0)
-        {
-            animator.SetBool("running", true);
-            sprite.flipX = true;
+        else {
+            animator.SetBool("jump", false);
+            if (dir_x > 0)
+            {
+                
+                animator.SetBool("idle", false);
+                animator.SetBool("running", true);
+                sprite.flipX = false;
+            }
+            else if (dir_x < 0)
+            {
+                // animator.SetBool("jump", false);
+                animator.SetBool("idle", false);
+                animator.SetBool("running", true);
+
+                sprite.flipX = true;
+            }
+            else 
+            {
+                // animator.SetBool("jump", false);
+                animator.SetBool("running", false);
+                animator.SetBool("idle", true);
+            }
         }
-        else
-        {
-            animator.SetBool("running", false);
-        }
+        
     }
 
     private bool IsGrounded()
     {
         bool isgounrd;
-        isgounrd = Physics2D.BoxCast(player_collider.bounds.center, player_collider.bounds.size * 1.05f, 0f, Vector2.down, 0f, JumpableGround);
+
+        //get children of player, name of child is GroundDetector
+        GameObject gd = transform.Find("GroundDetector").gameObject;
+        //create a coller and get the collider of the gd
+        BoxCollider2D gd_collider = gd.GetComponent<BoxCollider2D>();
+        
+        //isgounrd = Physics2D.BoxCast(player_collider.bounds.center, player_collider.bounds.size * 1.05f, 0f, Vector2.down, 0f, JumpableGround);
+        // change above line to use box collider of ground detector
+        isgounrd = Physics2D.BoxCast(gd_collider.bounds.center, gd_collider.bounds.size * 1.05f, 0f, Vector2.down, 0f, JumpableGround);
         //create a box (center, size, rotation)
-        Debug.Log("is ground is:" + isgounrd);
         return isgounrd;
     }
     void testingfn(){

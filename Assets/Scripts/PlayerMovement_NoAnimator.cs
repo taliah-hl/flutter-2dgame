@@ -15,7 +15,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     //private float _playersMovementDirection = 0.0f; //this will give the direction of the players movement.   
 
     private Rigidbody2D _playersRigidBody; //reference of the players rigid body.
-    //private Animator animator;
+    private Animator animator;
 
     private Vector2 _moveInput;
     private float dir_x = 0f;
@@ -85,23 +85,23 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 
     }
 
-    // void AnimationUpdate()
-    // {
-    //     if (dir_x > 0)
-    //     {
-    //         animator.SetBool("isRunning", true);
-    //         sprite.flipX = false;
-    //     }
-    //     else if (dir_x < 0)
-    //     {
-    //         animator.SetBool("isRunning", true);
-    //         sprite.flipX = true;
-    //     }
-    //     else
-    //     {
-    //         animator.SetBool("isRunning", false);
-    //     }
-    // }
+    void AnimationUpdate()
+    {
+        if (dir_x > 0)
+        {
+            animator.SetBool("running", true);
+            sprite.flipX = false;
+        }
+        else if (dir_x < 0)
+        {
+            animator.SetBool("running", true);
+            sprite.flipX = true;
+        }
+        else
+        {
+            animator.SetBool("running", false);
+        }
+    }
 
     private bool IsGrounded()
     {

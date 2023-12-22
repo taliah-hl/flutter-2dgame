@@ -528,6 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curScene:
     m_Handle: 0
+  Help: {fileID: 0}
+  Retry: {fileID: 0}
+  Quit: {fileID: 0}
   gm: {fileID: 0}
 --- !u!114 &236751640
 MonoBehaviour:

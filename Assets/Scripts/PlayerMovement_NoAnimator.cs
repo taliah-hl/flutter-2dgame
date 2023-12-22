@@ -89,22 +89,23 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 
     void AnimationUpdate()
     {
-        if(IsGrounded()) {
-            // animator.SetBool("jump", false);
-            animator.SetBool("idle", false);
-            animator.SetBool("running", false);
+        if(IsGrounded()==false) {
+            animator.SetBool("jump", true);
+            animator.SetBool("idle", true);
+            // animator.SetBool("running", false);
         }
-        if(IsGrounded()) {
+        else {
+            animator.SetBool("jump", false);
             if (dir_x > 0)
             {
-                animator.SetBool("jump", false);
+                
                 animator.SetBool("idle", false);
                 animator.SetBool("running", true);
                 sprite.flipX = false;
             }
             else if (dir_x < 0)
             {
-                animator.SetBool("jump", false);
+                // animator.SetBool("jump", false);
                 animator.SetBool("idle", false);
                 animator.SetBool("running", true);
 
@@ -112,7 +113,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
             }
             else 
             {
-                animator.SetBool("jump", false);
+                // animator.SetBool("jump", false);
                 animator.SetBool("running", false);
                 animator.SetBool("idle", true);
             }

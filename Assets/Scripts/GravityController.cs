@@ -9,7 +9,7 @@ public class GravityController : MonoBehaviour
     private bool gravityToggled = false;
     private Vector2 newGravity;
     private GameManager gm;
-
+    private Animator animator;
     public static float curGravityDir = 1.0f; // 1.0 or -1.0;
     public static float gravityStrength = 1.0f;   //to control strgnth of gravity
     private int curToggleCnt = 0;
@@ -30,11 +30,13 @@ public class GravityController : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        animator = GetComponent<Animator>();
         if (gm == null) {
             Debug.LogWarning("GameManager not got by GravityController!");
         }
         maxGravToggle = SceneSpec.MaxGravToggle;
         gravToggleLeft = maxGravToggle - curToggleCnt;
+        animator.SetBool("gravity", true);
 
     }
 
@@ -45,7 +47,16 @@ public class GravityController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) && !gm.getIsGamePause()  ){
             if((curToggleCnt < maxGravToggle)){
                 Debug.Log("max toggle cnt: " + maxGravToggle+ "cur toggle cnt: " + curToggleCnt);
-
+                if(gravityToggled) {
+                    gravityToggled = false;
+                    animator.SetBool("gravity", true);
+                    Debug.Log("Gravity back!");
+                }
+                else if(!gravityToggled) {
+                    gravityToggled = true;
+                    animator.SetBool("gravity", false);
+                    Debug.Log("Gravity disabled !");
+                }
                 //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
                 Physics2D.gravity = Physics2D.gravity  *-1.0f *gravityStrength;
                 curGravityDir *= -1.0f;

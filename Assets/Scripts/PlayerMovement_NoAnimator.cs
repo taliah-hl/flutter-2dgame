@@ -42,7 +42,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     private void Start()
     {
         _playersRigidBody = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
@@ -74,33 +74,50 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
             if (Input.GetButtonDown("Jump")){
                 Debug.Log("Jump pressed");
                 if (IsGrounded()){
+                    // animator.SetBool("idle", false);
+                    animator.SetBool("jump", true);
+                    Debug.Log("jumping");
                     _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
                 }
             }
         }
         
-        
-        //AnimationUpdate();
+        AnimationUpdate();
         
 
     }
 
     void AnimationUpdate()
     {
-        if (dir_x > 0)
-        {
-            animator.SetBool("running", true);
-            sprite.flipX = false;
-        }
-        else if (dir_x < 0)
-        {
-            animator.SetBool("running", true);
-            sprite.flipX = true;
-        }
-        else
-        {
+        if(IsGrounded()) {
+            // animator.SetBool("jump", false);
+            animator.SetBool("idle", false);
             animator.SetBool("running", false);
         }
+        if(IsGrounded()) {
+            if (dir_x > 0)
+            {
+                animator.SetBool("jump", false);
+                animator.SetBool("idle", false);
+                animator.SetBool("running", true);
+                sprite.flipX = false;
+            }
+            else if (dir_x < 0)
+            {
+                animator.SetBool("jump", false);
+                animator.SetBool("idle", false);
+                animator.SetBool("running", true);
+
+                sprite.flipX = true;
+            }
+            else 
+            {
+                animator.SetBool("jump", false);
+                animator.SetBool("running", false);
+                animator.SetBool("idle", true);
+            }
+        }
+        
     }
 
     private bool IsGrounded()

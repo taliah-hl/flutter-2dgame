@@ -15,8 +15,9 @@
     - [Unity Scriptable Object](#unity-scriptable-object)
     - [Pausing game in Unity](#pausing-game-in-unity)
 
-## Branch
+## Stable Branches (不在這些做branch 做大改動)
 
+- after_add_amiation -> lv 1,2 改善 + player animation 已merge
 - all-lv-playable -> 各關已完整可玩,不再加大改動,美術不在這關改動
 
 ## To Do

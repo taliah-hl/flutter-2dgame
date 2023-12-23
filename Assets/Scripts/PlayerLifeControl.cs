@@ -50,6 +50,9 @@ public class PlayerLifeControl : MonoBehaviour
     void Update()
     {
         CheckFallOutside();
+        if(instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_down") || instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_up")) {
+            instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -173,9 +176,6 @@ public class PlayerLifeControl : MonoBehaviour
         instance.animator.SetBool("running", false);
         instance.animator.SetBool("idle", false);
         instance.animator.SetBool("jump", false);
-        // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) {
-            instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
-        // }
     }
 
     public static bool CheckPlayerDie() {

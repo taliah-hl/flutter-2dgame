@@ -23,6 +23,8 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     private BoxCollider2D player_collider;
     private GravityController gravityController;
     private GameManager gm;
+    private float jump_duration = 0.0f;
+    private bool jumping = false;
 
 
 
@@ -46,7 +48,8 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
-
+        jump_duration = 0.0f;
+        jumping = false;
         gm = FindObjectOfType<GameManager>();
         if (gm == null) 
             Debug.Log("GM not found.");
@@ -67,14 +70,23 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     void Update()
     {
         bool gamePaused = GameManager.IsGamePaused;
+        if(jumping && jump_duration < 1.5f) {
+            jump_duration += Time.deltaTime;
+        }
+        if(jump_duration >= 1.5f) {
+            jump_duration = 0.0f;
+            jumping  = false;
+        }
         if( !gamePaused){
             dir_x = Input.GetAxisRaw("Horizontal");
             _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
 
             if (Input.GetButtonDown("Jump")){
+                
                 Debug.Log("Jump pressed");
                 if (IsGrounded()){
-                    Debug.Log("is grounded is True");
+
+                    jumping = true;
                     // animator.SetBool("idle", false);
                     animator.SetBool("jump", true);
                     Debug.Log("jumping");
@@ -90,36 +102,37 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 
     void AnimationUpdate()
     {
-        if(IsGrounded()==false) {
-            animator.SetBool("jump", true);
-            animator.SetBool("idle", true);
-            // animator.SetBool("running", false);
-        }
-        else {
-            animator.SetBool("jump", false);
-            if (dir_x > 0)
-            {
-                
-                animator.SetBool("idle", false);
-                animator.SetBool("running", true);
-                sprite.flipX = false;
+        if(!PlayerLifeControl.CheckPlayerDie()) {
+            if(IsGrounded()==false && jumping ) {
+                animator.SetBool("jump", true);
+                // animator.SetBool("idle", true);
+                // animator.SetBool("running", false);
             }
-            else if (dir_x < 0)
-            {
-                // animator.SetBool("jump", false);
-                animator.SetBool("idle", false);
-                animator.SetBool("running", true);
+            else {
+                animator.SetBool("jump", false);
+                if (dir_x > 0)
+                {
+                    
+                    animator.SetBool("idle", false);
+                    animator.SetBool("running", true);
+                    sprite.flipX = false;
+                }
+                else if (dir_x < 0)
+                {
+                    // animator.SetBool("jump", false);
+                    animator.SetBool("idle", false);
+                    animator.SetBool("running", true);
 
-                sprite.flipX = true;
-            }
-            else 
-            {
-                // animator.SetBool("jump", false);
-                animator.SetBool("running", false);
-                animator.SetBool("idle", true);
+                    sprite.flipX = true;
+                }
+                else 
+                {
+                    // animator.SetBool("jump", false);
+                    animator.SetBool("running", false);
+                    animator.SetBool("idle", true);
+                }
             }
         }
-        
     }
 
     private bool IsGrounded()

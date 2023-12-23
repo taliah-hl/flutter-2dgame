@@ -64,7 +64,9 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.tag == "trap")
         {
-            Debug.Log("player triggerEnter with trap");
+            Debug.Log("player triggerEnter with trap: "+other.gameObject.name);
+            // print name of the object
+
             PauseAndDie();
             //PlayerDie();
         }
@@ -91,27 +93,30 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.gameObject.tag == "trap")
         {
-            Debug.Log("player collide with trap");
+            Debug.Log("player collide with trap: "+other.gameObject.name);
             PauseAndDie(); //call PlayerDie() after some time
         }
-        if (other.gameObject.tag == "cloud"){
-            Debug.Log("player collide with cloud, gravity scale changed to 1");
+
+        //these are not useful now
+        // change to detect in ClooudDetec of GroundDector under player
+        // if (other.gameObject.tag == "cloud"){
+        //     Debug.Log("player collide with cloud, gravity scale changed to 1");
            
-            _playersRigidBody.gravityScale = 1;
-        }
-        if (other.gameObject.tag == "cloud05"){
-            Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
+        //     _playersRigidBody.gravityScale = 1;
+        // }
+        // if (other.gameObject.tag == "cloud05"){
+        //     Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
        
-            _playersRigidBody.gravityScale = 0.5f;
-        }
+        //     _playersRigidBody.gravityScale = 0.5f;
+        // }
         
     }
-    void OnCollisionExit2D(Collision2D other){
-        if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05"){
-            Debug.Log("player exit cloud, gravity scale back to normal");
-            _playersRigidBody.gravityScale = playerNormalGravScale;
-        }
-    }
+    // void OnCollisionExit2D(Collision2D other){
+    //     if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05"){
+    //         Debug.Log("player exit cloud, gravity scale back to normal");
+    //         _playersRigidBody.gravityScale = playerNormalGravScale;
+    //     }
+    // }
     public static void PauseAndDie(){
         Debug.Log("PlayerLifeControl: PauseAndDie() is called");
         instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager

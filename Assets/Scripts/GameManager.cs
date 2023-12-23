@@ -58,7 +58,9 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
         switch (curScene.name)
         {
             case "ch2-1": case "ch3-1": case "ch4-1":
-                string tmp = curScene.name + "_nointro";
+                //string tmp = curScene.name + "_nointro"; //comment for now as scene is changed
+                string tmp = curScene.name;
+                Debug.Log("GameManager::going to call:"+tmp);
                 SceneManager.LoadScene(tmp);
                 break;
             default:
@@ -71,18 +73,9 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
         SceneManager.LoadScene(menuSceneName);
     }
     public void GameOver(){     //control what happen when player die
-        Debug.Log("GameManager::GameOver is called");
-        Scene curScene = SceneManager.GetActiveScene(); 
-        switch (curScene.name)
-        {
-            case "ch2-1": case "ch3-1": case "ch4-1":
-                string tmp = curScene.name + "_nointro";
-                SceneManager.LoadScene(tmp);
-                break;
-            default:
-                SceneManager.LoadScene(curScene.name);
-                break;
-        }
+        Debug.Log("GameManager::GameOver is called, GameOver will call ReloadCurScene");
+        ReloadCurScene();
+        
     }
     public void LoadGameOverScene(){     // not in use for now
         Debug.Log("GameManager::GameOver is called");

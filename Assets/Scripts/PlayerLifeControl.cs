@@ -27,6 +27,7 @@ public class PlayerLifeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         if(gameObj==null)
             gameObj =  GameObject.FindWithTag("Player");
         _playersRigidBody = GetComponent<Rigidbody2D>();
@@ -39,6 +40,7 @@ public class PlayerLifeControl : MonoBehaviour
         }
         playerNormalGravScale = _playersRigidBody.gravityScale;
         animator = GetComponent<Animator>();
+        animator.SetBool("die", false);
              
 
     }
@@ -165,9 +167,10 @@ public class PlayerLifeControl : MonoBehaviour
         instance.animator.SetBool("idle", false);
         instance.animator.SetBool("jump", false);
         Debug.Log("PlayerLifeControl: PauseAndDie() is called");
-        
-        instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
+        // yield WaitForSeconds(1.2f);
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
+        instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
+        
         // instance.StartCoroutine(instance.waitForGmPause(instance.animator.GetCurrentAnimatorStateInfo(0).length));
         
         //fix error: Assets\Scripts\PlayerLifeControl.cs(103,9): error CS0120: An object reference is required for the non-static field, method, or property 'MonoBehaviour.StartCoroutine(IEnumerator)'
@@ -219,9 +222,9 @@ public class PlayerLifeControl : MonoBehaviour
             PlayerGoNextLv();
         }
         else if(funcToCall == PlayerDieFunc) {
-             instance.animator.SetBool("running", false);
-            instance.animator.SetBool("idle", false);
-            instance.animator.SetBool("jump", false);
+            // instance.animator.SetBool("running", false);
+            // instance.animator.SetBool("idle", false);
+            // instance.animator.SetBool("jump", false);
             yield return new WaitForSeconds(1.2f);
             // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // {

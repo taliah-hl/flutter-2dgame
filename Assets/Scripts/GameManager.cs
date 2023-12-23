@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
     }
 
     IEnumerator waitForGamePause(float duration){
+        yield return new WaitForSecondsRealtime(1.5f);
         gamePaused = true;
         yield return new WaitForSecondsRealtime(duration); // since timeScale set to 0, waitForSeconds will not count
         //but waitForSecondsRealtime is still counting

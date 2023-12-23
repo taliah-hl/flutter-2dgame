@@ -532,7 +532,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,6 +540,48 @@ TextureImporter:
       bones: []
       spriteID: 3fc79202f00212b45a89f8c89893c4d7
       internalID: -772015184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelManPlatforms-custom2_21
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 5
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9a1df57ae76e8849a36516dad9d2b1c
+      internalID: -230838558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PixelManPlatforms-custom2_22
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 5
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b13302734583043bd785b58120640d
+      internalID: -1166617801
       vertices: []
       indices: 
       edges: []
@@ -555,6 +597,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      PixelManPlatforms-custom2_22: -1166617801
       PixelManPlatforms-custom2_0: 1184064739
       PixelManPlatforms-custom2_12: -1229358844
       PixelManPlatforms-custom2_19: 1663558260
@@ -576,6 +619,7 @@ TextureImporter:
       PixelManPlatforms-custom2_3: 941266481
       PixelManPlatforms-custom2_18: 1560376209
       PixelManPlatforms-custom2_14: 1438633241
+      PixelManPlatforms-custom2_21: -230838558
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -8,9 +8,10 @@ public class PlayerLifeControl : MonoBehaviour
     public GameObject gameObj;
     public GameObject ChptFinishedImg;
     private Rigidbody2D _playersRigidBody;
+    private Animator animator;
     [SerializeField] private float player_pos_upBound = 14;
     [SerializeField] private float player_pos_lowBound = -12;
-    [SerializeField] private float changeScenePause = 1.5f;        // pause time before change scene or die
+    [SerializeField] private float changeScenePause = 0.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
     private GameManager gm;
@@ -37,6 +38,7 @@ public class PlayerLifeControl : MonoBehaviour
             Debug.Log("GameManager is found by playerLifeControl");
         }
         playerNormalGravScale = _playersRigidBody.gravityScale;
+        animator = GetComponent<Animator>();
              
 
     }
@@ -64,13 +66,35 @@ public class PlayerLifeControl : MonoBehaviour
         }
         if (other.tag == "trap")
         {
-            Debug.Log("player triggerEnter with trap");
+            // animator.SetBool("die", true);
+            // animator.SetBool("running", false);
+            // animator.SetBool("idle", false);
+            // animator.SetBool("jumps", false);
+            // Debug.Log("player triggerEnter with trap");
+            // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // {
+
+            //     Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                
+            //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
             PauseAndDie();
             //PlayerDie();
         }
         if (other.tag == "switchBlockInternal")
         {
             Debug.Log("player triggerEnter with switchBlockInternal");
+            // animator.SetBool("die", true);
+            // animator.SetBool("running", false);
+            // animator.SetBool("idle", false);
+            // animator.SetBool("jumps", false);
+            // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // {
+                
+                // Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                
+                // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
             PauseAndDie();
             //PlayerDie();
         }
@@ -87,11 +111,34 @@ public class PlayerLifeControl : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other)
     {
         if(other.gameObject.tag=="lava") {
+            // animator.SetBool("die", true);
+            // animator.SetBool("running", false);
+            // animator.SetBool("idle", false);
+            // animator.SetBool("jumps", false);
+            // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // {
+                
+            //     Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                
+            //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
             PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "trap")
         {
-            Debug.Log("player collide with trap");
+            // animator.SetBool("die", true);
+            // animator.SetBool("running", false);
+            // animator.SetBool("idle", false);
+            // animator.SetBool("jumps", false);
+            // Debug.Log("player collide with trap");
+            
+            // // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // // {
+                
+            // Invoke("PauseAndDie", 1);
+                
+                // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
             PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "cloud"){
@@ -113,9 +160,16 @@ public class PlayerLifeControl : MonoBehaviour
         }
     }
     public static void PauseAndDie(){
+        instance.animator.SetBool("die", true);
+        instance.animator.SetBool("running", false);
+        instance.animator.SetBool("idle", false);
+        instance.animator.SetBool("jump", false);
         Debug.Log("PlayerLifeControl: PauseAndDie() is called");
+        
         instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
+        // instance.StartCoroutine(instance.waitForGmPause(instance.animator.GetCurrentAnimatorStateInfo(0).length));
+        
         //fix error: Assets\Scripts\PlayerLifeControl.cs(103,9): error CS0120: An object reference is required for the non-static field, method, or property 'MonoBehaviour.StartCoroutine(IEnumerator)'
         
     }
@@ -125,14 +179,16 @@ public class PlayerLifeControl : MonoBehaviour
         if (gameObj.transform.position.y <= player_pos_lowBound-2 || gameObj.transform.position.y >=player_pos_upBound+2 )
         {
             
-            PauseAndDie();
+            // PauseAndDie();
+            Invoke("PlayerDie", 1.0f);
         }
     }
 
-    public static void PlayerDie()
+    public void PlayerDie()
     {
+        Debug.Log("PlayerLifeControl: PlayerDie() is called");
         Destroy(instance.gameObj);
-        instance.gm.GameOver();
+        gm.GameOver();
     }
 
     private void PlayerGoNextLv(){
@@ -145,13 +201,35 @@ public class PlayerLifeControl : MonoBehaviour
         gm.pauseGame(5.0f);
     }
 
+    // IEnumerator waitForGmPause(int funcToCall){     //delay function when timeScale==0
+    //     while(Time.timeScale !=1.0f)
+    //         yield return null;
+    //     if (funcToCall == PlayerGoNextLvFunc)
+    //         PlayerGoNextLv();
+    //     else if(funcToCall == PlayerDieFunc)
+    //         PlayerDie();
+    //     yield break;
+        
+    // }
     IEnumerator waitForGmPause(int funcToCall){     //delay function when timeScale==0
-        while(Time.timeScale !=1.0f)
+        while(Time.timeScale != 1.0f)
             yield return null;
-        if (funcToCall == PlayerGoNextLvFunc)
+        if (funcToCall == PlayerGoNextLvFunc) {
+            // yield return new WaitForSeconds(1);
             PlayerGoNextLv();
-        else if(funcToCall == PlayerDieFunc)
+        }
+        else if(funcToCall == PlayerDieFunc) {
+             instance.animator.SetBool("running", false);
+            instance.animator.SetBool("idle", false);
+            instance.animator.SetBool("jump", false);
+            yield return new WaitForSeconds(1.2f);
+            // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // {
+                // Invoke("PlayerDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
+            Debug.Log("call PauseAndDie()");
             PlayerDie();
+        }
         yield break;
         
     }

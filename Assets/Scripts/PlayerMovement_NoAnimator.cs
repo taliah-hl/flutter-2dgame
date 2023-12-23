@@ -23,6 +23,8 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     private BoxCollider2D player_collider;
     private GravityController gravityController;
     private GameManager gm;
+    private float jump_duration = 0.0f;
+    private bool jumping = false;
 
 
 
@@ -46,7 +48,8 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
-
+        jump_duration = 0.0f;
+        jumping = false;
         gm = FindObjectOfType<GameManager>();
         if (gm == null) 
             Debug.Log("GM not found.");
@@ -67,13 +70,22 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     void Update()
     {
         bool gamePaused = GameManager.IsGamePaused;
+        if(jumping && jump_duration < 1.5f) {
+            jump_duration += Time.deltaTime;
+        }
+        if(jump_duration >= 1.5f) {
+            jump_duration = 0.0f;
+            jumping  = false;
+        }
         if( !gamePaused){
             dir_x = Input.GetAxisRaw("Horizontal");
             _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
 
             if (Input.GetButtonDown("Jump")){
+                
                 Debug.Log("Jump pressed");
                 if (IsGrounded()){
+                    jumping = true;
                     // animator.SetBool("idle", false);
                     animator.SetBool("jump", true);
                     Debug.Log("jumping");
@@ -89,9 +101,9 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 
     void AnimationUpdate()
     {
-        if(IsGrounded()==false) {
+        if(IsGrounded()==false && jumping) {
             animator.SetBool("jump", true);
-            animator.SetBool("idle", true);
+            // animator.SetBool("idle", true);
             // animator.SetBool("running", false);
         }
         else {

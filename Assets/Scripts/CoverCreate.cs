@@ -44,15 +44,11 @@ public class CoverCreate : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag=="poison" && !protect) {
-            animator.SetBool("die", true);
-            animator.SetBool("running", false);
-            animator.SetBool("idle", false);
-            animator.SetBool("jump", false);
-            Invoke("call_pause", 1.0f);
+            PlayerLifeControl.player_die_ani();
         }
         
     }
-    void call_pause() {
-        PlayerLifeControl.PauseAndDie();
-    }
+    // void call_pause() {
+    //     PlayerLifeControl.PauseAndDie();
+    // }
 }

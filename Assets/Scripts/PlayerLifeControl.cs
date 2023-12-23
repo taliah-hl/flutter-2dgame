@@ -19,6 +19,7 @@ public class PlayerLifeControl : MonoBehaviour
     private const int PlayerGoNextLvFunc = 2;
     private static PlayerLifeControl instance = null;
     private float playerNormalGravScale;
+    private bool player_die = false;
 
     void Awake() {
         instance = this;
@@ -41,7 +42,7 @@ public class PlayerLifeControl : MonoBehaviour
         playerNormalGravScale = _playersRigidBody.gravityScale;
         animator = GetComponent<Animator>();
         animator.SetBool("die", false);
-             
+        player_die = false;
 
     }
 
@@ -166,12 +167,19 @@ public class PlayerLifeControl : MonoBehaviour
         }
     }
 
-    void player_die_ani() {
-        animator.SetBool("die", true);
-        animator.SetBool("running", false);
-        animator.SetBool("idle", false);
-        animator.SetBool("jump", false);
-        Invoke("call_pause", 1.0f);
+    public static void player_die_ani() {
+        instance.player_die = true;
+        instance.animator.SetBool("die", true);
+        instance.animator.SetBool("running", false);
+        instance.animator.SetBool("idle", false);
+        instance.animator.SetBool("jump", false);
+        // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) {
+            instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
+        // }
+    }
+
+    public static bool CheckPlayerDie() {
+        return instance.player_die;
     }
 
     void call_pause() {

@@ -80,8 +80,9 @@ public class PlayerLifeControl : MonoBehaviour
                 
             //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
-            PauseAndDie();
+            // PauseAndDie();
             //PlayerDie();
+            player_die_ani();
         }
         if (other.tag == "switchBlockInternal")
         {
@@ -97,8 +98,9 @@ public class PlayerLifeControl : MonoBehaviour
                 
                 // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
-            PauseAndDie();
+            // PauseAndDie();
             //PlayerDie();
+            player_die_ani();
         }
  
     }
@@ -124,7 +126,8 @@ public class PlayerLifeControl : MonoBehaviour
                 
             //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
-            PauseAndDie(); //call PlayerDie() after some time
+            // PauseAndDie(); //call PlayerDie() after some time
+            player_die_ani();
         }
         if (other.gameObject.tag == "trap")
         {
@@ -141,7 +144,8 @@ public class PlayerLifeControl : MonoBehaviour
                 
                 // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
-            PauseAndDie(); //call PlayerDie() after some time
+            player_die_ani();
+            // PauseAndDie(); //call PlayerDie() after some time
         }
         if (other.gameObject.tag == "cloud"){
             Debug.Log("player collide with cloud, gravity scale changed to 1");
@@ -161,15 +165,28 @@ public class PlayerLifeControl : MonoBehaviour
             _playersRigidBody.gravityScale = playerNormalGravScale;
         }
     }
+
+    void player_die_ani() {
+        animator.SetBool("die", true);
+        animator.SetBool("running", false);
+        animator.SetBool("idle", false);
+        animator.SetBool("jump", false);
+        Invoke("call_pause", 1.0f);
+    }
+
+    void call_pause() {
+        PauseAndDie();
+    }
     public static void PauseAndDie(){
-        instance.animator.SetBool("die", true);
-        instance.animator.SetBool("running", false);
-        instance.animator.SetBool("idle", false);
-        instance.animator.SetBool("jump", false);
+        // instance.animator.SetBool("die", true);
+        // instance.animator.SetBool("running", false);
+        // instance.animator.SetBool("idle", false);
+        // instance.animator.SetBool("jump", false);
         Debug.Log("PlayerLifeControl: PauseAndDie() is called");
         // yield WaitForSeconds(1.2f);
+        instance.gm.pauseGame(instance.changeScenePause);  // call pauseGame in GameManager
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
-        instance.gm.pauseGame(instance.changeScenePause); // call pauseGame in GameManager
+        
         
         // instance.StartCoroutine(instance.waitForGmPause(instance.animator.GetCurrentAnimatorStateInfo(0).length));
         
@@ -183,7 +200,8 @@ public class PlayerLifeControl : MonoBehaviour
         {
             
             // PauseAndDie();
-            Invoke("PlayerDie", 1.0f);
+            // Invoke("PlayerDie", 1.0f);
+            call_pause();
         }
     }
 
@@ -225,7 +243,7 @@ public class PlayerLifeControl : MonoBehaviour
             // instance.animator.SetBool("running", false);
             // instance.animator.SetBool("idle", false);
             // instance.animator.SetBool("jump", false);
-            yield return new WaitForSeconds(1.2f);
+            // yield return new WaitForSeconds(1.2f);
             // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // {
                 // Invoke("PlayerDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);

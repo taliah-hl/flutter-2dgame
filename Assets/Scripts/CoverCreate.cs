@@ -44,18 +44,18 @@ public class CoverCreate : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag=="poison" && !protect) {
-            animator.SetBool("die", true);
-            animator.SetBool("running", false);
-            animator.SetBool("idle", false);
-            animator.SetBool("jumps", false);
-            if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
-            {
+            // animator.SetBool("die", true);
+            // animator.SetBool("running", false);
+            // animator.SetBool("idle", false);
+            // animator.SetBool("jumps", false);
+            // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
+            // {
                 
-                Invoke("PlayerLifeControl.PauseAndDie()", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            //     Invoke("PlayerLifeControl.PauseAndDie()", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
                 
-                // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-            }
-            // PlayerLifeControl.PauseAndDie();
+            //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // }
+            PlayerLifeControl.PauseAndDie();
         }
         
     }

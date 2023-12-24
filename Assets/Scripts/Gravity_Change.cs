@@ -33,8 +33,8 @@ public class Gravity_Change : MonoBehaviour
     }
 
     public void Down(){
-        midBg.color = new Color32( 69, 45, 102, 200 ); //purple
-        outerBg.color = new Color32( 207, 197, 237, 200 );   //pale purple
+        midBg.color = new Color32( 69, 45, 102, 255 ); //purple
+        outerBg.color = new Color32( 207, 197, 237, 255 );   //pale purple
         downArrow.enabled = true;
         upArrow.enabled = false;
 
@@ -43,8 +43,8 @@ public class Gravity_Change : MonoBehaviour
     }
 
     public void UP(){
-        midBg.color = new Color32( 187, 92, 34, 200 );
-        outerBg.color = new Color32( 238, 153, 102, 200 );
+        midBg.color = new Color32( 187, 92, 34, 255 );
+        outerBg.color = new Color32( 238, 153, 102, 255 );
         downArrow.enabled = false;
         upArrow.enabled = true;
         gravitydown = false;

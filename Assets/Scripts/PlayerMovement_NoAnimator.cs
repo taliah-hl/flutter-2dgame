@@ -5,31 +5,31 @@ using UnityEngine;
 public class PlayerMovement_NoAnimator : MonoBehaviour
 {
    // Start is called before the first frame update
-    [SerializeField] private float PlayersMovementSpeed = 10.0f;
-    [SerializeField] private float PlayerJumpingForce = 16.0f;
-    [SerializeField] private float BoxCast_y_offset = .5f;
-    [SerializeField] private LayerMask JumpableGround;
+    [SerializeField] protected float PlayersMovementSpeed = 10.0f;
+    [SerializeField] protected float PlayerJumpingForce = 16.0f;
+    [SerializeField] protected float BoxCast_y_offset = .5f;
+    [SerializeField] protected LayerMask JumpableGround;
 
 
 
     //private float _playersMovementDirection = 0.0f; //this will give the direction of the players movement.   
 
-    private Rigidbody2D _playersRigidBody; //reference of the players rigid body.
-    private Animator animator;
+    protected Rigidbody2D _playersRigidBody; //reference of the players rigid body.
+    protected Animator animator;
 
-    private Vector2 _moveInput;
-    private float dir_x = 0f;
-    private SpriteRenderer sprite;
-    private BoxCollider2D player_collider;
-    private GravityController gravityController;
-    private GameManager gm;
-    private float jump_duration = 0.0f;
-    private bool jumping = false;
-
-
+    protected Vector2 _moveInput;
+    protected float dir_x = 0f;
+    protected SpriteRenderer sprite;
+    
+    protected GravityController gravityController;
+    protected GameManager gm;
+    protected float jump_duration = 0.0f;
+    protected bool jumping = false;
 
 
-    void Awake()
+
+
+    protected virtual void Awake()
     {
 
 
@@ -41,33 +41,32 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     // private void OnDisable(){
     //     _playerActions.Player.Disable();//Player is name of map
     // }
-    private void Start()
+    protected virtual void Start()
     {
         _playersRigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        player_collider = GetComponent<BoxCollider2D>();
         gravityController = GetComponent<GravityController>();
         jump_duration = 0.0f;
         jumping = false;
         gm = FindObjectOfType<GameManager>();
         if (gm == null) 
-            Debug.Log("GM not found.");
-        else Debug.Log("GM is found by playerMovement_noAnimator.");
+            Debug.Log("GM not found by PlayerMovement");
+        
 
 
     }
 
 
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
     }
 
 
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         bool gamePaused = GameManager.IsGamePaused;
         if(jumping && jump_duration < 1.5f) {
@@ -96,11 +95,9 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         }
         
         AnimationUpdate();
-        
-
     }
 
-    void AnimationUpdate()
+    protected virtual void AnimationUpdate()
     {
         if(!PlayerLifeControl.CheckPlayerDie()) {
             if(IsGrounded()==false && jumping ) {
@@ -135,7 +132,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         }
     }
 
-    private bool IsGrounded()
+    protected virtual bool IsGrounded()
     {
         bool isgounrd;
 

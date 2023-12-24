@@ -2,127 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerMovementFor3  : MonoBehaviour
+//movement for ch3 inherit from playermovement_noanimator (default)
+public class playerMovementFor3  : PlayerMovement_NoAnimator
+
 {
-   // Start is called before the first frame update
-    [SerializeField] private float PlayersMovementSpeed = 10.0f;
-    [SerializeField] private float PlayerJumpingForce = 16.0f;
-    [SerializeField] private float BoxCast_y_offset = .5f;
-    [SerializeField] private LayerMask JumpableGround;
 
-
-
-    //private float _playersMovementDirection = 0.0f; //this will give the direction of the players movement.   
-
-    private Rigidbody2D _playersRigidBody; //reference of the players rigid body.
-    //private Animator animator;
-
-    private Vector2 _moveInput;
-    private float dir_x = 0f;
-    private SpriteRenderer sprite;
-    private BoxCollider2D player_collider;
-    private GravityController gravityController;
-    private GameManager gm;
-
-
-
-
-    void Awake()
+    
+    protected override void Start()
     {
-
-
+        base.Start(); // This will call the Start method of PlayerMovement_NoAnimator
+        // _playersRigidBody now contains the Rigidbody2D attached to the same GameObject as this script
+        if(animator == null){
+            Debug.Log("Potential Error: animator of playerMovementFor3 is null!!");
+        }
+        if(_playersRigidBody == null){
+            Debug.Log("Potential Error:rigidbody of playerMovementFor3 is null!!");
+        }
+        if(sprite == null){
+            Debug.Log("Potential Error:sprite of playerMovementFor3 is null!!");
+        }
+        if(gravityController == null){
+            Debug.Log("Potential Error:gravityController of playerMovementFor3 is null!!");
+        }
     }
-    // private void OnEnable(){
-    //     _playerActions.Player.Enable(); //Player is name of map
-    // }
-
-    // private void OnDisable(){
-    //     _playerActions.Player.Disable();//Player is name of map
-    // }
-    private void Start()
-    {
-        _playersRigidBody = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
-        player_collider = GetComponent<BoxCollider2D>();
-        gravityController = GetComponent<GravityController>();
-
-        gm = FindObjectOfType<GameManager>();
-        if (gm == null) 
-            Debug.Log("GM not found.");
-        else Debug.Log("GM is found by playerMovementFor3.");
-
-
-    }
-
-
-
-    private void FixedUpdate()
-    {
-    }
-
 
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         bool gamePaused = GameManager.IsGamePaused;
+        if(jumping && jump_duration < 1.5f) {
+            jump_duration += Time.deltaTime;
+        }
+        if(jump_duration >= 1.5f) {
+            jump_duration = 0.0f;
+            jumping  = false;
+        }
         if( !gamePaused){
             dir_x = Input.GetAxisRaw("Horizontal");
             _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
 
             if (Input.GetButtonDown("Jump")){
+                
                 Debug.Log("Jump pressed");
-                if (IsGrounded())
-                {
-                    // ch3_game_manager.ToggleTiles();
-                    // _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
-                    Jump();
+                if (IsGrounded()){
+
+                    jumping = true;
+                    // animator.SetBool("idle", false);
+                    animator.SetBool("jump", true);
+                    Debug.Log("jumping");
+                    _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+
+                    ToggleTileWhenJump();
                 }
             }
         }
-        
-        
-        //AnimationUpdate();
-        
+        AnimationUpdate();
 
     }
 
-    // void AnimationUpdate()
-    // {
-    //     if (dir_x > 0)
-    //     {
-    //         animator.SetBool("isRunning", true);
-    //         sprite.flipX = false;
-    //     }
-    //     else if (dir_x < 0)
-    //     {
-    //         animator.SetBool("isRunning", true);
-    //         sprite.flipX = true;
-    //     }
-    //     else
-    //     {
-    //         animator.SetBool("isRunning", false);
-    //     }
-    // }
-
-    void Jump() {
+    void ToggleTileWhenJump() {
         GameManager_3.ToggleTiles();
         _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
     }
 
-    private bool IsGrounded()
-    {
-        bool isgounrd;
-        isgounrd = Physics2D.BoxCast(player_collider.bounds.center, player_collider.bounds.size * 1.05f, 0f, Vector2.down, 0f, JumpableGround);
-        //create a box (center, size, rotation)
-        Debug.Log("is ground is:" + isgounrd);
-        return isgounrd;
-    }
-    void testingfn(){
-        if(Input.GetKeyDown(KeyCode.U)){
-            gm.testfunc();
-        }
-    }
+    
+
 }
 

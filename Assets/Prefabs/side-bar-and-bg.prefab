@@ -274,6 +274,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2373666981090406063, guid: caf84310a731fb449a64aa58e956888c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 177.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373666981090406063, guid: caf84310a731fb449a64aa58e956888c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -538.85
+      objectReference: {fileID: 0}
     - target: {fileID: 2373666981651742364, guid: caf84310a731fb449a64aa58e956888c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -321,6 +329,14 @@ PrefabInstance:
     - target: {fileID: 2373666981651742365, guid: caf84310a731fb449a64aa58e956888c, type: 3}
       propertyPath: m_Name
       value: Purple_In_level_UI (base)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2373666982199213757, guid: caf84310a731fb449a64aa58e956888c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
+    - target: {fileID: 2373666982199213757, guid: caf84310a731fb449a64aa58e956888c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetGamePaused
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf84310a731fb449a64aa58e956888c, type: 3}

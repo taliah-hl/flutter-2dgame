@@ -28,6 +28,7 @@ public class Gravity_Change : MonoBehaviour
     // private Color cdown = new Color32( 0, 0, 0, 200 );
 
     private void Awake() {
+        Debug.Log("Gravity_Change is attached to "+gameObject.name);
         instance = this;
         Down();
     }

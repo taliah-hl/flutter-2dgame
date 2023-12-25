@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerMovement_NoAnimator : MonoBehaviour
 {
    // Start is called before the first frame update
-    [SerializeField] protected float PlayersMovementSpeed = 10.0f;
-    [SerializeField] protected float PlayerJumpingForce = 16.0f;
-    [SerializeField] protected float BoxCast_y_offset = .5f;
+    [SerializeField] protected float playerSpeed = 6.0f;
+    [SerializeField] protected float SpeedFactorWhileJump = 0.5f;
+
+    
+
+    [SerializeField] protected float PlayerJumpingForce = 12.0f;
     [SerializeField] protected LayerMask JumpableGround;
+
 
 
 
@@ -78,7 +82,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         }
         if( !gamePaused){
             dir_x = Input.GetAxisRaw("Horizontal");
-            _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
+            _playersRigidBody.velocity = new Vector2(dir_x * playerSpeed, _playersRigidBody.velocity.y);
 
             if (Input.GetButtonDown("Jump")){
                 
@@ -89,7 +93,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
                     // animator.SetBool("idle", false);
                     animator.SetBool("jump", true);
                     Debug.Log("jumping");
-                    _playersRigidBody.velocity = new Vector2(dir_x, PlayerJumpingForce) * gravityController.GetCurGrav();
+                    _playersRigidBody.velocity = new Vector2(dir_x , PlayerJumpingForce) * gravityController.GetCurGrav();
                 }
             }
         }
@@ -147,6 +151,21 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         //create a box (center, size, rotation)
         return isgounrd;
     }
+
+    public void speedBackToNormal(){
+        playerSpeed = 6.0f;
+    }
+    // private void tmpReducePlayerSpeed(float duration, float value){
+    //     if(speedReduced) return;
+    //     //SetPlayerSpeed =  value;
+    //     StartCoroutine(waitForReduceSpeed(duration));
+    // }
+
+    // IEnumerator waitForReduceSpeed(float duration){
+    //     speedReduced = true;
+    //     yield return new WaitForSeconds(duration);
+    //     speedBackToNormal();
+    // }
     void testingfn(){
         if(Input.GetKeyDown(KeyCode.U)){
             gm.testfunc();

@@ -40,7 +40,7 @@ public class playerMovementFor3  : PlayerMovement_NoAnimator
         }
         if( !gamePaused){
             dir_x = Input.GetAxisRaw("Horizontal");
-            _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
+            _playersRigidBody.velocity = new Vector2(dir_x * playerSpeed, _playersRigidBody.velocity.y);
 
             if (Input.GetButtonDown("Jump")){
                 

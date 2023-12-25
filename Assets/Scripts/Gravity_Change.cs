@@ -28,7 +28,7 @@ public class Gravity_Change : MonoBehaviour
     // private Color cdown = new Color32( 0, 0, 0, 200 );
 
     private void Awake() {
-        Debug.Log("Gravity_Change is attached to "+gameObject.name);
+        //Debug.Log("Gravity_Change is attached to "+gameObject.name);
         instance = this;
         Down();
     }
@@ -40,7 +40,7 @@ public class Gravity_Change : MonoBehaviour
         upArrow.enabled = false;
 
         gravitydown = true;
-        Debug.Log("Gravity dir indicator in sidebar changed to up");
+        //Debug.Log("Gravity dir indicator in sidebar changed to up");
     }
 
     public void UP(){

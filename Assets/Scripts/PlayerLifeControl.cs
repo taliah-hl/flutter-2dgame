@@ -20,6 +20,9 @@ public class PlayerLifeControl : MonoBehaviour
     private static PlayerLifeControl instance = null;
     private float playerNormalGravScale;
     private bool player_die = false;
+    
+
+
 
     void Awake() {
         instance = this;
@@ -58,7 +61,6 @@ public class PlayerLifeControl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
         if (other.tag == "end")
         {
            if (SceneManager.GetActiveScene().name == "ch4-3")
@@ -280,5 +282,5 @@ public class PlayerLifeControl : MonoBehaviour
         
     }
 
-
+    
 }

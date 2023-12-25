@@ -21,7 +21,7 @@ public class TransformDoor2 : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other);
-        if(TransformDoor_Controller.doorTrigger(2)>2.0f) {
+        if(TransformDoor_Controller.doorTrigger(2)>2.0f && other.tag != "doNotTransfer") {
             other.gameObject.transform.position = aimdoor.transform.position;
             // timer = 0;
             Debug.Log("Transform2");

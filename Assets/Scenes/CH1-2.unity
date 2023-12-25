@@ -1089,6 +1089,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: side-bar-and-bg Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6172990103619087584, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
+      propertyPath: m_text
+      value: Lv 1-2
+      objectReference: {fileID: 0}
     - target: {fileID: 6172990104685952243, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -13524,6 +13528,14 @@ PrefabInstance:
     - target: {fileID: 4101374887103004083, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101374887103004085, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4101374887103004086, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
+      propertyPath: PlayersMovementSpeed
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4101374887103004092, guid: 77bd9bee26b122449a937b991aee07e1, type: 3}
       propertyPath: m_Name

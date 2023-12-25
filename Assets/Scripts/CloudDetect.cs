@@ -7,6 +7,12 @@ public class CloudDetect : MonoBehaviour
     private GameObject gameObj;
     private Rigidbody2D _playersRigidBody;
     private float playerNormalGravScale;
+    private static bool isPlayerOnCloud = false;
+    //create a get function for isPlayerOnCloud
+    public static bool IsPlayerOnCloud{
+        get {return isPlayerOnCloud;}
+    }
+
 
     void Start()
     {
@@ -25,21 +31,28 @@ public class CloudDetect : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other){
 
+        
         if (other.tag == "cloud"){
+            isPlayerOnCloud = true;
             Debug.Log("player collide with cloud, gravity scale changed to 1");
            
             _playersRigidBody.gravityScale = 1;
         }
         if (other.tag == "cloud05"){
+            isPlayerOnCloud = true;
             Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
        
             _playersRigidBody.gravityScale = 0.5f;
         }
     }
     void OnTriggerExit2D(Collider2D other) {
+        
         if (other.gameObject.tag == "cloud" || other.gameObject.tag == "cloud05"){
+            isPlayerOnCloud = false;
             Debug.Log("player exit cloud, gravity scale back to normal");
             _playersRigidBody.gravityScale = playerNormalGravScale;
         }
     }
+
+
 }

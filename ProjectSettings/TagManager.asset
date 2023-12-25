@@ -15,6 +15,7 @@ TagManager:
   - switchBlockInternal
   - poison
   - cover_point
+  - doNotTransfer
   layers:
   - Default
   - TransparentFX

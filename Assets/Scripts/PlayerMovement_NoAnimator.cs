@@ -6,7 +6,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 {
    // Start is called before the first frame update
     [SerializeField] protected float playerSpeed = 6.0f;
-    [SerializeField] protected float SpeedFactorWhileJump = 0.5f;
+    protected float SpeedWhileJump = 6.0f;
 
     
 
@@ -29,6 +29,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     protected GameManager gm;
     protected float jump_duration = 0.0f;
     protected bool jumping = false;
+    protected bool speedReduced = false;
 
 
 
@@ -93,6 +94,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
                     // animator.SetBool("idle", false);
                     animator.SetBool("jump", true);
                     Debug.Log("jumping");
+                    tmpReducePlayerSpeed(2.0f, SpeedWhileJump);
                     _playersRigidBody.velocity = new Vector2(dir_x , PlayerJumpingForce) * gravityController.GetCurGrav();
                 }
             }
@@ -155,17 +157,18 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     public void speedBackToNormal(){
         playerSpeed = 6.0f;
     }
-    // private void tmpReducePlayerSpeed(float duration, float value){
-    //     if(speedReduced) return;
-    //     //SetPlayerSpeed =  value;
-    //     StartCoroutine(waitForReduceSpeed(duration));
-    // }
+    protected void tmpReducePlayerSpeed(float duration, float value){
+        if(speedReduced) return;
+        playerSpeed =  value;
+        StartCoroutine(waitForReduceSpeed(duration));
+    }
 
-    // IEnumerator waitForReduceSpeed(float duration){
-    //     speedReduced = true;
-    //     yield return new WaitForSeconds(duration);
-    //     speedBackToNormal();
-    // }
+    IEnumerator waitForReduceSpeed(float duration){
+        speedReduced = true;
+        yield return new WaitForSeconds(duration);
+        speedBackToNormal();
+        speedReduced = false;
+    }
     void testingfn(){
         if(Input.GetKeyDown(KeyCode.U)){
             gm.testfunc();

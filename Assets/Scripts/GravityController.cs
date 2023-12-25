@@ -71,7 +71,9 @@ public class GravityController : MonoBehaviour
                 //newGravity = Physics2D.gravity *changeFactor * curGravityDir;
                 Physics2D.gravity = Physics2D.gravity  *-1.0f;
                 curGravityDir *= -1.0f;
-                tmpReducePlayerGravity(1.0f, tmpGravFactor);
+                if(! CloudDetect.IsPlayerOnCloud){
+                    tmpReducePlayerGravity(1.0f, tmpGravFactor);
+                } 
                 Gravity_Change.ToggleBG();
                 Debug.Log("Gravity toggle executed");
                 Debug.Log("cur grav dir: "+ curGravityDir+ "; Grvity:" + Physics2D.gravity);

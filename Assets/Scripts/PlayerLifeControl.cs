@@ -11,7 +11,7 @@ public class PlayerLifeControl : MonoBehaviour
     private Animator animator;
     [SerializeField] private float player_pos_upBound = 14;
     [SerializeField] private float player_pos_lowBound = -12;
-    [SerializeField] private float changeScenePause = 0.5f;        // pause time before change scene or die
+    private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
     private GameManager gm;
@@ -51,8 +51,10 @@ public class PlayerLifeControl : MonoBehaviour
     {
         CheckFallOutside();
         if(instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_down") || instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_up")) {
-            instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
-        }
+        //     instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
+            call_pause();
+         }
+        
     }
     void OnTriggerEnter2D(Collider2D other)
     {

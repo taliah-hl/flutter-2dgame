@@ -7005,6 +7005,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: side-bar-and-bg
       objectReference: {fileID: 0}
+    - target: {fileID: 6850166722224645530, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
+      propertyPath: m_text
+      value: Lv 2-2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
 --- !u!1 &1790650960

@@ -702,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.040899254, g: 0.036875516, b: 0.103773594, a: 1}
+  m_Color: {r: 0.30980393, g: 0.29803923, b: 0.40392157, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7172,6 +7172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curScene:
     m_Handle: 0
+  HelpBtn: {fileID: 0}
+  RetryBtn: {fileID: 0}
+  QuitBtn: {fileID: 0}
   gm: {fileID: 0}
 --- !u!114 &2132325318
 MonoBehaviour:

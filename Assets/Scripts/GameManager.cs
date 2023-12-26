@@ -55,7 +55,16 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
     public void ReloadCurScene(){
         Debug.Log("GameManager::ReloadCurScene is called");
         Scene curScene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(curScene.name);
+        switch (curScene.name)
+        {
+            case "ch2-1": case "ch3-1": case "ch4-1":
+                string tmp = curScene.name + "_nointro";
+                SceneManager.LoadScene(tmp);
+                break;
+            default:
+                SceneManager.LoadScene(curScene.name);
+                break;
+        }
     }
     public void BackToMainMenu(){
         Debug.Log("GameManager::BackToMainMenu is called");
@@ -64,7 +73,16 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
     public void GameOver(){     //control what happen when player die
         Debug.Log("GameManager::GameOver is called");
         Scene curScene = SceneManager.GetActiveScene(); 
-        SceneManager.LoadScene(curScene.name);
+        switch (curScene.name)
+        {
+            case "ch2-1": case "ch3-1": case "ch4-1":
+                string tmp = curScene.name + "_nointro";
+                SceneManager.LoadScene(tmp);
+                break;
+            default:
+                SceneManager.LoadScene(curScene.name);
+                break;
+        }
     }
     public void LoadGameOverScene(){     // not in use for now
         Debug.Log("GameManager::GameOver is called");

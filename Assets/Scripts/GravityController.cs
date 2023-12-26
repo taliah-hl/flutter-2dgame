@@ -31,24 +31,27 @@ public class GravityController : MonoBehaviour
     void Awake(){
         ResetGravity();
         curToggleCnt=0;
-         
-    }
-    void Start()
-    {
         if(playerGameObj==null)
             playerGameObj =  GameObject.FindWithTag("Player");
         gm = FindObjectOfType<GameManager>();
-        animator = playerGameObj.GetComponent<Animator>();
+        
         
         _playersRigidBody = GetComponent<Rigidbody2D>();
         if (gm == null) {
             Debug.LogWarning("GameManager not got by GravityController!");
         }
         
+        
+         
+    }
+    void Start()
+    {
         maxGravToggle = SceneSpec.MaxGravToggle;
         gravToggleLeft = maxGravToggle - curToggleCnt;
+        animator = playerGameObj.GetComponent<Animator>();
         animator.SetBool("gravity", true);
         playerNormalGravScale= _playersRigidBody.gravityScale;
+        
 
     }
 
@@ -89,8 +92,10 @@ public class GravityController : MonoBehaviour
  
         }
         
-
-        CapFreeFallSpeed();
+        if(_playersRigidBody != null){
+            CapFreeFallSpeed();
+        }
+        
     }
 
     private void CapFreeFallSpeed(){

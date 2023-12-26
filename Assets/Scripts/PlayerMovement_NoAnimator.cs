@@ -99,7 +99,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
                     _playersRigidBody.velocity = new Vector2(dir_x , PlayerJumpingForce) * gravityController.GetCurGrav();
                 }
                 else{
-                    Debug.Log("isGound is false");
+                    Debug.Log("not jumped cuz isGround is false");
                 }
             }
         }

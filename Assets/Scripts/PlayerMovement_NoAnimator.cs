@@ -18,8 +18,10 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
 
     //private float _playersMovementDirection = 0.0f; //this will give the direction of the players movement.   
 
+    protected GameObject playerGameObj;
     protected Rigidbody2D _playersRigidBody; //reference of the players rigid body.
     protected Animator animator;
+
 
     protected Vector2 _moveInput;
     protected float dir_x = 0f;
@@ -48,9 +50,10 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     // }
     protected virtual void Start()
     {
-        _playersRigidBody = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        sprite = GetComponent<SpriteRenderer>();
+        playerGameObj = GameObject.FindGameObjectWithTag("Player");
+        _playersRigidBody = playerGameObj.GetComponent<Rigidbody2D>();
+        animator = playerGameObj.GetComponent<Animator>();
+        sprite = playerGameObj.GetComponent<SpriteRenderer>();
         gravityController = GetComponent<GravityController>();
         jump_duration = 0.0f;
         jumping = false;
@@ -58,8 +61,6 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         if (gm == null) 
             Debug.Log("GM not found by PlayerMovement");
         
-
-
     }
 
 

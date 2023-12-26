@@ -51,7 +51,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     protected virtual void Start()
     {
         playerGameObj = GameObject.FindGameObjectWithTag("Player");
-        _playersRigidBody = playerGameObj.GetComponent<Rigidbody2D>();
+        _playersRigidBody = GetComponent<Rigidbody2D>();
         animator = playerGameObj.GetComponent<Animator>();
         sprite = playerGameObj.GetComponent<SpriteRenderer>();
         gravityController = GetComponent<GravityController>();
@@ -97,6 +97,9 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
                     Debug.Log("jumping");
                     tmpReducePlayerSpeed(2.0f, SpeedWhileJump);
                     _playersRigidBody.velocity = new Vector2(dir_x , PlayerJumpingForce) * gravityController.GetCurGrav();
+                }
+                else{
+                    Debug.Log("isGound is false");
                 }
             }
         }
@@ -146,7 +149,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         //get children of player, name of child is GroundDetector
         
         //  find player's parent's child
-        GameObject gd = transform.parent.Find("GroundDetector").gameObject;
+        GameObject gd = transform.Find("GroundDetector").gameObject;
         //create a coller and get the collider of the gd
         BoxCollider2D gd_collider = gd.GetComponent<BoxCollider2D>();
         

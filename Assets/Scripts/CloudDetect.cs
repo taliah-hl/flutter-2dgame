@@ -17,7 +17,7 @@ public class CloudDetect : MonoBehaviour
     void Start()
     {
         if(gameObj==null)
-            gameObj =  GameObject.FindWithTag("Player");
+            gameObj =  GameObject.FindWithTag("PlayerRb");
         _playersRigidBody = gameObj.GetComponent<Rigidbody2D>();
         playerNormalGravScale= _playersRigidBody.gravityScale;
         if(_playersRigidBody==null)

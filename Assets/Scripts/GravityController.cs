@@ -40,7 +40,7 @@ public class GravityController : MonoBehaviour
         gm = FindObjectOfType<GameManager>();
         animator = playerGameObj.GetComponent<Animator>();
         
-        _playersRigidBody = playerGameObj.GetComponent<Rigidbody2D>();
+        _playersRigidBody = GetComponent<Rigidbody2D>();
         if (gm == null) {
             Debug.LogWarning("GameManager not got by GravityController!");
         }

@@ -16,6 +16,7 @@ TagManager:
   - poison
   - cover_point
   - doNotTransfer
+  - PlayerRb
   layers:
   - Default
   - TransparentFX

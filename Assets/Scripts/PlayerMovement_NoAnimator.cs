@@ -143,7 +143,9 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         bool isgounrd;
 
         //get children of player, name of child is GroundDetector
-        GameObject gd = transform.Find("GroundDetector").gameObject;
+        
+        //  find player's parent's child
+        GameObject gd = transform.parent.Find("GroundDetector").gameObject;
         //create a coller and get the collider of the gd
         BoxCollider2D gd_collider = gd.GetComponent<BoxCollider2D>();
         

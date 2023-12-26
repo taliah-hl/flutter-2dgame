@@ -27,6 +27,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Ch2
       objectReference: {fileID: 0}
+    - target: {fileID: 8337465732579703049, guid: 99904d10829e26b4280a017f545cb924, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 0c47b195d326059438bb68965d284960, type: 2}
     - target: {fileID: 8337465732579703050, guid: 99904d10829e26b4280a017f545cb924, type: 3}
       propertyPath: m_Enabled
       value: 1

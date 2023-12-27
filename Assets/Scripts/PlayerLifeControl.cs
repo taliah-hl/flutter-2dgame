@@ -7,10 +7,10 @@ public class PlayerLifeControl : MonoBehaviour
 {
     public GameObject gameObj;
     public GameObject ChptFinishedImg;
-    private Rigidbody2D _playersRigidBody;
+
     private Animator animator;
-    [SerializeField] private float player_pos_upBound = 14;
-    [SerializeField] private float player_pos_lowBound = -12;
+    private float player_pos_upBound = 11.68f;
+    private float player_pos_lowBound = -11.67f;
     private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
@@ -18,7 +18,7 @@ public class PlayerLifeControl : MonoBehaviour
     private const int PlayerDieFunc = 1;
     private const int PlayerGoNextLvFunc = 2;
     private static PlayerLifeControl instance = null;
-    private float playerNormalGravScale;
+
     private bool player_die = false;
     
 
@@ -34,7 +34,7 @@ public class PlayerLifeControl : MonoBehaviour
         
         if(gameObj==null)
             gameObj =  GameObject.FindWithTag("Player");
-        _playersRigidBody = GetComponent<Rigidbody2D>();
+
         gm = FindObjectOfType<GameManager>();
         if (gm == null) {
             Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
@@ -42,7 +42,7 @@ public class PlayerLifeControl : MonoBehaviour
         else{
             Debug.Log("GameManager is found by playerLifeControl");
         }
-        playerNormalGravScale = _playersRigidBody.gravityScale;
+        
         animator = GetComponent<Animator>();
         animator.SetBool("die", false);
         player_die = false;

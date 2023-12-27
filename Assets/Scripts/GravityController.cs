@@ -24,7 +24,7 @@ public class GravityController : MonoBehaviour
     private bool gravReduced = false;
     private float tmpGravFactor = 0.33f;
     private float playerNormalGravScale;
-    private Vector2 tmpGrav;   //for record by tmp reduce gravity
+    private float maxFreeFallSpeed = 20.0f;   // max velocity when free fall, avoid player go to fast
 
     
     // Start is called before the first frame update
@@ -86,6 +86,19 @@ public class GravityController : MonoBehaviour
             }
             gravToggleLeft = maxGravToggle - curToggleCnt;
  
+        }
+        
+
+        CapFreeFallSpeed();
+    }
+
+    private void CapFreeFallSpeed(){
+        // cap velocity of player when free fall to avoid player go too fast
+        if(_playersRigidBody.velocity.y > maxFreeFallSpeed){
+            _playersRigidBody.velocity = new Vector2(_playersRigidBody.velocity.x, maxFreeFallSpeed);
+        }
+        else if(_playersRigidBody.velocity.y < -maxFreeFallSpeed){
+            _playersRigidBody.velocity = new Vector2(_playersRigidBody.velocity.x, -maxFreeFallSpeed);
         }
     }
 

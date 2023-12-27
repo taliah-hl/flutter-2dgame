@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private float PlayersMovementSpeed = 10.0f;
+    [SerializeField] private float playerSpeed = 10.0f;
     [SerializeField] private float PlayerJumpingForce = 16.0f;
     [SerializeField] private float BoxCast_y_offset = .5f;
     [SerializeField] private LayerMask JumpableGround;
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         dir_x = Input.GetAxisRaw("Horizontal");
-        _playersRigidBody.velocity = new Vector2(dir_x * PlayersMovementSpeed, _playersRigidBody.velocity.y);
+        _playersRigidBody.velocity = new Vector2(dir_x * playerSpeed, _playersRigidBody.velocity.y);
         if (Input.GetButtonDown("Jump"))
         {
             // GameObject.FindGameObjectWithTag("gameManager").GetComponent<ch3_game_manager>().ToggleTiles();

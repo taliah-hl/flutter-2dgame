@@ -6,12 +6,14 @@ public class CoverCreate : MonoBehaviour
 {
     public GameObject Cover;
     private bool protect;
+    private Animator animator;
     public float timer;
     // Start is called before the first frame update
     void Start()
     {
         protect = false;
         timer = 0.0f;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -42,8 +44,11 @@ public class CoverCreate : MonoBehaviour
     void OnCollisionStay2D(Collision2D other)
     {
         if(other.gameObject.tag=="poison" && !protect) {
-            PlayerLifeControl.PauseAndDie();
+            PlayerLifeControl.player_die_ani();
         }
         
     }
+    // void call_pause() {
+    //     PlayerLifeControl.PauseAndDie();
+    // }
 }

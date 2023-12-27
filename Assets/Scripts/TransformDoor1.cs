@@ -21,11 +21,14 @@ public class TransformDoor1 : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other);
-        if(TransformDoor_Controller.doorTrigger(1)>2.0f) {
-            other.gameObject.transform.position = aimdoor.transform.position;
-            // timer = 0;
-            Debug.Log("Transform1");
+        Debug.Log("transform1 triggerEnter with " + other.tag);
+            if (other.tag != "doNotTransfer"){
+                if(TransformDoor_Controller.doorTrigger(1)>2.0f ) {
+                other.gameObject.transform.position = aimdoor.transform.position;
+                // timer = 0;
+                Debug.Log("Transform1");
+            }
         }
+        
     }
 }

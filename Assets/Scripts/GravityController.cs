@@ -24,7 +24,7 @@ public class GravityController : MonoBehaviour
     private bool gravReduced = false;
     private float tmpGravFactor = 0.33f;
     private float playerNormalGravScale;
-    private float maxFreeFallSpeed = 20.0f;   // max velocity when free fall, avoid player go to fast
+    private float maxFreeFallSpeed;   // max velocity when free fall, avoid player go to fast
 
     
     // Start is called before the first frame update
@@ -47,6 +47,7 @@ public class GravityController : MonoBehaviour
     void Start()
     {
         maxGravToggle = SceneSpec.MaxGravToggle;
+        maxFreeFallSpeed = SceneSpec.MaxFreeFallSpeed;
         gravToggleLeft = maxGravToggle - curToggleCnt;
         animator = playerGameObj.GetComponent<Animator>();
         animator.SetBool("gravity", true);

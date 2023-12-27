@@ -59,6 +59,10 @@ public class PlayerLifeControl : MonoBehaviour
          }
         
     }
+    void SaveCurrentLv(int lv)
+    {
+        PlayerPrefs.SetInt("CurrentLv", lv);
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "end")
@@ -66,11 +70,48 @@ public class PlayerLifeControl : MonoBehaviour
            if (SceneManager.GetActiveScene().name == "ch4-3")
             {
                 StartCoroutine(LoadImage());
+                SaveCurrentLv(43);
             }
             else
             {
                 Debug.Log("go to next level");
                 gm.pauseGame(changeScenePause); // call pauseGame in GameManager
+                switch (SceneManager.GetActiveScene().name)
+                {
+                    case "ch1-1": case "ch1-1_nointro":
+                        SaveCurrentLv(11);
+                        break;
+                    case "ch1-2":
+                        SaveCurrentLv(12);
+                        break;
+                    case "ch1-3":
+                        SaveCurrentLv(13);
+                        break;
+                    case "ch2-1": case "ch2-1_nointro":
+                        SaveCurrentLv(21);
+                        break;
+                    case "ch2-2":
+                        SaveCurrentLv(22);
+                        break;
+                    case "ch2-3":
+                        SaveCurrentLv(23);
+                        break;
+                    case "ch3-1": case "ch3-1_nointro":
+                        SaveCurrentLv(31);
+                        break;
+                    case "ch3-2":
+                        SaveCurrentLv(32);
+                        break;
+                    case "ch3-3":
+                        SaveCurrentLv(33);
+                        break;
+                    case "ch4-1": case "ch4-1_nointro":
+                        SaveCurrentLv(41);
+                        break;
+                    case "ch4-2":
+                        SaveCurrentLv(42);
+                        break;
+                }
                 StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
             }
         }

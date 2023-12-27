@@ -18,7 +18,8 @@ public class FallRigidControll : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag=="Player" && !rigidon) {
+        Debug.Log("Fall rigid collisionEnter with "+other.gameObject.tag);
+        if((other.gameObject.tag=="Player"  || other.gameObject.tag=="PlayerRb")&& !rigidon) {
             // UnityEngineInternal.APIUpdaterRuntimeServices.AddComponent(gameObject, "Assets/Scripts/FallRigidControll.cs (22,13)", "RigidBody2D");
             Invoke("AddRigid", 2);
         }

@@ -18,12 +18,12 @@ public class PlayerLifeControl : MonoBehaviour
     private const int PlayerDieFunc = 1;
     private const int PlayerGoNextLvFunc = 2;
     private static PlayerLifeControl instance = null;
-
+    public GameObject FinishCanvas;
     private bool player_die = false;
+    public AudioSource SoundEffect;
+    public AudioClip nextLv;
+    public AudioClip die;
     
-
-
-
     void Awake() {
         instance = this;
     }
@@ -31,7 +31,7 @@ public class PlayerLifeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
         if(gameObj==null)
             gameObj =  GameObject.FindWithTag("Player");
 
@@ -79,37 +79,37 @@ public class PlayerLifeControl : MonoBehaviour
                 switch (SceneManager.GetActiveScene().name)
                 {
                     case "ch1-1": case "ch1-1_nointro":
-                        SaveCurrentLv(11);
-                        break;
-                    case "ch1-2":
                         SaveCurrentLv(12);
                         break;
-                    case "ch1-3":
+                    case "ch1-2":
                         SaveCurrentLv(13);
                         break;
-                    case "ch2-1": case "ch2-1_nointro":
+                    case "ch1-3":
                         SaveCurrentLv(21);
                         break;
-                    case "ch2-2":
+                    case "ch2-1": case "ch2-1_nointro":
                         SaveCurrentLv(22);
                         break;
-                    case "ch2-3":
+                    case "ch2-2":
                         SaveCurrentLv(23);
                         break;
-                    case "ch3-1": case "ch3-1_nointro":
+                    case "ch2-3":
                         SaveCurrentLv(31);
                         break;
-                    case "ch3-2":
+                    case "ch3-1": case "ch3-1_nointro":
                         SaveCurrentLv(32);
                         break;
-                    case "ch3-3":
+                    case "ch3-2":
                         SaveCurrentLv(33);
                         break;
-                    case "ch4-1": case "ch4-1_nointro":
+                    case "ch3-3":
                         SaveCurrentLv(41);
                         break;
-                    case "ch4-2":
+                    case "ch4-1": case "ch4-1_nointro":
                         SaveCurrentLv(42);
+                        break;
+                    case "ch4-2":
+                        SaveCurrentLv(43);
                         break;
                 }
                 StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
@@ -235,8 +235,12 @@ public class PlayerLifeControl : MonoBehaviour
         instance.animator.SetBool("running", false);
         instance.animator.SetBool("idle", false);
         instance.animator.SetBool("jump", false);
+        instance.PlayDyingAudio();
     }
-
+    public void PlayDyingAudio()
+    {
+        SoundEffect.PlayOneShot(die);
+    }
     public static bool CheckPlayerDie() {
         return instance.player_die;
     }
@@ -305,7 +309,10 @@ public class PlayerLifeControl : MonoBehaviour
         while(Time.timeScale != 1.0f)
             yield return null;
         if (funcToCall == PlayerGoNextLvFunc) {
-            // yield return new WaitForSeconds(1);
+            FinishCanvas.SetActive(true);
+            SoundEffect.PlayOneShot(nextLv);
+            yield return new WaitForSeconds(1);
+            FinishCanvas.SetActive(false);
             PlayerGoNextLv();
         }
         else if(funcToCall == PlayerDieFunc) {

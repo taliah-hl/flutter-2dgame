@@ -15,6 +15,9 @@ public class GravityController : MonoBehaviour
     public static float curGravityDir = 1.0f; // 1.0 or -1.0;
     private int curToggleCnt = 0;
     private int maxGravToggle;
+    public AudioSource SoundEffect;
+    public AudioClip up;
+    public AudioClip down;
 
     private static int gravToggleLeft;
     public static int GravToggleLeft{
@@ -46,6 +49,7 @@ public class GravityController : MonoBehaviour
     }
     void Start()
     {
+        SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
         maxGravToggle = SceneSpec.MaxGravToggle;
         maxFreeFallSpeed = SceneSpec.MaxFreeFallSpeed;
         gravToggleLeft = maxGravToggle - curToggleCnt;
@@ -66,11 +70,13 @@ public class GravityController : MonoBehaviour
                 if(gravityToggled) {
                     gravityToggled = false;
                     animator.SetBool("gravity", true);
+                    SoundEffect.PlayOneShot(up);
                     Debug.Log("Gravity back!");
                 }
                 else if(!gravityToggled) {
                     gravityToggled = true;
                     animator.SetBool("gravity", false);
+                    SoundEffect.PlayOneShot(down);
                     Debug.Log("Gravity disabled !");
                 }
                 //newGravity = Physics2D.gravity *changeFactor * curGravityDir;

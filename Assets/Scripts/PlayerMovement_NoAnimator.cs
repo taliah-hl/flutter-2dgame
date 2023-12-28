@@ -32,6 +32,8 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
     protected float jump_duration = 0.0f;
     protected bool jumping = false;
     protected bool speedReduced = false;
+    public AudioSource SoundEffect;
+    public AudioClip jump;
 
 
 
@@ -55,6 +57,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
         animator = playerGameObj.GetComponent<Animator>();
         sprite = playerGameObj.GetComponent<SpriteRenderer>();
         gravityController = GetComponent<GravityController>();
+        SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
         jump_duration = 0.0f;
         jumping = false;
         gm = FindObjectOfType<GameManager>();
@@ -95,6 +98,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
                     // animator.SetBool("idle", false);
                     animator.SetBool("jump", true);
                     Debug.Log("jumping");
+                    SoundEffect.PlayOneShot(jump);
                     tmpReducePlayerSpeed(2.0f, SpeedWhileJump);
                     _playersRigidBody.velocity = new Vector2(dir_x , PlayerJumpingForce) * gravityController.GetCurGrav();
                 }

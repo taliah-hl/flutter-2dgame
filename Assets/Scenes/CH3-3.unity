@@ -5642,7 +5642,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.56, y: 1.42}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -5692,8 +5692,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13836467, g: 1, b: 0.7449635, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fc5915dc2ecbaa54cabc52dce13b1e6c, type: 3}
+  m_Color: {r: 0.59261894, g: 0.8301887, b: 0.75999767, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5712,7 +5712,7 @@ Transform:
   m_GameObject: {fileID: 859349265}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.979192, y: -2.9966307, z: -0.26319706}
-  m_LocalScale: {x: 3.2320313, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2107970065}
@@ -6602,7 +6602,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.56, y: 1.42}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6652,8 +6652,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.13836467, g: 1, b: 0.7449635, a: 1}
+  m_Sprite: {fileID: 21300000, guid: fc5915dc2ecbaa54cabc52dce13b1e6c, type: 3}
+  m_Color: {r: 0.5194612, g: 0.8018868, b: 0.71844286, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6672,7 +6672,7 @@ Transform:
   m_GameObject: {fileID: 1157665323}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.6508081, y: -6.0966306, z: -0.26319706}
-  m_LocalScale: {x: 3.2320313, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1847170826}

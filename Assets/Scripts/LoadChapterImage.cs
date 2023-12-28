@@ -6,6 +6,7 @@ using UnityEngine;
 public class LoadChapterImage : MonoBehaviour
 {
     public GameObject ChptImg;
+    public GameManager gm;
     void Start()
     {
         Debug.Log("Start");
@@ -14,6 +15,7 @@ public class LoadChapterImage : MonoBehaviour
     IEnumerator LoadImage()
     {
         ChptImg.SetActive(true);
+        gm.pauseGame(5);
         yield return new WaitForSecondsRealtime(5);
         ChptImg.SetActive(false);
     }

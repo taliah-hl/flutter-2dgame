@@ -57,6 +57,9 @@ public class SaveAndLoad : MonoBehaviour
             Ch2Lock.SetActive(true);
             Ch3Lock.SetActive(true);
             Ch4Lock.SetActive(true);
+            Ch2.interactable = false;
+            Ch3.interactable = false;
+            Ch4.interactable = false;
         }
         else if (CurrentLv == 12)
         {
@@ -154,6 +157,9 @@ public class SaveAndLoad : MonoBehaviour
             Ch2Lock.SetActive(false);
             Ch3Lock.SetActive(false);
             Ch4Lock.SetActive(false);
+            Ch2.interactable = true;
+            Ch3.interactable = true;
+            Ch4.interactable = true;
         }
     }
     public void Save(int lv)

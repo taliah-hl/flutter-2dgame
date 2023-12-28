@@ -55,6 +55,9 @@ public class playerMovementFor3  : PlayerMovement_NoAnimator
 
                     ToggleTileWhenJump();
                 }
+                else{
+                    Debug.Log("not jumped cuz isGround is false");
+                }
             }
         }
         AnimationUpdate();

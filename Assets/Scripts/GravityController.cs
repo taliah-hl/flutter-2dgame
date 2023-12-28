@@ -24,30 +24,35 @@ public class GravityController : MonoBehaviour
     private bool gravReduced = false;
     private float tmpGravFactor = 0.33f;
     private float playerNormalGravScale;
-    private float maxFreeFallSpeed = 20.0f;   // max velocity when free fall, avoid player go to fast
+    private float maxFreeFallSpeed;   // max velocity when free fall, avoid player go to fast
 
     
     // Start is called before the first frame update
     void Awake(){
         ResetGravity();
         curToggleCnt=0;
-         
-    }
-    void Start()
-    {
-        gm = FindObjectOfType<GameManager>();
-        animator = GetComponent<Animator>();
         if(playerGameObj==null)
             playerGameObj =  GameObject.FindWithTag("Player");
-        _playersRigidBody = playerGameObj.GetComponent<Rigidbody2D>();
+        gm = FindObjectOfType<GameManager>();
+        
+        
+        _playersRigidBody = GetComponent<Rigidbody2D>();
         if (gm == null) {
             Debug.LogWarning("GameManager not got by GravityController!");
         }
         
+        
+         
+    }
+    void Start()
+    {
         maxGravToggle = SceneSpec.MaxGravToggle;
+        maxFreeFallSpeed = SceneSpec.MaxFreeFallSpeed;
         gravToggleLeft = maxGravToggle - curToggleCnt;
+        animator = playerGameObj.GetComponent<Animator>();
         animator.SetBool("gravity", true);
         playerNormalGravScale= _playersRigidBody.gravityScale;
+        
 
     }
 
@@ -88,8 +93,10 @@ public class GravityController : MonoBehaviour
  
         }
         
-
-        CapFreeFallSpeed();
+        if(_playersRigidBody != null){
+            CapFreeFallSpeed();
+        }
+        
     }
 
     private void CapFreeFallSpeed(){

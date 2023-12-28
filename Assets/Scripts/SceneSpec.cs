@@ -10,9 +10,16 @@ public class SceneSpec : MonoBehaviour
         get {return maxGravToggle;}
     }
 
+    private static float maxFreeFallSpeed;
+    public static float MaxFreeFallSpeed{
+        get {return maxFreeFallSpeed;}
+    }
+
     
     void Awake(){
         maxGravToggle = lvSpec.maxGravToggle;
+        
+        maxFreeFallSpeed = lvSpec.maxFreeFallSpeed >0? lvSpec.maxFreeFallSpeed:20;
     }
 
 

@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b92d1950eaeed9d40b71b9acef5bfe1c, type: 3}
   m_Name: Level13_Spec
   m_EditorClassIdentifier: 
-  maxGravToggle: 3
+  maxGravToggle: 5
+  maxFreeFallSpeed: 14

@@ -9,8 +9,8 @@ public class PlayerLifeControl : MonoBehaviour
     public GameObject ChptFinishedImg;
 
     private Animator animator;
-    private float player_pos_upBound = 11.68f;
-    private float player_pos_lowBound = -11.67f;
+    private float player_pos_upBound = 11.68f;  //11.68
+    private float player_pos_lowBound = -11.67f;    
     private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
@@ -250,7 +250,7 @@ public class PlayerLifeControl : MonoBehaviour
         // instance.animator.SetBool("running", false);
         // instance.animator.SetBool("idle", false);
         // instance.animator.SetBool("jump", false);
-        Debug.Log("PlayerLifeControl: PauseAndDie() is called");
+        //Debug.Log("PlayerLifeControl: PauseAndDie() is called");
         // yield WaitForSeconds(1.2f);
         instance.gm.pauseGame(instance.changeScenePause);  // call pauseGame in GameManager
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
@@ -269,6 +269,7 @@ public class PlayerLifeControl : MonoBehaviour
             
             // PauseAndDie();
             // Invoke("PlayerDie", 1.0f);
+            Debug.Log("player die since fall outside");
             call_pause();
         }
     }

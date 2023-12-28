@@ -8,7 +8,7 @@ public class SaveAndLoad : MonoBehaviour
 {
     public static int CurrentLv;
     public GameObject MainMenu;
-    public GameObject HelpMenu;
+    public GameObject Intro;
     public GameObject PlayMenu;
     public GameObject Ch2Lock;
     public GameObject Ch3Lock;
@@ -39,11 +39,12 @@ public class SaveAndLoad : MonoBehaviour
     public void Load()
     {
         CurrentLv = PlayerPrefs.GetInt("CurrentLv", 0);
+        Debug.Log(CurrentLv);
         MainMenu.SetActive(false);
 
         if (CurrentLv == 0)
         {
-            HelpMenu.SetActive(true);
+            Intro.SetActive(true);
             PlayerPrefs.SetInt("CurrentLv", 11);
         }
         else if (CurrentLv == 11)
@@ -150,6 +151,9 @@ public class SaveAndLoad : MonoBehaviour
         else if (CurrentLv == 43)
         {
             PlayMenu.SetActive(true);
+            Ch2Lock.SetActive(false);
+            Ch3Lock.SetActive(false);
+            Ch4Lock.SetActive(false);
         }
     }
     public void Save(int lv)
@@ -158,6 +162,15 @@ public class SaveAndLoad : MonoBehaviour
     }
 
     public void Reset()
+    {
+        PlayerPrefs.SetInt("CurrentLv", 11);
+    }
+
+    public void Unlock()
+    {
+        PlayerPrefs.SetInt("CurrentLv", 43);
+    }
+    public void Test()
     {
         PlayerPrefs.SetInt("CurrentLv", 0);
     }

@@ -80,6 +80,7 @@ public class PlayerLifeControl : MonoBehaviour
             {
                 Debug.Log("go to next level");
                 gm.pauseGame(changeScenePause); // call pauseGame in GameManager
+                Debug.Log(SceneManager.GetActiveScene().name);
                 switch (SceneManager.GetActiveScene().name)
                 {
                     case "ch1-1":
@@ -333,7 +334,6 @@ public class PlayerLifeControl : MonoBehaviour
 
     private void PlayerGoNextLv()
     {
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //gameObj.GetComponent<GravityController>().ResetGravity();
     }
@@ -360,8 +360,9 @@ public class PlayerLifeControl : MonoBehaviour
         if (funcToCall == PlayerGoNextLvFunc)
         {
             FinishCanvas.SetActive(true);
+            gm.pauseGame(1f);
             SoundEffect.PlayOneShot(nextLv);
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSecondsRealtime(1);
             FinishCanvas.SetActive(false);
             PlayerGoNextLv();
         }

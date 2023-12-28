@@ -9,8 +9,8 @@ public class PlayerLifeControl : MonoBehaviour
     public GameObject ChptFinishedImg;
 
     private Animator animator;
-    private float player_pos_upBound = 11.68f;  //11.68
-    private float player_pos_lowBound = -11.67f;
+    private float player_pos_upBound = 11.29f;  //11.68
+    private float player_pos_lowBound = -11.29f;
     private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet

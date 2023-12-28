@@ -10,7 +10,7 @@ public class PlayerLifeControl : MonoBehaviour
 
     private Animator animator;
     private float player_pos_upBound = 11.68f;  //11.68
-    private float player_pos_lowBound = -11.67f;    
+    private float player_pos_lowBound = -11.67f;
     private float changeScenePause = 1.5f;        // pause time before change scene or die
     //public float player_pos_leftBound;  //not in use yet
     //public float player_pos_rightBound;     //not in use yet
@@ -23,8 +23,9 @@ public class PlayerLifeControl : MonoBehaviour
     public AudioSource SoundEffect;
     public AudioClip nextLv;
     public AudioClip die;
-    
-    void Awake() {
+
+    void Awake()
+    {
         instance = this;
     }
 
@@ -32,17 +33,19 @@ public class PlayerLifeControl : MonoBehaviour
     void Start()
     {
         SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
-        if(gameObj==null)
-            gameObj =  GameObject.FindWithTag("Player");
+        if (gameObj == null)
+            gameObj = GameObject.FindWithTag("Player");
 
         gm = FindObjectOfType<GameManager>();
-        if (gm == null) {
+        if (gm == null)
+        {
             Debug.LogWarning("GameManager not got from FindObjectOfType<GameManager>()");
         }
-        else{
+        else
+        {
             Debug.Log("GameManager is found by playerLifeControl");
         }
-        
+
         animator = GetComponent<Animator>();
         animator.SetBool("die", false);
         player_die = false;
@@ -53,11 +56,12 @@ public class PlayerLifeControl : MonoBehaviour
     void Update()
     {
         CheckFallOutside();
-        if(instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_down") || instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_up")) {
-        //     instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
+        if (instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_down") || instance.animator.GetCurrentAnimatorStateInfo(0).IsName("die_up"))
+        {
+            //     instance.Invoke("call_pause", instance.animator.GetCurrentAnimatorStateInfo(0).length);
             call_pause();
-         }
-        
+        }
+
     }
     void SaveCurrentLv(int lv)
     {
@@ -67,7 +71,7 @@ public class PlayerLifeControl : MonoBehaviour
     {
         if (other.tag == "end")
         {
-           if (SceneManager.GetActiveScene().name == "ch4-3")
+            if (SceneManager.GetActiveScene().name == "ch4-3")
             {
                 StartCoroutine(LoadImage());
                 SaveCurrentLv(43);
@@ -78,38 +82,75 @@ public class PlayerLifeControl : MonoBehaviour
                 gm.pauseGame(changeScenePause); // call pauseGame in GameManager
                 switch (SceneManager.GetActiveScene().name)
                 {
-                    case "ch1-1": case "ch1-1_nointro":
-                        SaveCurrentLv(12);
+                    case "ch1-1":
+                    case "ch1-1_nointro":
+                        if (PlayerPrefs.GetInt("CurrentLv") < 12)
+                        {
+                            SaveCurrentLv(12);
+                        }
                         break;
                     case "ch1-2":
-                        SaveCurrentLv(13);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 13)
+                        {
+                            SaveCurrentLv(13);
+                        }
                         break;
                     case "ch1-3":
-                        SaveCurrentLv(21);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 21)
+                        {
+                            SaveCurrentLv(21);
+                        }
                         break;
-                    case "ch2-1": case "ch2-1_nointro":
-                        SaveCurrentLv(22);
+                    case "ch2-1":
+                    case "ch2-1_nointro":
+                        if (PlayerPrefs.GetInt("CurrentLv") < 22)
+                        {
+                            SaveCurrentLv(22);
+                        }
                         break;
                     case "ch2-2":
-                        SaveCurrentLv(23);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 23)
+                        {
+                            SaveCurrentLv(23);
+                        }
                         break;
                     case "ch2-3":
-                        SaveCurrentLv(31);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 31)
+                        {
+                            SaveCurrentLv(31);
+                        }
                         break;
-                    case "ch3-1": case "ch3-1_nointro":
-                        SaveCurrentLv(32);
+                    case "ch3-1":
+                    case "ch3-1_nointro":
+                        if (PlayerPrefs.GetInt("CurrentLv") < 32)
+                        {
+                            SaveCurrentLv(32);
+                        }
                         break;
                     case "ch3-2":
-                        SaveCurrentLv(33);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 33)
+                        {
+                            SaveCurrentLv(33);
+                        }
                         break;
                     case "ch3-3":
-                        SaveCurrentLv(41);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 41)
+                        {
+                            SaveCurrentLv(41);
+                        }
                         break;
-                    case "ch4-1": case "ch4-1_nointro":
-                        SaveCurrentLv(42);
+                    case "ch4-1":
+                    case "ch4-1_nointro":
+                        if (PlayerPrefs.GetInt("CurrentLv") < 41)
+                        {
+                            SaveCurrentLv(42);
+                        }
                         break;
                     case "ch4-2":
-                        SaveCurrentLv(43);
+                        if (PlayerPrefs.GetInt("CurrentLv") < 43)
+                        {
+                            SaveCurrentLv(43);
+                        }
                         break;
                 }
                 StartCoroutine(waitForGmPause(PlayerGoNextLvFunc));
@@ -118,7 +159,7 @@ public class PlayerLifeControl : MonoBehaviour
         if (other.tag == "trap")
         {
 
-            Debug.Log("player triggerEnter with trap: "+other.gameObject.name);
+            Debug.Log("player triggerEnter with trap: " + other.gameObject.name);
 
             // animator.SetBool("die", true);
             // animator.SetBool("running", false);
@@ -129,7 +170,7 @@ public class PlayerLifeControl : MonoBehaviour
             // {
 
             //     Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-                
+
             //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
             // PauseAndDie();
@@ -146,16 +187,16 @@ public class PlayerLifeControl : MonoBehaviour
             // animator.SetBool("jumps", false);
             // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // {
-                
-                // Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-                
-                // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+            // Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+            // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
             // PauseAndDie();
             //PlayerDie();
             player_die_ani();
         }
- 
+
     }
     IEnumerator LoadImage()
     {
@@ -167,16 +208,17 @@ public class PlayerLifeControl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag=="lava") {
+        if (other.gameObject.tag == "lava")
+        {
             // animator.SetBool("die", true);
             // animator.SetBool("running", false);
             // animator.SetBool("idle", false);
             // animator.SetBool("jumps", false);
             // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // {
-                
+
             //     Invoke("PauseAndDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-                
+
             //     // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
             // PauseAndDie(); //call PlayerDie() after some time
@@ -185,20 +227,20 @@ public class PlayerLifeControl : MonoBehaviour
         if (other.gameObject.tag == "trap")
         {
 
-            Debug.Log("player collide with trap: "+other.gameObject.name);
+            Debug.Log("player collide with trap: " + other.gameObject.name);
 
             // animator.SetBool("die", true);
             // animator.SetBool("running", false);
             // animator.SetBool("idle", false);
             // animator.SetBool("jumps", false);
             // Debug.Log("player collide with trap");
-            
+
             // // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // // {
-                
+
             // Invoke("PauseAndDie", 1);
-                
-                // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+
+            // Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
             player_die_ani();
             // PauseAndDie(); //call PlayerDie() after some time
@@ -209,15 +251,15 @@ public class PlayerLifeControl : MonoBehaviour
         // change to detect in ClooudDetec of GroundDector under player
         // if (other.gameObject.tag == "cloud"){
         //     Debug.Log("player collide with cloud, gravity scale changed to 1");
-           
+
         //     _playersRigidBody.gravityScale = 1;
         // }
         // if (other.gameObject.tag == "cloud05"){
         //     Debug.Log("player collide with cloud05, gravity scale changed to 0.5");
-       
+
         //     _playersRigidBody.gravityScale = 0.5f;
         // }
-        
+
     }
 
     // void OnCollisionExit2D(Collision2D other){
@@ -229,7 +271,8 @@ public class PlayerLifeControl : MonoBehaviour
 
 
 
-    public static void player_die_ani() {
+    public static void player_die_ani()
+    {
         instance.player_die = true;
         instance.animator.SetBool("die", true);
         instance.animator.SetBool("running", false);
@@ -241,15 +284,18 @@ public class PlayerLifeControl : MonoBehaviour
     {
         SoundEffect.PlayOneShot(die);
     }
-    public static bool CheckPlayerDie() {
+    public static bool CheckPlayerDie()
+    {
         return instance.player_die;
     }
 
-    void call_pause() {
+    void call_pause()
+    {
         PauseAndDie();
     }
 
-    public static void PauseAndDie(){
+    public static void PauseAndDie()
+    {
         // instance.animator.SetBool("die", true);
         // instance.animator.SetBool("running", false);
         // instance.animator.SetBool("idle", false);
@@ -258,19 +304,19 @@ public class PlayerLifeControl : MonoBehaviour
         // yield WaitForSeconds(1.2f);
         instance.gm.pauseGame(instance.changeScenePause);  // call pauseGame in GameManager
         instance.StartCoroutine(instance.waitForGmPause(PlayerDieFunc));
-        
-        
+
+
         // instance.StartCoroutine(instance.waitForGmPause(instance.animator.GetCurrentAnimatorStateInfo(0).length));
-        
+
         //fix error: Assets\Scripts\PlayerLifeControl.cs(103,9): error CS0120: An object reference is required for the non-static field, method, or property 'MonoBehaviour.StartCoroutine(IEnumerator)'
-        
+
     }
 
     void CheckFallOutside()
     {
-        if (gameObj.transform.position.y <= player_pos_lowBound-2 || gameObj.transform.position.y >=player_pos_upBound+2 )
+        if (gameObj.transform.position.y <= player_pos_lowBound - 2 || gameObj.transform.position.y >= player_pos_upBound + 2)
         {
-            
+
             // PauseAndDie();
             // Invoke("PlayerDie", 1.0f);
             Debug.Log("player die since fall outside");
@@ -285,13 +331,15 @@ public class PlayerLifeControl : MonoBehaviour
         gm.GameOver();
     }
 
-    private void PlayerGoNextLv(){
+    private void PlayerGoNextLv()
+    {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         //gameObj.GetComponent<GravityController>().ResetGravity();
     }
 
-    private void testDetect(){
+    private void testDetect()
+    {
         gm.pauseGame(5.0f);
     }
 
@@ -303,33 +351,36 @@ public class PlayerLifeControl : MonoBehaviour
     //     else if(funcToCall == PlayerDieFunc)
     //         PlayerDie();
     //     yield break;
-        
+
     // }
-    IEnumerator waitForGmPause(int funcToCall){     //delay function when timeScale==0
-        while(Time.timeScale != 1.0f)
+    IEnumerator waitForGmPause(int funcToCall)
+    {     //delay function when timeScale==0
+        while (Time.timeScale != 1.0f)
             yield return null;
-        if (funcToCall == PlayerGoNextLvFunc) {
+        if (funcToCall == PlayerGoNextLvFunc)
+        {
             FinishCanvas.SetActive(true);
             SoundEffect.PlayOneShot(nextLv);
             yield return new WaitForSeconds(1);
             FinishCanvas.SetActive(false);
             PlayerGoNextLv();
         }
-        else if(funcToCall == PlayerDieFunc) {
+        else if (funcToCall == PlayerDieFunc)
+        {
             // instance.animator.SetBool("running", false);
             // instance.animator.SetBool("idle", false);
             // instance.animator.SetBool("jump", false);
             // yield return new WaitForSeconds(1.2f);
             // if(this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_down") || this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("die_up")) 
             // {
-                // Invoke("PlayerDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+            // Invoke("PlayerDie", this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
             // }
             Debug.Log("call PauseAndDie()");
             PlayerDie();
         }
         yield break;
-        
+
     }
 
-    
+
 }

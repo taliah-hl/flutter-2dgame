@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 public class Intro : MonoBehaviour
 {
     public GameObject Control;
@@ -10,11 +13,14 @@ public class Intro : MonoBehaviour
     public GameObject Tutor2;
     public GameObject Tutor3;
     public GameObject HelpMenu;
+    public TMP_Text BtnText;
+    public int flag = 0;
     
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(LoadImage());
+        flag = 0;
+        //StartCoroutine(LoadImage());
     }
     IEnumerator LoadImage()
     {
@@ -36,5 +42,36 @@ public class Intro : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Next()
+    {
+        switch (flag)
+        {
+            case 0:
+                Control.SetActive(false);
+                flag++;
+                break;
+            case 1:
+                Objects.SetActive(false);
+                flag++;
+                break;
+            case 2:
+                Tutor1.SetActive(false);
+                flag++;
+                break;
+            case 3:
+                Tutor2.SetActive(false);
+                flag++;
+                break;
+            case 4:
+                Tutor3.SetActive(false);
+                BtnText.text = "Start";
+                flag++;
+                break;
+            case 5:
+                SceneManager.LoadScene("tutor-lv");
+                break;
+        }
     }
 }

@@ -136,7 +136,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58f6eb12862e16b47a1d821b63c9b4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameObj: {fileID: 0}
   ChptFinishedImg: {fileID: 0}
   FinishCanvas: {fileID: 4850139824602453703}
   SoundEffect: {fileID: 0}
@@ -151,11 +150,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 4192820485095706815}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 35b5c670390115441bfe177363e69dca, type: 2}
+  m_Material: {fileID: 6200000, guid: 0c47b195d326059438bb68965d284960, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0357, y: -0.51}
+  m_Offset: {x: 0.0357, y: -0.24}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -166,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.1, y: 0.353}
+  m_Size: {x: 1.1, y: 0.93}
   m_EdgeRadius: 0
 --- !u!1 &4946676782851027068
 GameObject:

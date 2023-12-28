@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerLifeControl : MonoBehaviour
 {
-    public GameObject gameObj;
+    private GameObject gameObj;
     public GameObject ChptFinishedImg;
 
     private Animator animator;

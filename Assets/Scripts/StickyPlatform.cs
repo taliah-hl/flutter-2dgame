@@ -7,6 +7,7 @@ public class StickyPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        Debug.Log("sticky platform collision with: "+other.gameObject.tag);
         if (other.gameObject.tag == "PlayerRb" || other.gameObject.name=="stickCloud")
         {
             other.gameObject.transform.SetParent(transform);

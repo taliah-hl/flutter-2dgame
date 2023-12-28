@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Level12_Spec
   m_EditorClassIdentifier: 
   maxGravToggle: 4
+  maxFreeFallSpeed: 16

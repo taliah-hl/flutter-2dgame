@@ -23,6 +23,7 @@ public class PlayerLifeControl : MonoBehaviour
     public AudioSource SoundEffect;
     public AudioClip nextLv;
     public AudioClip die;
+    public bool DieAudioPlayed = false;
 
     void Awake()
     {
@@ -32,6 +33,7 @@ public class PlayerLifeControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DieAudioPlayed = false;
         SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
         if (gameObj == null)
             gameObj = GameObject.FindWithTag("Player");
@@ -269,9 +271,6 @@ public class PlayerLifeControl : MonoBehaviour
     //         _playersRigidBody.gravityScale = playerNormalGravScale;
     //     }
     // }
-
-
-
     public static void player_die_ani()
     {
         instance.player_die = true;
@@ -283,7 +282,11 @@ public class PlayerLifeControl : MonoBehaviour
     }
     public void PlayDyingAudio()
     {
-        SoundEffect.PlayOneShot(die);
+        if (!DieAudioPlayed)
+        {
+            SoundEffect.PlayOneShot(die);
+            DieAudioPlayed = true;
+        }
     }
     public static bool CheckPlayerDie()
     {

@@ -4335,7 +4335,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.8352861, y: 1.6373386}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4349,7 +4349,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051649022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.8, y: -6.7511473, z: -4.427578}
+  m_LocalPosition: {x: 12.9885, y: -3.64, z: -4.427578}
   m_LocalScale: {x: 2.125, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4390,18 +4390,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00901556, y: -0.022705793}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 2.56, y: 1.42}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 1.8352861, y: 1.6373386}
     adaptiveTilingThreshold: 0.5
     drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.6337829, y: 1.2738843}
   m_EdgeRadius: 0
 --- !u!1 &1096998419
 GameObject:
@@ -8130,7 +8130,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695347380}
   m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: -7.67, y: -9.18, z: -4.4247503}
+  m_LocalPosition: {x: -8.04, y: -9.25, z: -4.4247503}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13124,7 +13124,7 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 0
       m_TileSpriteIndex: 0
-      m_TileMatrixIndex: 1
+      m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -13147,25 +13147,25 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 416369486, guid: 8a2332fdcfcf48b419e864b56c1b6bc9, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 0
+  - m_RefCount: 1
     m_Data:
-      e00: 1.01101427e-19
-      e01: 6e-45
-      e02: -1.20185e-19
-      e03: 0
-      e10: 3.42e-43
-      e11: 6e-45
-      e12: 4.5904e-41
-      e13: 0
-      e20: 2.62388e-40
+      e00: 0.7071067
+      e01: -0.7071068
+      e02: 0
+      e03: -0.39621735
+      e10: 0.7071068
+      e11: 0.7071067
+      e12: 0
+      e13: -0.11845708
+      e20: 0
       e21: 0
-      e22: 1.0110132e-19
+      e22: 1
       e23: 0
       e30: 0
-      e31: 7.34684e-40
-      e32: 3.42e-43
+      e31: 0
+      e32: 0
       e33: 1
-  - m_RefCount: 2
+  - m_RefCount: 1
     m_Data:
       e00: 0.7071067
       e01: -0.7071068

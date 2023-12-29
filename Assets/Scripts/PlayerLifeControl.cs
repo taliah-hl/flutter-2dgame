@@ -85,71 +85,73 @@ public class PlayerLifeControl : MonoBehaviour
                 Debug.Log(SceneManager.GetActiveScene().name);
                 switch (SceneManager.GetActiveScene().name)
                 {
-                    case "ch1-1":
+                    case "ch1-1": 
+                    case "CH1-1":
                     case "ch1-1_nointro":
                         if (PlayerPrefs.GetInt("CurrentLv") < 12)
                         {
                             SaveCurrentLv(12);
                         }
                         break;
-                    case "ch1-2":
+                    case "ch1-2": 
+                    case "CH1-2":
                         if (PlayerPrefs.GetInt("CurrentLv") < 13)
                         {
                             SaveCurrentLv(13);
                         }
                         break;
-                    case "ch1-3":
+                    case "ch1-3": case "CH1-3":
                         if (PlayerPrefs.GetInt("CurrentLv") < 21)
                         {
                             SaveCurrentLv(21);
                         }
                         break;
-                    case "ch2-1":
+                    case "ch2-1": case "CH2-1":
                     case "ch2-1_nointro":
                         if (PlayerPrefs.GetInt("CurrentLv") < 22)
                         {
                             SaveCurrentLv(22);
                         }
                         break;
-                    case "ch2-2":
+                    case "ch2-2": case "CH2-2":
                         if (PlayerPrefs.GetInt("CurrentLv") < 23)
                         {
                             SaveCurrentLv(23);
                         }
                         break;
-                    case "ch2-3":
+                    case "ch2-3": case "CH2-3":
                         if (PlayerPrefs.GetInt("CurrentLv") < 31)
                         {
                             SaveCurrentLv(31);
                         }
                         break;
-                    case "ch3-1":
+                    case "ch3-1": case "CH3-1":
                     case "ch3-1_nointro":
                         if (PlayerPrefs.GetInt("CurrentLv") < 32)
                         {
                             SaveCurrentLv(32);
                         }
                         break;
-                    case "ch3-2":
+                    case "ch3-2": case"CH3-2":
                         if (PlayerPrefs.GetInt("CurrentLv") < 33)
                         {
                             SaveCurrentLv(33);
                         }
                         break;
-                    case "ch3-3":
+                    case "ch3-3": case "CH3-3":
                         if (PlayerPrefs.GetInt("CurrentLv") < 41)
                         {
                             SaveCurrentLv(41);
                         }
                         break;
-                    case "ch4-1":
+                    case "ch4-1": case "CH4-1":
                     case "ch4-1_nointro":
                         if (PlayerPrefs.GetInt("CurrentLv") < 41)
                         {
                             SaveCurrentLv(42);
                         }
                         break;
-                    case "ch4-2":
+                    case "ch4-2": case "CH4-2":
                         if (PlayerPrefs.GetInt("CurrentLv") < 43)
                         {
                             SaveCurrentLv(43);

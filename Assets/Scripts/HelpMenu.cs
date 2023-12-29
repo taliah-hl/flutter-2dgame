@@ -20,12 +20,14 @@ public class HelpMenu : MonoBehaviour
         Debug.Log(curScene.name);
         switch (curScene.name)
         {
-            case "ch1-1": case "ch2-1": case "ch3-1" : case "ch4-1":
+            case "ch1-1": case "ch2-1": case "ch3-1" : case "ch4-1": case "CH1-1": case "CH2-1": case "CH3-1": case "CH4-1":
                 gm.SetGamePaused();
                 DisableButton();
                 Pause();
+                Debug.Log("HelpCanvas called gm.SetGamePaused()");
                 break;
             default:
+                Debug.Log("HelpCanvas DID NOT call gm.SetGamePaused()");
                 break;
 
         }

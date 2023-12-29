@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
         Scene curScene = SceneManager.GetActiveScene(); 
         switch (curScene.name)
         {
-            case "ch2-1": case "ch3-1": case "ch4-1":
+            case "ch2-1": case "ch3-1": case "ch4-1": case "CH2-1": case "CH3-1": case "CH4-1":
                 //string tmp = curScene.name + "_nointro"; //comment for now as scene is changed
                 string tmp = curScene.name;
                 Debug.Log("GameManager::going to call:"+tmp);

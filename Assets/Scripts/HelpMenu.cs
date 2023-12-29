@@ -31,6 +31,7 @@ public class HelpMenu : MonoBehaviour
                 break;
 
         }
+        
     }
 
     // Update is called once per frame

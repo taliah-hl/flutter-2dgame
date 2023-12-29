@@ -5184,15 +5184,15 @@ PrefabInstance:
       objectReference: {fileID: 677430906}
     - target: {fileID: 3279307781987602418, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
       propertyPath: m_Color.b
-      value: 0.7340503
+      value: 0.5348973
       objectReference: {fileID: 0}
     - target: {fileID: 3279307781987602418, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
       propertyPath: m_Color.g
-      value: 0.8584906
+      value: 0.7264151
       objectReference: {fileID: 0}
     - target: {fileID: 3279307781987602418, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
       propertyPath: m_Color.r
-      value: 0.56422806
+      value: 0.2775454
       objectReference: {fileID: 0}
     - target: {fileID: 4582723097038357321, guid: 0872e79d7ba2f9f47a172690126bcfd8, type: 3}
       propertyPath: m_Name

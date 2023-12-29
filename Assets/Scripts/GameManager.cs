@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
     
     void Awake(){
         gamePaused = false;
+        Resume();
+
     }
     void Start()
     {

@@ -92,6 +92,7 @@ public class PlayerMovement_NoAnimator : MonoBehaviour
             if (Input.GetButtonDown("Jump")){
                 
                 Debug.Log("Jump pressed");
+                Debug.Log("Time.time:" + Time.time);
                 if (IsGrounded()){
 
                     jumping = true;

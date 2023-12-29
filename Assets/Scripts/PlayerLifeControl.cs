@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerLifeControl : MonoBehaviour
 {
     private GameObject gameObj;
-    public GameObject ChptFinishedImg;
 
     private Animator animator;
     private float player_pos_upBound = 11.29f;  //11.68
@@ -24,6 +23,7 @@ public class PlayerLifeControl : MonoBehaviour
     public AudioClip nextLv;
     public AudioClip die;
     public bool DieAudioPlayed = false;
+    public GameObject Chpt4EndStory;
 
     void Awake()
     {
@@ -65,6 +65,15 @@ public class PlayerLifeControl : MonoBehaviour
         }
 
     }
+    IEnumerator EndStory()
+    {
+        FinishCanvas.SetActive(true);
+        gm.Pause();
+        SoundEffect.PlayOneShot(nextLv);
+        yield return new WaitForSecondsRealtime(1);
+        FinishCanvas.SetActive(false);
+        Chpt4EndStory.SetActive(true);
+    }
     void SaveCurrentLv(int lv)
     {
         PlayerPrefs.SetInt("CurrentLv", lv);
@@ -75,7 +84,7 @@ public class PlayerLifeControl : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "ch4-3")
             {
-                StartCoroutine(LoadImage());
+                StartCoroutine(EndStory());
                 SaveCurrentLv(43);
             }
             else
@@ -85,6 +94,14 @@ public class PlayerLifeControl : MonoBehaviour
                 Debug.Log(SceneManager.GetActiveScene().name);
                 switch (SceneManager.GetActiveScene().name)
                 {
+                    
+                    case "tutor-lv":
+                        if (PlayerPrefs.GetInt("CurrentLv") < 11)
+                        {
+                            SaveCurrentLv(11);
+                        }
+                        break;
+
                     case "ch1-1": 
                     case "CH1-1":
                     case "ch1-1_nointro":
@@ -203,14 +220,6 @@ public class PlayerLifeControl : MonoBehaviour
         }
 
     }
-    IEnumerator LoadImage()
-    {
-        ChptFinishedImg.SetActive(true);
-        yield return new WaitForSecondsRealtime(5);
-        ChptFinishedImg.SetActive(false);
-        SceneManager.LoadScene("Menu");
-    }
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "lava")

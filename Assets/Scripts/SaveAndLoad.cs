@@ -32,9 +32,12 @@ public class SaveAndLoad : MonoBehaviour
     public Button Ch3_3;
     public Button Ch4_2;
     public Button Ch4_3;
+    public AudioSource BGM;
+    public AudioClip ch1bgm;
     void Start()
     {
         MainMenu = GameObject.Find("MainMenu");
+        BGM = GameObject.Find("BGM").GetComponent<AudioSource>();
     }
     public void Load()
     {
@@ -45,7 +48,10 @@ public class SaveAndLoad : MonoBehaviour
         if (CurrentLv == 0)
         {
             Intro.SetActive(true);
-            PlayerPrefs.SetInt("CurrentLv", 11);
+            BGM.Stop();
+            BGM.clip = ch1bgm;
+            BGM.volume = 1f;
+            BGM.Play();
         }
         else if (CurrentLv == 11)
         {

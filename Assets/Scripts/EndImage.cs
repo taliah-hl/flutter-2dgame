@@ -8,11 +8,13 @@ public class EndImage : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject Img;
+    public GameObject BGM;
     private FadeInImage fadeInImage;
     void Start()
     {
         StartCoroutine(LoadImage());
         fadeInImage = FindObjectOfType<FadeInImage>();
+        BGM = GameObject.Find("BGM");
     }
     IEnumerator LoadImage()
     {
@@ -21,7 +23,8 @@ public class EndImage : MonoBehaviour
         fadeInImage.Fade_In(Img.GetComponent<Image>());
         yield return new WaitForSecondsRealtime(8);
         fadeInImage.Fade_Out(Img.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(2);
+        Destroy(BGM);
         SceneManager.LoadScene("Menu");
     }
 

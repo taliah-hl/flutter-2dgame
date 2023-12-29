@@ -85,7 +85,7 @@ public class PlayerLifeControl : MonoBehaviour
         if (other.tag == "end" && !playerWon)
         {
             playerWon = true;
-            if (SceneManager.GetActiveScene().name == "ch4-3")
+            if (SceneManager.GetActiveScene().name == "ch4-3" || SceneManager.GetActiveScene().name == "ch4-3_nointro" )
             {
                 StartCoroutine(EndStory());
                 SaveCurrentLv(43);
@@ -166,7 +166,7 @@ public class PlayerLifeControl : MonoBehaviour
                         break;
                     case "ch4-1": case "CH4-1":
                     case "ch4-1_nointro":
-                        if (PlayerPrefs.GetInt("CurrentLv") < 41)
+                        if (PlayerPrefs.GetInt("CurrentLv") < 42)
                         {
                             SaveCurrentLv(42);
                         }
@@ -351,7 +351,8 @@ public class PlayerLifeControl : MonoBehaviour
 
     private void PlayerGoNextLv()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+        gm.PassLevel();
         //gameObj.GetComponent<GravityController>().ResetGravity();
     }
 

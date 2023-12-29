@@ -1025,7 +1025,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.91457903, b: 0.23921567, a: 1}
+  m_Color: {r: 0.8784314, g: 0.6627451, b: 0.50980395, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2507,7 +2507,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.91457903, b: 0.23921567, a: 1}
+  m_Color: {r: 0.8784314, g: 0.6627451, b: 0.50980395, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2610,33 +2610,12 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5864231091467069720, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
   m_PrefabInstance: {fileID: 1148147258}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248631179}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1e776faa68b98044b503cc83be20deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1248631179 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5864231091467069721, guid: e4fde5f4478577c4d8199968077f3895, type: 3}
-  m_PrefabInstance: {fileID: 1148147258}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1248631182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248631179}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5020f3badada5f6489a966e4f6baf63c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ground:
-    tilemap: {fileID: 742214164}
-    valid: 0
-    timer: 0
 --- !u!1 &1321318634
 GameObject:
   m_ObjectHideFlags: 0
@@ -2695,7 +2674,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 397da0065bae0234cbf8c2fde1675407, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe363eea59ec201468af75fc19e33445, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2846,7 +2825,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5eb3f2d9c9a41f84bbf19107e9853d2d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5545,7 +5524,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.91457903, b: 0.23921567, a: 1}
+  m_Color: {r: 0.8784314, g: 0.6627451, b: 0.50980395, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

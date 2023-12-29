@@ -164,6 +164,10 @@ public class SaveAndLoad : MonoBehaviour
             Ch1_3Lock.SetActive(false);
             Ch1_2.interactable = true;
             Ch1_3.interactable = true;
+            Ch4_2Lock.SetActive(false);
+            Ch4_3Lock.SetActive(false);
+            Ch4_2.interactable = true;
+            Ch4_3.interactable = true;
             Ch2Lock.SetActive(false);
             Ch3Lock.SetActive(false);
             Ch4Lock.SetActive(false);

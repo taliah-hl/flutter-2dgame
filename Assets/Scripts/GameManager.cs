@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
         Scene curScene = SceneManager.GetActiveScene();
         switch (curScene.name)
         {
+            case "ch1-1":
             case "ch2-1":
             case "ch3-1":
             case "ch4-1":

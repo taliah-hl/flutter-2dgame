@@ -108,11 +108,13 @@ public class GameManager : MonoBehaviour    // this is GM for all levels!!
 
     public void SetGamePaused()
     {
+        Debug.Log("Paused");
         gamePaused = true;
     }
 
     public void ResetGamePaused()
     {
+        Debug.Log("Resumed");
         gamePaused = false;
     }
     public void Pause()

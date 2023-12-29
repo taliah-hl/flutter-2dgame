@@ -38,6 +38,7 @@ public class HelpMenu : MonoBehaviour
     }
     public void Pause()
     {
+        Debug.Log("Paused");
         GetButton();
         Time.timeScale = 0f;
         DisableButton();
@@ -45,6 +46,7 @@ public class HelpMenu : MonoBehaviour
 
     public void Resume()
     {
+        Debug.Log("Resumed");
         Time.timeScale = 1f;
         EnableButton();
     }

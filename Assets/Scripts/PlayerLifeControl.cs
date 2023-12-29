@@ -24,10 +24,12 @@ public class PlayerLifeControl : MonoBehaviour
     public AudioClip die;
     public bool DieAudioPlayed = false;
     public GameObject Chpt4EndStory;
+    public bool playerWon = false;
 
     void Awake()
     {
         instance = this;
+        playerWon = false;
     }
 
     // Start is called before the first frame update
@@ -80,8 +82,9 @@ public class PlayerLifeControl : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "end")
+        if (other.tag == "end" && !playerWon)
         {
+            playerWon = true;
             if (SceneManager.GetActiveScene().name == "ch4-3")
             {
                 StartCoroutine(EndStory());

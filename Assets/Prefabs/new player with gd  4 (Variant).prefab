@@ -75,4 +75,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cover: {fileID: 496796925534111034, guid: 833ff1bd8e409fa489dd59ac070eeffc, type: 3}
+  SoundEffect: {fileID: 0}
+  eatCover: {fileID: 8300000, guid: b20a0536ef0eef849aa832f8edb81b78, type: 3}
   timer: 0

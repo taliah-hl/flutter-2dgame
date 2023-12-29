@@ -2176,7 +2176,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.735849, g: 0.1851192, b: 0.1851192, a: 1}
+  m_Color: {r: 0.99215686, g: 0.49803922, b: 0.5019608, a: 1}
   m_Origin: {x: -17, y: -11, z: 0}
   m_Size: {x: 49, y: 18, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -2722,15 +2722,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2826011590465865352, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
       propertyPath: m_Color.b
-      value: 0.68609226
+      value: 0.23529412
       objectReference: {fileID: 0}
     - target: {fileID: 2826011590465865352, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
       propertyPath: m_Color.g
-      value: 0.8396226
+      value: 0.24705882
       objectReference: {fileID: 0}
     - target: {fileID: 2826011590465865352, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
       propertyPath: m_Color.r
-      value: 0.5425863
+      value: 0.10980392
       objectReference: {fileID: 0}
     - target: {fileID: 2826011590584278580, guid: 19f4f78d02214bd468aabb24fb4adc2f, type: 3}
       propertyPath: m_Camera
@@ -2844,9 +2844,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5ca1835666f3ce1428d32bfef8c8e558, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5eb3f2d9c9a41f84bbf19107e9853d2d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -5143,7 +5143,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.9811321, g: 0.6973221, b: 0.38412246, a: 1}
+  m_Color: {r: 0.85882354, g: 0.6509804, b: 0.38412246, a: 1}
   m_Origin: {x: -19, y: -11, z: 0}
   m_Size: {x: 41, y: 22, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}

@@ -334,6 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 1408340120}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &225265117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1602,6 +1604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 946910774}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &573541798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2351,6 +2355,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 573541794}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &946910778
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6815,6 +6821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 225265113}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &1408340124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7481,6 +7489,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 1948974980}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &1854753405
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7606,6 +7616,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aimdoor: {fileID: 1854753401}
+  SoundEffect: {fileID: 0}
+  tpSound: {fileID: 8300000, guid: e6bdc7211558a0e4abce61c0ce987ad0, type: 3}
 --- !u!61 &1948974984
 BoxCollider2D:
   m_ObjectHideFlags: 0

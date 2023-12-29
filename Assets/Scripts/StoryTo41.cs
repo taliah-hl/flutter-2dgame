@@ -22,15 +22,14 @@ public class StoryTo41 : MonoBehaviour
         fadeInImage.Fade_Out(Story1.GetComponent<Image>());
         yield return new WaitForSecondsRealtime(2);
         Story1.SetActive(false);
-        yield return new WaitForSecondsRealtime(10);
-        fadeInImage.Fade_Out(Story1.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Story2.SetActive(false);
         yield return new WaitForSecondsRealtime(8);
         fadeInImage.Fade_Out(Story2.GetComponent<Image>());
         yield return new WaitForSecondsRealtime(2);
+        Story2.SetActive(false);
+        yield return new WaitForSecondsRealtime(8);
+        fadeInImage.Fade_Out(Story_Img.GetComponent<Image>());
+        yield return new WaitForSecondsRealtime(2);
         StoryObj.SetActive(false);
-        Time.timeScale = 0f;
     }
 
     // Update is called once per frame

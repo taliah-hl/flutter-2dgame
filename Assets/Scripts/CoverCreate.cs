@@ -5,6 +5,8 @@ using UnityEngine;
 public class CoverCreate : MonoBehaviour
 {
     public GameObject Cover;
+    public AudioSource SoundEffect;
+    public AudioClip eatCover;
     private bool protect;
     private Animator animator;
     public float timer;
@@ -14,6 +16,7 @@ public class CoverCreate : MonoBehaviour
         protect = false;
         timer = 0.0f;
         animator = GetComponent<Animator>();
+        SoundEffect = GameObject.Find("SoundEffect").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,8 @@ public class CoverCreate : MonoBehaviour
             GameObject c = GameObject.Instantiate(Cover, transform.position, Quaternion.identity);
                     //设置父子关系
             c.transform.SetParent(transform);
+
+            SoundEffect.PlayOneShot(eatCover);
         }
         
     }

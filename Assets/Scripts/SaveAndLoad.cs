@@ -154,6 +154,10 @@ public class SaveAndLoad : MonoBehaviour
         else if (CurrentLv == 43)
         {
             PlayMenu.SetActive(true);
+            Ch1_2Lock.SetActive(false);
+            Ch1_3Lock.SetActive(false);
+            Ch1_2.interactable = true;
+            Ch1_3.interactable = true;
             Ch2Lock.SetActive(false);
             Ch3Lock.SetActive(false);
             Ch4Lock.SetActive(false);
@@ -169,7 +173,7 @@ public class SaveAndLoad : MonoBehaviour
 
     public void Reset()
     {
-        PlayerPrefs.SetInt("CurrentLv", 11);
+        PlayerPrefs.SetInt("CurrentLv", 0);
     }
 
     public void Unlock()
@@ -178,6 +182,6 @@ public class SaveAndLoad : MonoBehaviour
     }
     public void Test()
     {
-        PlayerPrefs.SetInt("CurrentLv", 0);
+        PlayerPrefs.SetInt("CurrentLv", 11);
     }
 }

@@ -141,6 +141,7 @@ MonoBehaviour:
   SoundEffect: {fileID: 0}
   nextLv: {fileID: 8300000, guid: 09314121f243dd340b053d06be44452c, type: 3}
   die: {fileID: 8300000, guid: 19869ee53512b604fa0fa0d142294c43, type: 3}
+  DieAudioPlayed: 0
 --- !u!61 &3961598685829440808
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -337,9 +338,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6926616614952295012}
     m_Modifications:
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_text
+      value: Level Passed!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806019281989, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806497221770, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -283.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806497221770, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 12.1556
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806497221771, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_Color.b
+      value: 0.26415092
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806497221771, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16299815
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710806497221771, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_Color.r
+      value: 0.08074047
+      objectReference: {fileID: 0}
     - target: {fileID: 1487710807079775874, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
       propertyPath: m_Name
       value: FinishCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1487710807079775874, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1487710807079775902, guid: 536596a30f6aada42905f828ad640a2c, type: 3}
       propertyPath: m_Pivot.x

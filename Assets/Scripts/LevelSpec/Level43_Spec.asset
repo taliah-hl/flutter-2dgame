@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Level43_Spec
   m_EditorClassIdentifier: 
   maxGravToggle: 3
+  maxFreeFallSpeed: 14

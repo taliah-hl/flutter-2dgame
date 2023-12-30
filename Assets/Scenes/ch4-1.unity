@@ -1222,6 +1222,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 245639021, guid: b7f02a9d15973b64f9e457784a506cbe, type: 3}
+      propertyPath: eatCover
+      value: 
+      objectReference: {fileID: 8300000, guid: 9a6ca612139c00a4186015aa6409fbd4, type: 3}
     - target: {fileID: 5822852601417377497, guid: b7f02a9d15973b64f9e457784a506cbe, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -4152,7 +4156,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5eb3f2d9c9a41f84bbf19107e9853d2d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0

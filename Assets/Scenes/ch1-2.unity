@@ -13282,7 +13282,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cc44a41f96c08774f9b9ad7180d1baf5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -13824,6 +13824,7 @@ MonoBehaviour:
   menuSceneName: Menu-for-test
   gameOverSceneName: died
   firstLvSceneName: Lv2Scene
+  BGM: {fileID: 0}
   victorySceneName: 
 --- !u!1 &1210565886
 GameObject:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SaveAndLoad : MonoBehaviour
@@ -52,6 +53,10 @@ public class SaveAndLoad : MonoBehaviour
             BGM.clip = ch1bgm;
             BGM.volume = 1f;
             BGM.Play();
+        }
+        else if (CurrentLv == 10)
+        {
+            SceneManager.LoadScene("tutor-lv");
         }
         else if (CurrentLv == 11)
         {

@@ -25,7 +25,7 @@ public class Story : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isProcessingImage)
+        if (Input.GetKeyDown(KeyCode.Space) && !isProcessingImage && currentTutorIndex < Tutors.Length - 1)
         {
             SkipCurrentImage();
         }

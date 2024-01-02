@@ -6,89 +6,76 @@ using UnityEngine.UI;
 public class Story : MonoBehaviour
 {
     public GameObject HelpMenu;
-    public GameObject Tutor1;
-    public GameObject Tutor2;
-    public GameObject Tutor3;
-    public GameObject Tutor4;
-    public GameObject Tutor5;
+    public GameObject[] Tutors; // Array to hold tutor game objects
     public GameObject StoryObj;
-    //public Animator TutorFade;
     public GameObject ChptObj;
     public GameObject ChptImg_Img;
     private FadeInImage fadeInImage;
-    public int flag = 0;
+    private int currentTutorIndex = 0; // To keep track of the current tutor image
+    private bool isProcessingImage = false; // Flag to prevent overlap of actions
+
     void Start()
     {
         fadeInImage = FindObjectOfType<FadeInImage>();
-        StartCoroutine(LoadTutorImage());
+        if (Tutors.Length > 0) // Ensure there is at least one tutor
+        {
+            StartCoroutine(LoadTutorImage());
+        }
     }
 
-    public void TutorNext()
+    void Update()
     {
-        StartCoroutine(LoadTutorImage());
-        // switch (flag)
-        // {
-        //     case 0:
-        //         Tutor1.SetActive(false);
-        //         //TutorFade.Play("Crossfade_End");
-        //         flag++;
-        //         break;
-        //     case 1:
-        //         Tutor2.SetActive(false);
-        //         //TutorFade.Play("Crossfade_End");
-        //         flag++;
-        //         break;
-        //     case 2:
-        //         Tutor3.SetActive(false);
-        //         //TutorFade.Play("Crossfade_End");
-        //         flag++;
-        //         break;
-        //     case 3:
-        //         Tutor4.SetActive(false);
-        //         //TutorFade.Play("Crossfade_End");
-        //         flag++;
-        //         break;
-        //     case 4:
-        //         Tutor5.SetActive(false);
-        //         //TutorFade.Play("Crossfade_End");
-        //         flag++;
-        //         break;
-        //     case 5:
-        //         HelpMenu.SetActive(true);
-        //         //TutorFade.Play("Crossfade_End");
-        //         StartCoroutine(LoadChptImage());
-        //         StoryObj.SetActive(false);
-        //         break;
-        // }
+        if (Input.GetKeyDown(KeyCode.Space) && !isProcessingImage)
+        {
+            SkipCurrentImage();
+        }
     }
+
     IEnumerator LoadTutorImage()
     {
-        // fadeInImage.Fade_In(Tutor1.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(5);
-        fadeInImage.Fade_Out(Tutor1.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Tutor1.SetActive(false);
-        yield return new WaitForSecondsRealtime(8);
-        fadeInImage.Fade_Out(Tutor2.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Tutor2.SetActive(false);
-        yield return new WaitForSecondsRealtime(8);
-        fadeInImage.Fade_Out(Tutor3.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Tutor3.SetActive(false);
-        yield return new WaitForSecondsRealtime(8);
-        fadeInImage.Fade_Out(Tutor4.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Tutor4.SetActive(false);
-        yield return new WaitForSecondsRealtime(5);
-        fadeInImage.Fade_Out(Tutor5.GetComponent<Image>());
-        yield return new WaitForSecondsRealtime(2);
-        Tutor5.SetActive(false);
-        yield return new WaitForSecondsRealtime(5);
+        while (currentTutorIndex < Tutors.Length)
+        {
+            Tutors[currentTutorIndex].SetActive(true);
+            yield return new WaitForSecondsRealtime(10); // Time for display
+            if (!isProcessingImage)
+            {
+                yield return StartCoroutine(FadeOutAndNext());
+            }
+        }
+
+        ShowHelpMenuAndChapter();
+    }
+
+    private IEnumerator FadeOutAndNext()
+    {
+        isProcessingImage = true;
+        fadeInImage.Fade_Out(Tutors[currentTutorIndex].GetComponent<Image>());
+        yield return new WaitForSecondsRealtime(2); // Wait after fading out
+        Tutors[currentTutorIndex].SetActive(false);
+        currentTutorIndex++;
+        isProcessingImage = false;
+    }
+
+    private void SkipCurrentImage()
+    {
+        StopCoroutine(LoadTutorImage());
+        if (currentTutorIndex < Tutors.Length)
+        {
+            StartCoroutine(FadeOutAndNext());
+        }
+        else
+        {
+            ShowHelpMenuAndChapter();
+        }
+    }
+
+    private void ShowHelpMenuAndChapter()
+    {
         HelpMenu.SetActive(true);
         StartCoroutine(LoadChptImage());
         StoryObj.SetActive(false);
     }
+
     IEnumerator LoadChptImage()
     {
         ChptObj.SetActive(true);
@@ -97,12 +84,5 @@ public class Story : MonoBehaviour
         fadeInImage.Fade_Out(ChptImg_Img.GetComponent<Image>());
         yield return new WaitForSecondsRealtime(2);
         ChptObj.SetActive(false);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -34,4 +34,4 @@ You decide to lead Eva to escape from this dreadful laboratory. Thus begins your
 ![alt text](/demo/eva-ani.png)
 
 ## Note ❕
-- The Unity project is currently non-runnable due to the absence of certain assets. These assets have been excluded from the repository due to copyright concerns.
+- The Unity project in this repository is non-runnable due to the absence of certain assets. These assets have been excluded from this repository due to copyright concerns.

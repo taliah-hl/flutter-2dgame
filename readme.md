@@ -18,8 +18,11 @@ You decide to lead Eva to escape from this dreadful laboratory. Thus begins your
 - Players must navigate through challenging levels and lead Eva to safety.
 - Players will gradually discover how to manipulate gravity, and to traverse obstacles in unexpected ways.
 ## Gameplay Scene🎮
-
-## Techniques Employed💻
+![alt text](/demo/demo-lv1-gif.gif)
+![game-play](/demo/demo-gif.gif)
+![alt text](/demo/demo-lv3-gif.gif)
+### 🎞️Demo video: https://www.youtube.com/watch?v=WBVdS7RSRyM
+## Techniques Employed🛠️
 - C# scripting in Unity
 - Unity's 2D physics system
 - 2D scene design with Tilemap
@@ -28,6 +31,7 @@ You decide to lead Eva to escape from this dreadful laboratory. Thus begins your
 - level saving mechanism
 
 ## Player Design - Eva🎨
+![alt text](/demo/eva-ani.png)
 
 ## Note ❕
 - The Unity project is currently non-runnable due to the absence of certain assets. These assets have been excluded from the repository due to copyright concerns.
